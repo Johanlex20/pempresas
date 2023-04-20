@@ -8,7 +8,7 @@
 
     <script src="https://kit.fontawesome.com/c613273784.js" crossorigin="anonymous"></script> 
 
-    <link rel="stylesheet" href="/build/css/app.css"> 
+    <link rel="stylesheet" href="/build/css/app.css">  
     <link rel="stylesheet" href="/pempresas/build/css/app.css">     <!--"/pempresas/build/css/app.css">  localhost trabaja el otro trabaja con local3000-->
 </head>
 <body>
@@ -36,25 +36,22 @@
 
         <div class="contenedor_menu">
             <div class="logo">
-                <img src="/img/logo-de-Sena-sin-fondo-Blanco.png" alt="logo-Sena"><!-- trabaja con localhost:3000 -->
-                <!--<img src="img/logo-de-Sena-sin-fondo-Blanco.png" alt="logo-Sena">    trabaja con localhost -->
+                <img src="../img/logo-de-Sena-sin-fondo-Blanco.png" alt="logo-Sena">
             </div>
             <div class="menu">
-                <div class="barra">
-                    <div class="mobile-menu">
-                        <img src="/img/barras.svg" alt="icono menu responsive">
-                    </div>    
-                        <nav class="navegacion">
-                            <ul>
-                                <li><a href="index.php">HOME</a></li>
-                                <li><a href="#">Ofertas</a></li>
-                                <li><a href="#">hoja de vida</a></li>
-                                <li><a href="#">Contacto</a></li>
-                                <li><a href="eleccion-registro-modificacion.php">Registro</a></li>
-                                <li><a href="ingreso-login-modificacion.php">Ingreso</a></li>
-                             </ul>
-                        </nav>
-                </div>
+                <i class="fa-solid fa-bars" id="boton_minimenu"></i>
+                <div id="mini_menu"></div>
+                <nav id="nav">
+                    <img src="img/logo-de-Sena-sin-fondo-Blanco.png" alt="">
+                    <ul>
+                        <li><a href="index.php">HOME</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">hoja de vida</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="eleccion-registro-modificacion.php">Registro</a></li>
+                        <li><a href="ingreso-login-modificacion.php">Ingreso</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>

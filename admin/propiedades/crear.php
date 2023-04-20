@@ -116,6 +116,8 @@
                                     <option value="4">Registro civil</option>
                                 </select>
                             </div>
+
+                            
                             <!-- <div class="input-box">
                                 <input type="text" placeholder="Tipo identificación" class="input-control">
                             </div> -->
@@ -136,7 +138,7 @@
                                 <!-- mantiene el programa elegido -->
                                     <option value="">*Seleccione programa</option>
                                     <?php while($programa = mysqli_fetch_assoc($resultado)) : ?>
-                                        <option <?php echo $idPrograma === $programa['id'] ? 'selected' : ''; ?>  value= "<?php echo $programa ['idPrograma'];?>"> <?php echo $programa ['programa'] . " " . $programa['nombrePrograma'];?> 
+                                        <option <?php echo $idPrograma === $programa['idPrograma'] ? 'selected' : ''; ?>  value= "<?php echo $programa ['idPrograma'];?>"> <?php echo $programa ['programa'] . " " . $programa['nombrePrograma'];?> 
                                     </option>
                                      <?php endwhile; ?>   
 

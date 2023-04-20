@@ -45,9 +45,9 @@
         if (!$identificacion){
             $errores[] = "* Debes añadir un Numero de Identificacion";
         }
-        // if (!$programa){
-        //     $errores[] = "* Elige un Programa";
-        // }
+         if (!$programa){
+            $errores[] = "* Elige un Programa";
+         }
         if (!$email){
             $errores[] = "* Debes añadir un Correo";
         }
@@ -133,9 +133,11 @@
                                 name="programa" 
                                 value="<?php echo $programa;?>" 
                                 class="input-control">
+                                <!-- mantiene el programa elegido -->
                                     <option value="">*Seleccione programa</option>
                                     <?php while($programa = mysqli_fetch_assoc($resultado)) : ?>
-                                        <option value=""> <?php echo $programa ['idPrograma'] . " " . $programa['nombrePrograma'];?> </option>
+                                        <option <?php echo $idPrograma === $programa['id'] ? 'selected' : ''; ?>  value= "<?php echo $programa ['idPrograma'];?>"> <?php echo $programa ['programa'] . " " . $programa['nombrePrograma'];?> 
+                                    </option>
                                      <?php endwhile; ?>   
 
                                 </select>

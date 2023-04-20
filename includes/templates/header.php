@@ -36,13 +36,13 @@
 
         <div class="contenedor_menu">
             <div class="logo">
-                <img src="img/logo-de-Sena-sin-fondo-Blanco.png" alt="logo-Sena">
+                <img src="../img/logo-de-Sena-sin-fondo-Blanco.png" alt="logo-Sena">
             </div>
             <div class="menu">
                 <i class="fa-solid fa-bars" id="boton_minimenu"></i>
                 <div id="mini_menu"></div>
                 <nav id="nav">
-                    <img src="img/logo-de-Sena-sin-fondo-Blanco.png" alt="">
+                    <!-- <img src="../img/logo-de-Sena-sin-fondo-Blanco.png" alt=""> -->
                     <ul>
                         <li><a href="index.php">HOME</a></li>
                         <li><a href="#">Ofertas</a></li>

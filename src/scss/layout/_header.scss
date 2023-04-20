@@ -1,0 +1,37 @@
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+
+
+/*tonos de fondo BACKGROUND*/
+body{
+    background-color: v.$green;
+    // position: relative;//mantiene del boby contendio 
+    // padding-bottom: 40px;
+    // min-height: 100vh; //indica que el body sea completo de la pagina
+    display: flex; //todo se desordena 
+    flex-direction: column; //todo se organiza
+    min-height: 100vh; //inidica que todo el body sea completo de la pagina
+    
+    color: v.$text-light-gray;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow: hidden;
+   
+  
+}
+
+/*margen de la parte superior con el primer menu o logo*/
+header {
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+
+    // /*position: fixed;*/
+    // /* z-index: 1;  es para que se muestre encima de las cosas */
+}

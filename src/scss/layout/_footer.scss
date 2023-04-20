@@ -1,0 +1,23 @@
+@use 'base/variables' as v;
+
+
+
+.footer{
+    width: 100%;
+    // position: absolute; //saca el footer del boby
+    // bottom: 0; //posiciona el footer en lo ultimo de la pagina
+    margin-top: auto;
+
+}
+
+.contenedor-footer{
+    padding: 2 px;
+    
+}
+
+.copyright{
+    color: v.$tex-white;
+    text-align: center;
+    
+}
+

@@ -1,0 +1,38 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor_menu {
+    max-width: 1900px; /*ancho maximo de la pagina*/
+    width: 98%;
+    height: 100%;       /*alto maximo herdado de su padre*/
+    display: flex;      /*posicion del logo*/
+    justify-content:space-between;/*posicion del logo entre el y el menu*/
+}
+
+/*tamaño de logo y posicion*/
+.logo img {
+   
+    width: 150px;
+    display: flex;
+    // align-items: center;
+    // margin-top: 0%;
+}
+
+ .menu {
+     display:flex;
+     align-items: center; //alinea y centra el menu home,registro con el logo    
+}
+
+.menu ul {
+    display: flex; /* alineacion menu horizontal*/
+}
+.menu ul li {
+    margin-left: 36px; /*margen entre opciones de seleciion*/
+}
+.menu ul li a {
+    text-decoration: none;/*eliminacion subrayado por defecto el opci*/
+    font-family: v.$fuente_principal;
+    color: v.$tex-white; /*color de letra*/
+    text-transform: uppercase; /*cambio todo el texto a mayusculas*/
+}
+

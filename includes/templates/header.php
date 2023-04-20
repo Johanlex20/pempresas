@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/c613273784.js" crossorigin="anonymous"></script> 
 
     <link rel="stylesheet" href="/build/css/app.css">  
-    <link rel="stylesheet" href="/pempresas/build/css/app.css">     <!--"/pempresas/build/css/app.css">  localhost trabaja el otro trabaja con local3000-->
+    <!--<link rel="stylesheet" href="/pempresas/build/css/app.css">     "/pempresas/build/css/app.css">  localhost trabaja el otro trabaja con local3000-->
 </head>
 <body>
    
@@ -36,7 +36,7 @@
 
         <div class="contenedor_menu">
             <div class="logo">
-                <img src="../img/logo-de-Sena-sin-fondo-Blanco.png" alt="logo-Sena">
+                <img src="img/logo-de-Sena-sin-fondo-Blanco.png" alt="logo-Sena">
             </div>
             <div class="menu">
                 <i class="fa-solid fa-bars" id="boton_minimenu"></i>

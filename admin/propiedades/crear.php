@@ -181,6 +181,7 @@
         </div>
     </main>
 
+
 <?php
     incluirTemplate('footer');  //funcion incluida en lso templates deja ver el footer
 ?>

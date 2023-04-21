@@ -35,12 +35,12 @@
                             <button type="submit" class="boton">Crear Cuenta</button>
                         </form>
                         <div class="clic-boton">
-                            <p>Ya tienes una cuenta <a href="ingreso-login-modificacion.html" class="gradient-text">Iniciar Sesion</a></p>
+                            <p>Ya tienes una cuenta <a href="ingreso-login-modificacion.php" class="gradient-text">Iniciar Sesion</a></p>
                         </div>
                     </div>
             </div>
         </div>
     </main>
-    <script src="js/app.js"></script>
+    <script src="/build/js/app.js"> </script>
 </body>
 </html>

@@ -812,6 +812,114 @@ body::after {
   transition: all 0.3s;
 }
 
+/*alineacion horizontal cajas*/
+.cajas {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*.cajas .caja{
+
+    medidas sin rango de las cajas
+    background: var(--green);
+    width: 46%;
+    height: 200px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px; 
+    box-shadow: 0 0 6px rgba(0, 0, 0, .6);  sombra alrededor de la caja
+}*/
+/*medidas y alineacion imagen interna de las cajas*/
+.cajas .caja img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 6px solid var(--lead);
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/*tamaño cajas centro eleccion*/
+.cajas .caja {
+  height: 50%;
+  width: 35%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 10px solid var(--border-color);
+  color: var(--tex-white);
+  font-size: 16px;
+}
+
+.cajas .caja p {
+  font-weight: 100;
+  padding-top: 10px;
+}
+
+.cajas .caja h4 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.cajas .caja p {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.cajas .caja .clic-boton {
+  padding-top: 30px;
+  text-align: center;
+}
+
+/*MARCO CAJAS*/
+.cajas .caja {
+  margin-top: 70px;
+  border-color: var(--crema);
+  border: 10px solid var(--border-color);
+  padding: 40px 50px;
+  border-radius: 20px;
+  backdrop-filter: var(--blur);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+/* boton aspectos*/
+.contenedor_cajas .boton {
+  height: 45px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 25px;
+  user-select: none;
+  background: linear-gradient(to right, var(--green), var(--lead));
+  border: none;
+  color: var(--tex-white);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.contenedor_cajas .boton::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: background-color 0.5s ease;
+  z-index: -1;
+}
+
+.contenedor_cajas .boton:hover::before {
+  background-color: var(--button-hover-color);
+}
+
 /*tonos de fondo BACKGROUND*/
 body {
   background-color: rgb(57, 169, 0);

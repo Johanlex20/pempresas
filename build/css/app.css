@@ -468,7 +468,7 @@ template {
 
 @media screen and (max-width: 1900px) {
   header {
-    padding: 40px;
+    padding: 0.5px;
   }
 }
 /*responsive*/

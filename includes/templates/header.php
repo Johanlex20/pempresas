@@ -48,8 +48,8 @@
                         <li><a href="#">Ofertas</a></li>
                         <li><a href="#">hoja de vida</a></li>
                         <li><a href="#">Contacto</a></li>
-                        <li><a href="/admin/propiedades/crear.php">Registro</a></li>
-                        <li><a href="ingreso-login-modificacion.php">Ingreso</a></li>
+                        <li><a href="/eleccion-registro-modificacion.php">Registro</a></li>
+                        <li><a href="/ingreso-login-modificacion.php">Ingreso</a></li>
                     </ul>
                 </nav>
             </div>

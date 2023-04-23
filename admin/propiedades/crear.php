@@ -174,7 +174,7 @@
                         </form>
 
                         <div class="clic-boton">
-                            <p>Ya tienes una cuenta <a href="ingreso-login-modificacion.html" class="gradient-text">Iniciar Sesion</a></p>
+                            <p>Ya tienes una cuenta <a href="ingreso-login-modificacion.php" class="gradient-text">Iniciar Sesion</a></p>
                         </div>
                     </div>
             </div>

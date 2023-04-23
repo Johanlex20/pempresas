@@ -25,7 +25,7 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border: 6px solid var(--lead);
+    border: 6px solid v.$lead;
     border-radius : 50%;
     margin-left: auto;
     margin-right: auto;
@@ -41,8 +41,8 @@
     width: 35%;
     background-color: transparent;
     border: none;
-    border-bottom: 10px solid var(--border-color);
-    color: var(--tex-white);
+    border-bottom: 10px solid v.$border-color;
+    color: v.$tex-white;
     font-size: 16px;
 }
 
@@ -66,12 +66,12 @@
 /*MARCO CAJAS*/
 .cajas .caja{
     margin-top: 70px;
-    border-color: var(--crema);
-    border: 10px solid var(--border-color);
+    border-color: v.$crema;
+    border: 10px solid v.$border-color;
     padding: 40px 50px;
     border-radius: 20px;
-    backdrop-filter: var(--blur);
-    box-shadow: 0 0 6px rgba(0, 0, 0, .6);
+    backdrop-filter: v.$blur;
+    
 }
 
 /* boton aspectos*/
@@ -86,12 +86,16 @@
     cursor: pointer;
     border-radius: 25px;
     user-select: none;
-    background: linear-gradient(to right, var(--green), var(--lead));
+    background: linear-gradient(to right, v.$green, v.$lead);
     border: none;
-    color: var(--tex-white);
+    color: v.$tex-white;
     position: relative;
     z-index: 1;
     overflow: hidden;   
+}
+
+.boton ::after{
+    color: v.$tex-white;
 }
 
 .contenedor_cajas .boton::before {
@@ -106,6 +110,19 @@
 }
 
 .contenedor_cajas .boton:hover::before{
-    background-color: var(--button-hover-color);
+    background-color: v.$button-hover-color;
 }
+
+
+//BOTON VOLVER DEL AREA DE CREAR EN ADMIN
+ .boton-volver{
+
+    font-weight: 700;
+    text-decoration: none;
+    display:flex;
+    justify-content: center;     padding: auto;
+    margin: auto;
+    
+    }
+
 

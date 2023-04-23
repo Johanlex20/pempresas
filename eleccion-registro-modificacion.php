@@ -16,7 +16,7 @@
                             </P>
                             <div class="clic-boton">
                                 <p>¿No tienes una cuenta?</p> 
-                                    <div><a href="crear-cuenta-aprendiz-modificacion.php"><button type="submit" class="boton">crear cuenta como aprendiz</button></a></div>
+                                    <div><a href="/admin/propiedades/crear.php"><button type="submit" class="boton">crear cuenta como aprendiz</button></a></div>
                             </div>
                         </div>
                  </div>

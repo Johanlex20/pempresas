@@ -47,14 +47,41 @@ body::after {
 .clic-boton p {
     padding: 0 0;
 }
-.boton-volver{
 
-font-weight: 700;
-text-decoration: none;
-display:flex;
-justify-content: center;
+/*boton crear cuenta diseño*/
+// .cuadro .boton-volver {
+//     height: 45px;
+//     width: 80%;
+//     font-size: 16px;
+//     font-weight: 500;
+//     text-transform: capitalize;
+//     font-family: inherit;
+//     cursor: pointer;
+//     border-radius: 25px;
+//     user-select: none;
+//     background: linear-gradient(to right, v.$green, v.$lead);
+//     border: none;
+//     color: v.$tex-white;
+//     position: relative;
+//     z-index: 1;
+//     overflow: hidden;
+//     margin: 10px 30px;
+// }
+// /*efecto boton crear*/
+// .cuadro .boton-volver::before {
+//     content: "";
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     height: 100%;
+//     width: 100%; 
+//     transition: background-color 0.5s ease;
+//     z-index: -1;
+// }
+// .cuadro .boton-volver::before {
+//     background-color: v.$button-hover-color;
+// }
 
-}
 .texto-fondo{
     background: linear-gradient(to right, v.$green, v.$lead);
     color: v.$tex-white;

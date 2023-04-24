@@ -9,9 +9,19 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: 10px;
-    margin: 2px 0 ;
+    margin: auto; //estaba 2px pero con esto lo centro
 
     &.error{
         background-color: v.$rojo;
+    }
+
+    &.exito{
+        color:v.$color-boton;
+        background-color: v.$tex-white;
+        max-width: 210px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        
+        
     }
 }

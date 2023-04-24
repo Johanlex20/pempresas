@@ -1002,8 +1002,15 @@ header {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 10px;
-  margin: 2px 0;
+  margin: auto;
 }
 .alerta.error {
   background-color: rgb(220, 3, 3);
+}
+.alerta.exito {
+  color: rgb(0, 49, 77);
+  background-color: hsl(0, 0%, 100%);
+  max-width: 210px;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }

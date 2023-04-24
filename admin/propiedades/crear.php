@@ -27,13 +27,17 @@
         // var_dump($_POST);
         // echo "</pre>";
 
-        $nombre = $_POST['nombre'];
-        $tipoId =  $_POST['tipoId'];
-        $identificacion = $_POST['identificacion'];
-        $programa =  $_POST['programa'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $telefono = $_POST['telefono'];
+
+        //mysqli_real_escape_string impide la inyeccion de datos, solo almacena y no permite que se ejecute sentencias sql. Este metodo se quita cuando este en POO por las sentencias preparadas
+
+        $nombre = Mysqli_real_escape_string ( $db, $_POST ['nombre'] ); 
+        $tipoId = mysqli_real_escape_string ($db, $_POST['tipoId'] );
+        $identificacion = mysqli_real_escape_string ( $db, $_POST['identificacion'] );
+        $programa = mysqli_real_escape_string( $db,  $_POST['programa'] );
+        $email = mysqli_real_escape_string( $db, $_POST['email'] );
+        $password = mysqli_real_escape_string( $db, $_POST['password'] );
+        $telefono = mysqli_real_escape_string( $db, $_POST['telefono'] );
+        $creacionaprendiz = date('y/m/d');
 
         //VALIDACION CON ARREGLO
 
@@ -66,13 +70,16 @@
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
             //INSERTAR EN LA BASE DE DATOS
-            $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono) VALUES ('$nombre', '$tipoId', '$identificacion', '$programa', '$email', '$password', '$telefono')";
+            $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono, creacionaprendiz) VALUES ('$nombre', '$tipoId', '$identificacion', '$programa', '$email', '$password', '$telefono' , '$creacionaprendiz')";
 
             // echo $query;
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
-                echo "Insertado Correctamente";
+                // echo "Insertado Correctamente";
+                //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
+
+                header('Location: /admin?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
             } 
         }
 

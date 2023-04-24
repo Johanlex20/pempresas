@@ -4,10 +4,11 @@
     $db=conectarDB(); //conexion base de datos
 
 
-    //CONSULTAR PARA OBTENER LOS PROGRAMAS
+    //CONSULTAR PARA OBTENER LOS PROGRAMAS ||  TIPO IDENTIFICACION
     $consulta = "SELECT * FROM programa";
+    $consulta1 = "SELECT * FROM tipoidentificacion";
     $resultado = mysqli_query($db, $consulta);
-
+    $resultado1 = mysqli_query($db, $consulta1);
 
     //ARREGLO CON MENSAJES DE ERROR
    $errores = [];
@@ -63,9 +64,9 @@
         // echo "</pre>";
        
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
-        if(empty($errores)){
+        if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
             //INSERTAR EN LA BASE DE DATOS
-            $query = " INSERT INTO aprendiz (nombre, identificacion, email, password, telefono) VALUES ('$nombre', '$identificacion', '$email', '$password', '$telefono')";
+            $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono) VALUES ('$nombre', '$tipoId', '$identificacion', '$programa', '$email', '$password', '$telefono')";
 
             // echo $query;
             $resultado = mysqli_query($db, $query);
@@ -86,7 +87,7 @@
                     <div class="cuadro">
                         <h3>Crear una cuenta aprendiz</h3>
 
-                       <!-- mensaje de validacon complete los datos -->
+                       <!-- mensaje de validacion complete los datos -->
                         <?php foreach($errores as $error): ?>  
                             <div class="alerta error">
                                 <?php echo $error; ?>
@@ -109,15 +110,21 @@
                                 name="tipoId" 
                                 value="<?php echo $tipoId; ?>"  
                                 class="input-control">
-                                    <option value="">*Seleccione identificacion</option>
-                                    <option value="1">Cedula de Ciudadania</option>
-                                    <option value="2">Tarjeta Identidad</option>
-                                    <option value="3">Cedula de Extrangeria</option>
-                                    <option value="4">Registro civil</option>
+                                     <option value="">*Seleccione identificación</option>
+
+                                     <?php while ($tipoidentificacion = mysqli_fetch_assoc($resultado1)) : ?>
+
+                                        <option <?php echo $tipoId === $tipoidentificacion ['idtipoId'] ? 'selected' : ''; ?>   value="<?php echo $tipoidentificacion ['idtipoId'] ?>"> <?php echo $tipoidentificacion ['tipoId'];?> </option>
+
+                                     <?php endwhile; ?>
+                                    <!--<option value="1">Cedula de Ciudadania</option>
+                                    <option value="2">Cedula de Extrangeria</option>
+                                    <option value="3">Registro Civil</option>
+                                    <option value="4">Numero de Pasaporte</option>
+                                    <option value="5">Nit</option> -->
                                 </select>
                             </div>
 
-                            
                             <!-- <div class="input-box">
                                 <input type="text" placeholder="Tipo identificación" class="input-control">
                             </div> -->
@@ -135,13 +142,11 @@
                                 name="programa" 
                                 value="<?php echo $programa;?>" 
                                 class="input-control">
-                                <!-- mantiene el programa elegido -->
-                                    <option value="">*Seleccione programa</option>
-                                    <?php while($programa = mysqli_fetch_assoc($resultado)) : ?>
-                                        <option <?php echo $idPrograma === $programa['idPrograma'] ? 'selected' : ''; ?>  value= "<?php echo $programa ['idPrograma'];?>"> <?php echo $programa ['programa'] . " " . $programa['nombrePrograma'];?> 
-                                    </option>
-                                     <?php endwhile; ?>   
-
+                                    <option value="">*Seleccione Programa</option>
+                                    <option value="1">Programacion de Softmare</option>
+                                    <option value="2">Sistemas</option>
+                                    <option value="3">Soldadura</option>
+                                    <option value="4">Bisuteria</option>
                                 </select>
                             </div>
                             <div class="input-box">

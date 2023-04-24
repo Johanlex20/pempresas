@@ -21,7 +21,33 @@
         max-width: 210px;
         border-radius: 5px;
         margin-bottom: 5px;
-        
+    }
+}
+
+table.aprendiz {
+    margin-top: 1rem;
+    width: 100%;
+    border-spacing: 0;
+
+    thead{
+        background-color: v.$gris;
+
+    }
+    th {
+        color: v.$tex-white;
+        padding: 10px;
         
     }
+    td{
+        padding: 5px;
+
+        a{
+            color: v.$tex-white;
+            text-decoration: none;
+            // display: flex;
+            // justify-content: center;
+        }
+    
+    }
+
 }

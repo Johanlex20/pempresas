@@ -924,6 +924,18 @@ body::after {
   justify-content: center;
   padding: auto;
   margin: auto;
+  max-width: 700px;
+  margin-top: 10px;
+}
+
+.boton-rojo-block {
+  background-color: rgb(220, 3, 3);
+  border-radius: 5px;
+}
+
+.boton-green-block {
+  background-color: hsla(0, 0%, 0%, 0.3);
+  border-radius: 2px;
 }
 
 /*tonos de fondo BACKGROUND*/
@@ -1013,4 +1025,24 @@ header {
   max-width: 210px;
   border-radius: 5px;
   margin-bottom: 5px;
+}
+
+table.aprendiz {
+  margin-top: 1rem;
+  width: 100%;
+  border-spacing: 0;
+}
+table.aprendiz thead {
+  background-color: hsl(0, 0%, 52%);
+}
+table.aprendiz th {
+  color: hsl(0, 0%, 100%);
+  padding: 10px;
+}
+table.aprendiz td {
+  padding: 5px;
+}
+table.aprendiz td a {
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
 }

@@ -1,16 +1,8 @@
 
 <?php
-    // verificacion de mensaje GET
-    // echo "<pre>";
-    // var_dump($_GET);
-    // $mensaje =$_GET;
-    // echo "</pre>";
-    // exit;
-
-    $resultado =$_GET['resultado'] ??null;
-
+    
+    //INCLUIR UN TEMPLATE
     require '../includes/funciones.php';
-
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 ?>
 
@@ -24,10 +16,19 @@
         <?php endif?> 
 
          <a href="/eleccion-registro-modificacion.php" class="boton-volver">
-            <span class="texto-fondo">Crear nuevo usuario </span>
+            <span class="texto-fondo">Crear nuevo Usuario </span>
          </a>     <!-- este boton lo envia directamente al archivo crear de propiedades carpeta admin -->
-         
+
+         <a href="admin/propiedades/consultar.php" class="boton-volver">
+            <span class="texto-fondo">Consultar Usuario </span>
+         </a>     <!-- este boton lo envia directamente al archivo Consultar de propiedades carpeta admin -->
+
+         <a href="/admin/propiedades/actualizar.php" class="boton-volver">
+            <span class="texto-fondo">Actualizar Usuario </span>
+         </a>     <!-- este boton lo envia directamente al archivo actualizar de propiedades carpeta admin -->
     </main>
+    
+         
 
 <?php
     incluirTemplate('footer');  //funcion incluida en lso templates deja ver el footer

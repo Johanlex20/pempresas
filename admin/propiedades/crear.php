@@ -92,7 +92,7 @@
         <div class="contenerdor_formulario">
             <div class="formulario">
                     <div class="cuadro">
-                        <h3>Crear una cuenta aprendiz</h3>
+                        <h3>Crear cuenta aprendiz</h3>
 
                        <!-- mensaje de validacion complete los datos -->
                         <?php foreach($errores as $error): ?>  

@@ -12,7 +12,9 @@
         <!-- impirme el mensaje de registro correctamente-->
 
         <?php if( intval ($resultado) === 1) : ?> <!--convertir el valor string a numerico-->
-            <p class="alerta exito"> Usuario creado correctamente </p>
+            <p class="alerta exito"> Usuario Creado Correctamente </p>
+            <?php elseif( intval ($resultado) === 2) : ?>
+            <p class="alerta exito"> Usuario Actualizado Correctamente </p>
         <?php endif?> 
 
          <a href="/eleccion-registro-modificacion.php" class="boton-volver">

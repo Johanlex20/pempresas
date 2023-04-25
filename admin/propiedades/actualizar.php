@@ -14,7 +14,14 @@
     $db=conectarDB(); //conexion base de datos
 
     //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
-    $consulta ="SELECT * FROM aprendiz WHERE id = $id";
+    $consulta2 ="SELECT * FROM aprendiz WHERE id = $id";
+    $resultado2 = mysqli_query($db, $consulta2);
+    $usuario = mysqli_fetch_assoc($resultado2);
+
+    // echo "<pre>";
+    // var_dump($usuario);
+    // echo "</pre>";
+
 
     //CONSULTAR PARA OBTENER LOS PROGRAMAS ||  TIPO IDENTIFICACION
     $consulta = "SELECT * FROM programa";
@@ -25,20 +32,17 @@
     //ARREGLO CON MENSAJES DE ERROR
    $errores = [];
 
-   $nombre = '';
-   $tipoId = '';
-   $identificacion = '';
-   $programa = '';
-   $email = '';
-   $password = '';
-   $telefono = '';
+   $nombre = $usuario ['nombre'];
+   $tipoId = $usuario ['tipoId'];
+   $identificacion = $usuario ['identificacion'];
+   $programa = $usuario ['programa'];
+   $email = $usuario ['email'];
+   $password = $usuario ['password'];
+   $telefono = $usuario ['telefono'];
 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD']==='POST'){
-        // echo "<pre>";
-        // var_dump($_POST);
-        // echo "</pre>";
-
+        
 
         //mysqli_real_escape_string impide la inyeccion de datos, solo almacena y no permite que se ejecute sentencias sql. Este metodo se quita cuando este en POO por las sentencias preparadas
 
@@ -81,17 +85,20 @@
        
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
-            //INSERTAR EN LA BASE DE DATOS
-            $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono, creacionaprendiz) VALUES ('$nombre', '$tipoId', '$identificacion', '$programa', '$email', '$password', '$telefono' , '$creacionaprendiz')";
+            
+            //ACTUALIZAR DATOS EN LA BASE DE DATOS
+            $query = " UPDATE aprendiz SET nombre = '$nombre', tipoId = '$tipoId', identificacion = $identificacion, programa='$programa', email='$email', password='$password', telefono=$telefono WHERE id= $id";
 
             // echo $query;
+            
+
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
-                // echo "Insertado Correctamente";
+                echo "Actualizado Correctamente";
                 //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
 
-                header('Location: /admin?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
+                header('Location: /admin?resultado=2'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
             } 
         }
 
@@ -113,7 +120,7 @@
                             </div>
                         <?php endforeach;?> 
 
-                        <form class="formulario-aprendiz" method ="POST" action="/admin/propiedades/crear.php">
+                         <form class="formulario-aprendiz" method ="POST"> <!-- action="/admin/propiedades/actualizar.php" -->
                             <div class="input-box">
                             <!-- <label for="nombre">Nombre Completo:</label> -->
                                 <input type="text" 
@@ -193,7 +200,7 @@
                                 value="<?php echo $telefono;?>"  
                                 class="input-control">
                             </div>
-                            <button type="submit" class="boton">Crear Cuenta</button>
+                            <button type="submit" class="boton">Actualizar Aprendiz</button>
                           
                         </form>
 

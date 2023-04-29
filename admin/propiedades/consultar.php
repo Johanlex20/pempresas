@@ -1,5 +1,7 @@
 
 <?php
+
+
     
         // IMPORTAR LA CONEXION
 
@@ -18,6 +20,27 @@
 
         //MOSTRANDO MENSAJE CONDICIONAL
         $resultado =$_GET['resultado'] ??null;
+
+
+        if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
+            $id = $_POST ['id'];
+            $id = filter_var ($id, FILTER_VALIDATE_INT);
+
+            if($id){
+
+                //ELIMINAR APRENDIZ 
+                $query = "DELETE FROM aprendiz WHERE id = $id";
+
+                $resultado4 = mysqli_query($db, $query);
+                if ($resultado4){
+
+                    echo "Eliminado Correctamente";
+                    //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
+                    header('location: /admin/?resultado4=4');
+                }
+            }
+
+        }
 
 
 
@@ -59,23 +82,29 @@
                     <td> <?php echo $aprendiz ['email']; ?> </td>
                     <td> <?php echo $aprendiz ['telefono']; ?> </td>
                     <td>
-                       <a href="#" class="boton-rojo-block" >Eliminar</a>
+
+                    <form method="POST" class="w-100" action="/admin/propiedades/consultar.php">
+
+                        <input type="hidden" name="id" value="<?php echo $aprendiz ['id']; ?>">
+                        <!-- funcion para esconder el mensaje de eliminacion a usuarios -->
+
+                       <input type="submit" class="boton-rojo-block" value="Eliminar">
+                       <!-- funcion para eliminacion usuarios -->
+                    </form>
+
                        <a href="/admin/propiedades/actualizar.php?id=<?php echo $aprendiz ['id']; ?>" class="boton-green-block" >Actualizar</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>
-    </main> 
 
 
         <a href="/admin" class="boton-volver">  <!--necesita estilos-->
             <span class="texto-fondo">Volver</span>
         </a>
+
     </main> 
-
-    
-
 
 <?php
     incluirTemplate('footer');  //funcion incluida en lso templates deja ver el footer

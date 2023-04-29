@@ -24,6 +24,7 @@
     }
 }
 
+
 table.aprendiz {
     margin-top: 1rem;
     width: 100%;
@@ -33,9 +34,9 @@ table.aprendiz {
         background-color: v.$gris;
 
     }
-    th {
+    th { //parte gris de la tabla de consulta
         color: v.$tex-white;
-        padding: 10px;
+        padding: 5px;
         
     }
     td{
@@ -44,8 +45,8 @@ table.aprendiz {
         a{
             color: v.$tex-white;
             text-decoration: none;
-            // display: flex;
-            // justify-content: center;
+            display: flex;
+            justify-content: center;
         }
     
     }

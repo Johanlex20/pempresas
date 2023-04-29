@@ -89,16 +89,16 @@
             //ACTUALIZAR DATOS EN LA BASE DE DATOS
             $query = " UPDATE aprendiz SET nombre = '$nombre', tipoId = '$tipoId', identificacion = $identificacion, programa='$programa', email='$email', password='$password', telefono=$telefono WHERE id= $id";
 
-            // echo $query;
+            // echo $query;  activar este query es para comprobar la funion de la sentencia sql update
             
 
-            $resultado = mysqli_query($db, $query);
+            $resultado3 = mysqli_query($db, $query);
 
-            if($resultado){
+            if($resultado3){
                 echo "Actualizado Correctamente";
                 //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
 
-                header('Location: /admin?resultado=2'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
+                header('Location: /admin?resultado3=2'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
             } 
         }
 

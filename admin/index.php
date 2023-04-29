@@ -1,5 +1,9 @@
 
 <?php
+
+    $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
+    $resultado3 =$_GET ['resultado3'] ?? null; //envia el mensaje de actualizacion de usuario
+    $resultado4 =$_GET ['resultado4'] ?? null; //envia el mensaje de eliminacion de usuario
     
     //INCLUIR UN TEMPLATE
     require '../includes/funciones.php';
@@ -13,8 +17,13 @@
 
         <?php if( intval ($resultado) === 1) : ?> <!--convertir el valor string a numerico-->
             <p class="alerta exito"> Usuario Creado Correctamente </p>
-            <?php elseif( intval ($resultado) === 2) : ?>
+
+            <?php elseif( intval ($resultado3) === 2) : ?>
             <p class="alerta exito"> Usuario Actualizado Correctamente </p>
+            
+            <?php elseif( intval ($resultado4) === 4) : ?>
+            <p class="alerta exito"> Usuario Eliminado Correctamente </p>
+           
         <?php endif?> 
 
          <a href="/eleccion-registro-modificacion.php" class="boton-volver">

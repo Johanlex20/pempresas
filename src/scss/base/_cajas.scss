@@ -121,10 +121,12 @@
     text-decoration: none;
     display:flex;
     justify-content: center;     
-    padding: auto;
+  
     margin: auto;
     max-width: 700px;
     margin-top: 10px;
+
+    
     
     }
 
@@ -133,11 +135,23 @@
 .boton-rojo-block {
     background-color: v.$rojo;
     border-radius: 5px;
+    width: 80%;
+    height: fit-content;
+    border-color: v.$rojo;
+    color: v.$tex-white;
+    font-size: 20px;
 }
+.w-100{
+    width: 100%;
+}
+
 
 .boton-green-block {
     background-color: v.$button-hover-color;
-    border-radius: 2px;
+    border-radius: 5px;
+    width: 80%;
+    display: flex;
 }
+
 
 

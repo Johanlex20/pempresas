@@ -39,6 +39,11 @@
         $telefono = mysqli_real_escape_string( $db, $_POST['telefono'] );
         $creacionaprendiz = date('y/m/d');
 
+        //ENCRIPTAR CONTRASEÑA IMPORTANTE CAMBIAR LA VARIABLE $PASSWORD A $PASSWORDHASH EN EL QUERY INSERT INTO
+
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT );
+        var_dump( $passwordHash) ;
+
         //VALIDACION CON ARREGLO
 
         if (!$nombre){
@@ -70,16 +75,18 @@
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
             //INSERTAR EN LA BASE DE DATOS
-            $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono, creacionaprendiz) VALUES ('$nombre', '$tipoId', '$identificacion', '$programa', '$email', '$password', '$telefono' , '$creacionaprendiz')";
+            $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono, creacionaprendiz) VALUES ('$nombre', '$tipoId', '$identificacion', '$programa', '$email', '$passwordHash', '$telefono' , '$creacionaprendiz')";
 
-            // echo $query;
+            //  echo $query;
+
+            //ingreso a la base de datos despues de pasar todas las validaciones 
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
-                // echo "Insertado Correctamente";
+                echo "Insertado Correctamente";
                 //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
 
-                header('Location: /admin?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
+                header('Location: /ingreso-login-modificacion.php?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
             } 
         }
 
@@ -101,7 +108,7 @@
                             </div>
                         <?php endforeach;?> 
 
-                        <form class="formulario-aprendiz" method ="POST" action="/admin/propiedades/crear.php">
+                        <form class="formulario-aprendiz" method ="POST">
                             <div class="input-box">
                             <!-- <label for="nombre">Nombre Completo:</label> -->
                                 <input type="text" 
@@ -166,7 +173,7 @@
                                 class="input-control">
                             </div>
                             <div class="input-box">
-                                <input type="text" 
+                                <input type="password" 
                                 id="password" 
                                 name="password" 
                                 placeholder="*Password" 

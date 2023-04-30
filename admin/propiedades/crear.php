@@ -46,7 +46,7 @@
         //ENCRIPTAR CONTRASEÑA IMPORTANTE CAMBIAR LA VARIABLE $PASSWORD A $PASSWORDHASH EN EL QUERY INSERT INTO
 
         $passwordHash = password_hash($password, PASSWORD_DEFAULT );
-        var_dump( $passwordHash) ;
+        // var_dump( $passwordHash) ;
 
         //VALIDACION CON ARREGLO
 
@@ -75,6 +75,7 @@
         // echo "<pre>";
         // var_dump($errores);
         // echo "</pre>";
+    
        
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
@@ -90,7 +91,7 @@
                 echo "Insertado Correctamente";
                 //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
 
-                header('Location: /ingreso-login-modificacion.php?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
+                header('Location: /login.php?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
             } 
         }
 
@@ -113,7 +114,6 @@
 
                         <form class="formulario-aprendiz" method ="POST">
                             <div class="input-box">
-                            <!-- <label for="nombre">Nombre Completo:</label> -->
                                 <input type="text" 
                                 id="nombre" 
                                 name="nombre" 
@@ -128,23 +128,11 @@
                                 value="<?php echo $tipoId; ?>"  
                                 class="input-control">
                                      <option value="">*Seleccione identificación</option>
-
                                      <?php while ($tipoidentificacion = mysqli_fetch_assoc($resultado1)) : ?>
-
                                         <option <?php echo $tipoId === $tipoidentificacion ['idtipoId'] ? 'selected' : ''; ?>   value="<?php echo $tipoidentificacion ['idtipoId'] ?>"> <?php echo $tipoidentificacion ['tipoId'];?> </option>
-
                                      <?php endwhile; ?>
-                                    <!--<option value="1">Cedula de Ciudadania</option>
-                                    <option value="2">Cedula de Extrangeria</option>
-                                    <option value="3">Registro Civil</option>
-                                    <option value="4">Numero de Pasaporte</option>
-                                    <option value="5">Nit</option> -->
                                 </select>
                             </div>
-
-                            <!-- <div class="input-box">
-                                <input type="text" placeholder="Tipo identificación" class="input-control">
-                            </div> -->
                             <div class="input-box">
                                 <input type="number" 
                                 id="identificacion" 
@@ -159,11 +147,15 @@
                                 name="programa" 
                                 value="<?php echo $programa;?>" 
                                 class="input-control">
-                                    <option value="">*Seleccione Programa</option>
+                                        <option value="">Seleccione Programa</option>
+                                        <?php while ($tipoPrograma = mysqli_fetch_assoc($resultado)) :?>
+                                           <option <?php echo $programa === $tipoPrograma ['idprograma'] ? 'selected' : ''; ?> value="<?php echo $tipoPrograma ['idprograma'] ?>"> <?php echo $tipoPrograma ['tipoPrograma'] ;?> </option>
+                                        <?php endwhile;?> 
+                                    <!-- <option value="">*Seleccione Programa</option>
                                     <option value="1">Programacion de Softmare</option>
                                     <option value="2">Sistemas</option>
                                     <option value="3">Soldadura</option>
-                                    <option value="4">Bisuteria</option>
+                                    <option value="4">Bisuteria</option> -->
                                 </select>
                             </div>
                             <div class="input-box">
@@ -196,7 +188,7 @@
                         </form>
 
                         <div class="clic-boton">
-                            <p>Ya tienes una cuenta <a href="ingreso-login-modificacion.php" class="gradient-text">Iniciar Sesion</a></p>
+                            <p>Ya tienes una cuenta <a href="/login.php" class="gradient-text">Iniciar Sesion</a></p>
                         </div>
                     </div>
             </div>

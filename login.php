@@ -25,7 +25,7 @@
 
         if (empty($errores)){
             //REVISAR SI EL USUARIO EXISTE
-            $query = "SELECT * FROM usuarios WHERE email = '$email'";
+            $query = "SELECT * FROM aprendiz WHERE email = '$email'";
             $resultado = mysqli_query($db, $query);
             
 
@@ -58,12 +58,13 @@
             }else{
                 $errores[] = "El Usuario no existe"; 
             }
-
-
         }
-
-   
     }
+
+
+        // CONFIRMACION DE USUARIOS CREACION Y ACTUALIZACION
+        // $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
+        // $resultado3 =$_GET ['resultado3'] ?? null; //envia el mensaje de actualizacion de usuario
 
 
     //INCLUIR UN TEMPLATE HEADER
@@ -72,6 +73,14 @@
 ?>
 
     <main>
+           <!-- impirme el mensaje de registro correctamente-->
+
+           <?php if( intval ($resultado) === 1) : ?> <!--convertir el valor string a numerico-->
+            <p class="alerta exito"> Usuario Creado Correctamente </p>
+            <?php elseif( intval ($resultado3) === 2) : ?>
+            <p class="alerta exito"> Usuario Actualizado Correctamente </p>
+        <?php endif?>
+
     <div class="contenerdor_formulario">
         <div class="formulario">
             <div class="cuadro">
@@ -90,10 +99,8 @@
                     <div class="input-box">
                         <input type="password" name="password" placeholder="Password" id="password"  class="input-control" ><!-- required es para activar las validaciones de html5 -->
                     </div>
-
                     <button type="submit" class="boton">Iniciar Sesión</button>
                 </form>
-
 
                 <div class="clic-boton">
                     <div class="input-link">

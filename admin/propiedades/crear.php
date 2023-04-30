@@ -1,4 +1,8 @@
 <?php
+
+    require '../../includes/funciones.php';
+
+
 // BASE DE DATOS
     require '../../includes/config/database.php';
     $db=conectarDB(); //conexion base de datos
@@ -92,7 +96,6 @@
 
     }
 
-    require '../../includes/funciones.php';
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 ?>
     <main>

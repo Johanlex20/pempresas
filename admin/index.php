@@ -1,12 +1,19 @@
 
 <?php
 
+    require '../includes/funciones.php';
+    $auth = estaAutenticado(); // funcion de autenticacion en includes
+
+    if(!$auth){
+            header('Location: /'); // ruta que envia a la pagina de inicio 
+    }
+
+
     $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
     $resultado3 =$_GET ['resultado3'] ?? null; //envia el mensaje de actualizacion de usuario
     $resultado4 =$_GET ['resultado4'] ?? null; //envia el mensaje de eliminacion de usuario
     
     //INCLUIR UN TEMPLATE
-    require '../includes/funciones.php';
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 ?>
 

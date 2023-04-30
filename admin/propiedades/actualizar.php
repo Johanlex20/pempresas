@@ -1,4 +1,10 @@
 <?php
+    require '../../includes/funciones.php';
+    $auth = estaAutenticado(); // funcion de autenticacion en includes
+
+    if(!$auth){
+            header('Location: /'); // ruta que envia a la pagina de inicio 
+    }
 
 
     //Validar la URL por ID válido
@@ -104,7 +110,7 @@
 
     }
 
-    require '../../includes/funciones.php';
+    
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 ?>
     <main>

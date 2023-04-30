@@ -1,66 +1,70 @@
-
-
 <?php
-    //importar la base de datos
     require 'includes/config/database.php';
     $db = conectarDB();
 
-    //VARIABLE DE FORMA GLOBAL PARA DETECTAR ERRORES
+    //AUTENTICAR EL USUARIO
+
     $errores = [];
 
-    //AUTENTICAR EL USUARIO
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        // echo "<pre>";
+        // var_dump($_POST);
+        // echo "<!pre>";
 
-            // echo "<pre>";
-            // var_dump ($_POST);
-            // echo "<!pre>";
+        $email = mysqli_real_escape_string ($db, filter_var($_POST ['email'], FILTER_VALIDATE_EMAIL));
+        $password = mysqli_real_escape_string($db, $_POST ['password']);
 
-        $email = mysqli_real_escape_string ($db, filter_Var( $_POST['email'], FILTER_VALIDATE_EMAIL));  //filter validate nos valida si es un email valido
 
-        //  var_dump($email);Validacion de que este tomando el ingreso de email
-
-        $password = mysqli_real_escape_string ($db, $_POST ['password']);
-
-        if (!$email){
-            $errores[] = "El Email es obligatorio o no es válido";
+        if(!$email){
+            $errores[] = "El Email es obligatorio o no es válido";   
         }
+
         if(!$password){
-            $errores[] = "El Password es obligatorio";
+            $errores[]= "El Password es obligatorio";
         }
 
-        if(empty($errores)){
-
+        if (empty($errores)){
             //REVISAR SI EL USUARIO EXISTE
-            $query = "SELECT * FROM aprendiz WHERE email = '$email'";
-            $resultado = mysqli_query ($db, $query);
+            $query = "SELECT * FROM usuarios WHERE email = '$email'";
+            $resultado = mysqli_query($db, $query);
             
 
-            if ($resultado->num_rows){
-                // Revisar si el password es correcto
+            if( $resultado->num_rows){
+                // REVISAR SI EL PASSWORD ES CORRECTO
                 $usuario = mysqli_fetch_assoc($resultado);
-                // var_dump($usu);
 
-                // Verificar si el Password es correcto o no
+                // VERIFICAR SI EL PASSWORD ES CORRECTO 
                 $auth = password_verify($password, $usuario['password']);
 
-                 var_dump($auth);
-            }else{
-                $errores [] = "El Aprendiz no existe";
-            }
-        }
-        //ver los errores
-        //   echo "<pre>";
-        //   var_dump($errores);
-        //   echo "<!pre>";
+                if($auth){
+                    //EL USUARIO ESTA AUTENTICADO
+                    session_start();
 
+                    //LLENAR EL ARREGLO DE LA SESIÓN
+
+                    $_SESSION ['usuario'] = $usuario ['email'] ; //en esta area puedo poner lo que quiera visualizar tambien puedo poner los roles
+                    $_SESSION ['login'] = true;
+
+                    header('Location: /admin');   //Redirecionar a admin si el login es valido, se puede cambiar la ruta segun el rol 
+
+                    // echo "<pre>";
+                    // var_dump($_SESSION);      //SESION ES UNA SUPER GLOBAL
+                    // echo "<!pre>";
+
+                }else{
+                    // EL USUARIO ESTA INCORRECTO
+                    $errores[]='El password es incorrecto';
+                }
+            }else{
+                $errores[] = "El Usuario no existe"; 
+            }
+
+
+        }
+
+   
     }
 
-
-
-
-    // CONFIRMACION DE USUARIOS CREACION Y ACTUALIZACION
-    $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
-    $resultado3 =$_GET ['resultado3'] ?? null; //envia el mensaje de actualizacion de usuario
 
     //INCLUIR UN TEMPLATE HEADER
     require 'includes/funciones.php';
@@ -68,30 +72,16 @@
 ?>
 
     <main>
-
-       <!-- impirme el mensaje de registro correctamente-->
-
-       <?php if( intval ($resultado) === 1) : ?> <!--convertir el valor string a numerico-->
-            <p class="alerta exito"> Usuario Creado Correctamente </p>
-            <?php elseif( intval ($resultado3) === 2) : ?>
-            <p class="alerta exito"> Usuario Actualizado Correctamente </p>
-        <?php endif?>
-
-
-
     <div class="contenerdor_formulario">
         <div class="formulario">
             <div class="cuadro">
                 <h3>Plataforma de ingreso</h3>
-
                     <!-- varificacion de errores al ingresar -->
-
                     <?php foreach ($errores as $error): ?>
                         <div class="alerta error">
                             <?php echo $error; ?>
                         </div>
                     <?php endforeach; ?>
-
 
                 <form method = "POST"  action=""> <!-- En el action puedo colocar donde quiero enviar los datos pero si no lo hago lo enviara al mismo archivo -->
                     <div class="input-box">
@@ -116,9 +106,5 @@
     </div>
     </main>
     <script src="/build/js/app.js"></script>
-
-
-
-
 </body>
 </html>

@@ -1,3 +1,11 @@
+<?php  
+    //VERIFICA SI LA SESSION ESTA INICIADA SI NO PUES ENVIA A VALIDACION
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    $auth = $_SESSION['login'] ?? false;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -49,7 +57,11 @@
                         <li><a href="#">hoja de vida</a></li>
                         <li><a href="#">Contacto</a></li>
                         <li><a href="/eleccion-registro-modificacion.php">Registro</a></li>
-                        <li><a href="/ingreso-login-modificacion.php">Ingreso</a></li>
+                        <li><a href="/login.php">Ingreso</a></li>
+                        <?php  if ($auth): ?>
+                            <li><a href="cerrar-sesion.php">Cerrar Sesión</a></li>
+                        <?php endif; ?>    
+
                     </ul>
                 </nav>
             </div>

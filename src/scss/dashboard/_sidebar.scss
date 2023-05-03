@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.sidebar{
+   background-color: v.$gris; 
+   padding: 1rem;
+   h2{  //estilos para el titulo admi patantalla perfil admi barra
+    margin: 0;
+    text-align: center;
+   }
+   .sidebar-nav{
+    margin-top: 5rem;
+
+    a{
+        color: v.$tex-white;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 1rem;
+        padding: .7rem;
+        transition-property: backgroud-color;
+        transition-duration: 300ms;
+        font-weight: bold ;
+        font-size: 1.2rem;
+
+        &:hover{
+            background-color: darken(v.$green, 3%);
+            border-radius: .5rem;
+        }
+    }
+   }
+}

@@ -6,7 +6,7 @@
 ?>
 
     <main class="contenedor seccion">
-        <h1 class="admi-text">PAGINA HOME</h1>
+        <h1 class="admi-text-home">PAGINA HOME</h1>
     </main>
 
 <?php

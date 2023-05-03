@@ -15,6 +15,4 @@ function estaAutenticado() : bool {
     }//else{ CON EL RETURN SE SALTA SI APLICA EN LA PRIMARE NO NECESTIA EL ELSE
         return false;
     //}
-    
-
 }

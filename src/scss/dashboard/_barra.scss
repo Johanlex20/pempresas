@@ -1,0 +1,30 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.barra {
+    background-color: v.$green;
+    padding: 1rem 2rem;
+    box-shadow: -10px 20px 15px -15px rgba(0 , 0 , 0 , .4);
+
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    p{
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    a{
+        text-decoration: none;
+        color: v.$tex-white;
+        text-transform: uppercase;
+        font-weight: bold;
+        
+    }
+    li{
+        text-decoration: none;
+    }
+}

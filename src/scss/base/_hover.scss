@@ -118,6 +118,13 @@ body::after {
 
 .admi-text{
     text-align: center;
+    color: v.$green;
+    font-weight: bold;
+}
+.admi-text-home{
+    text-align: center;
+    color: v.$tex-white;
+    font-weight: bold;
 }
 
 

@@ -799,6 +799,14 @@ body::after {
 
 .admi-text {
   text-align: center;
+  color: rgb(57, 169, 0);
+  font-weight: bold;
+}
+
+.admi-text-home {
+  text-align: center;
+  color: hsl(0, 0%, 100%);
+  font-weight: bold;
 }
 
 .menu li a:hover {
@@ -1057,4 +1065,71 @@ table.aprendiz td a {
   text-decoration: none;
   display: flex;
   justify-content: center;
+}
+
+.dashboard {
+  background-color: hsl(0, 0%, 100%);
+}
+@media (min-width: 768px) {
+  .dashboard {
+    display: flex;
+    height: 100vh;
+  }
+}
+.dashboard .principal {
+  flex: 1;
+}
+
+.sidebar {
+  background-color: hsl(0, 0%, 52%);
+  padding: 1rem;
+}
+.sidebar h2 {
+  margin: 0;
+  text-align: center;
+}
+.sidebar .sidebar-nav {
+  margin-top: 5rem;
+}
+.sidebar .sidebar-nav a {
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  transition-property: backgroud-color;
+  transition-duration: 300ms;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.sidebar .sidebar-nav a:hover {
+  background-color: #349a00;
+  border-radius: 0.5rem;
+}
+
+.barra {
+  background-color: rgb(57, 169, 0);
+  padding: 1rem 2rem;
+  box-shadow: -10px 20px 15px -15px rgba(0, 0, 0, 0.4);
+}
+@media (min-width: 768px) {
+  .barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.barra p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.barra a {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.barra li {
+  text-decoration: none;
 }

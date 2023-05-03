@@ -63,8 +63,8 @@
 
 
         // CONFIRMACION DE USUARIOS CREACION Y ACTUALIZACION
-        // $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
-        // $resultado3 =$_GET ['resultado3'] ?? null; //envia el mensaje de actualizacion de usuario
+         $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
+         $resultado3 =$_GET ['resultado3'] ?? null; //envia el mensaje de actualizacion de usuario
 
 
     //INCLUIR UN TEMPLATE HEADER

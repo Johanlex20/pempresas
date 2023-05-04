@@ -7,11 +7,21 @@
 ?>
 
 <?php
-    require '../../includes/funciones.php';
+    require '../../includes/app.php'; //ruta especifica para llamar funciones se guardan todas hay
+    //CREACION DE OBJETO APRENDIZ POO
+    use App\aprendiz;
 
+    $aprendiz = new aprendiz;
+
+    // echo"<pre>";
+    // var_dump($aprendiz);
+    // echo"</pre>";
+
+    // exit;
 
 // BASE DE DATOS
-    require '../../includes/config/database.php';
+
+    // require '../../includes/config/database.php'; POO no es necesario requerir la bd ya que app funiones tiene el metodo de ruteo importante verificar que el requiere includes/ app.php este bin dirijido 
     $db=conectarDB(); //conexion base de datos
 
 

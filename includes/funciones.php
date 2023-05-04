@@ -1,6 +1,7 @@
 <?php
 
-require 'app.php';
+define('TEMPLATES_URL', __DIR__ . '/templates');
+define('FUNCION_URL',__DIR__ . 'funciones.php');
 
 function incluirTemplate(string $nombre){
     include TEMPLATES_URL . "/$nombre.php"; //comillas dobles son obligatorias en esta funcion

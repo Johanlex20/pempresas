@@ -1,0 +1,22 @@
+{
+    "name": "o.o/pempresas",
+    "description": "crendo Pempresas con POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "OO\\Pempresas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Johanlex",
+            "email": "127138253+Johanlex20@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "psr-4": {
+            "App\\" : "./classes"
+        }
+    }
+}

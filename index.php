@@ -1,6 +1,6 @@
 
 <?php
-    require 'includes/funciones.php';
+    require 'includes/app.php';
 
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 ?>

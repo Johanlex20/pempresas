@@ -1,5 +1,12 @@
-<?php
+<?php  
+    //VERIFICA SI LA SESSION ESTA INICIADA SI NO PUES ENVIA A VALIDACION
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    $auth = $_SESSION['login'] ?? false;
+?>
 
+<?php
     require '../../includes/funciones.php';
 
 
@@ -192,10 +199,13 @@
                         </div>
                     </div>
             </div>
+                        <?php  if ($auth): ?>
+                            <a href="/admin" class="boton-volver">  <!--necesita estilos-->
+                                <span class="texto-fondo">Perfil</span>
+                            </a>
+                        <?php endif; ?>  
 
-            <a href="/admin" class="boton-volver">  <!--necesita estilos-->
-                <span class="texto-fondo">Volver</span>
-            </a>
+            
         </div>
     </main>
 

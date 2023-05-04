@@ -23,7 +23,7 @@
         font-size: 1.2rem;
 
         &:hover{
-            background-color: darken(v.$green, 3%);
+            background: linear-gradient(to right, v.$lead, v.$green);
             border-radius: .5rem;
         }
     }

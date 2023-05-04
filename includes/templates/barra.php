@@ -12,7 +12,9 @@
 
 
     <?php  if ($auth): ?>
-        <a href="cerrar-sesion.php">Cerrar Sesión</a>
-    <?php endif; ?>  
-
+        <div class="clic-boton">
+            <a href="cerrar-sesion.php" >Cerrar Sesión</a>
+        </div>
+    <?php endif; ?>
 </div>
+

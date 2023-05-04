@@ -16,11 +16,28 @@
     }
 
     &.exito{
+        font-size: 20px;
         color:v.$color-boton;
         background-color: v.$tex-white;
-        max-width: 210px;
+        max-width: 410px;
         border-radius: 5px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+    }
+    &.exito-verde{
+        font-size: 20px;
+        color:v.$tex-white;
+        background: linear-gradient(to right, v.$green, v.$lead);
+        max-width: 410px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    &.exito-rojo{
+        font-size: 20px;
+        color:v.$tex-white;
+        background: linear-gradient(to right, v.$rojo, v.$lead);
+        max-width: 410px;
+        border-radius: 5px;
+        margin-bottom: 10px;
     }
 }
 

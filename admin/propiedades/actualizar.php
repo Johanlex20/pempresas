@@ -149,11 +149,6 @@
                                         <option <?php echo $tipoId === $tipoidentificacion ['idtipoId'] ? 'selected' : ''; ?>   value="<?php echo $tipoidentificacion ['idtipoId'] ?>"> <?php echo $tipoidentificacion ['tipoId'];?> </option>
 
                                      <?php endwhile; ?>
-                                    <!--<option value="1">Cedula de Ciudadania</option>
-                                    <option value="2">Cedula de Extrangeria</option>
-                                    <option value="3">Registro Civil</option>
-                                    <option value="4">Numero de Pasaporte</option>
-                                    <option value="5">Nit</option> -->
                                 </select>
                             </div>
 
@@ -211,7 +206,7 @@
                         </form>
 
                         <div class="clic-boton">
-                            <p>Ya tienes una cuenta <a href="ingreso-login-modificacion.php" class="gradient-text">Iniciar Sesion</a></p>
+                            <p>Ya tienes una cuenta <a href="/login.php" class="gradient-text">Iniciar Sesion</a></p>
                         </div>
                     </div>
             </div>

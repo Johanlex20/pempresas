@@ -936,24 +936,77 @@ body::after {
 }
 
 .boton-rojo-block {
-  background-color: rgb(220, 3, 3);
+  background: linear-gradient(to right, rgb(220, 3, 3), rgb(56, 91, 86));
   border-radius: 5px;
   width: 80%;
   height: fit-content;
-  border-color: rgb(220, 3, 3);
+  border: rgb(220, 3, 3);
   color: hsl(0, 0%, 100%);
   font-size: 20px;
+  padding: 2px;
 }
 
 .w-100 {
   width: 100%;
 }
 
-.boton-green-block {
+.boton-rojo-block {
+  cursor: pointer;
+  border-radius: 25px;
+  user-select: none;
+  border: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/*efecto boton crear*/
+.boton-rojo-block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: background-color 0.5s ease;
+  z-index: -1;
+}
+
+.boton-rojo-block:hover::before {
   background-color: hsla(0, 0%, 0%, 0.3);
+}
+
+.boton-green-block {
+  background: linear-gradient(to right, rgb(56, 91, 86), rgb(57, 169, 0));
   border-radius: 5px;
   width: 80%;
   display: flex;
+}
+
+.boton-green-block {
+  cursor: pointer;
+  border-radius: 25px;
+  user-select: none;
+  border: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/*efecto boton crear*/
+.boton-green-block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: background-color 0.5s ease;
+  z-index: -1;
+}
+
+.boton-green-block:hover::before {
+  background-color: hsla(0, 0%, 0%, 0.3);
 }
 
 /*tonos de fondo BACKGROUND*/
@@ -1038,11 +1091,28 @@ header {
   background-color: rgb(220, 3, 3);
 }
 .alerta.exito {
+  font-size: 20px;
   color: rgb(0, 49, 77);
   background-color: hsl(0, 0%, 100%);
-  max-width: 210px;
+  max-width: 410px;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+.alerta.exito-verde {
+  font-size: 20px;
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(to right, rgb(57, 169, 0), rgb(56, 91, 86));
+  max-width: 410px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.alerta.exito-rojo {
+  font-size: 20px;
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(to right, rgb(220, 3, 3), rgb(56, 91, 86));
+  max-width: 410px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 table.aprendiz {
@@ -1103,7 +1173,7 @@ table.aprendiz td a {
   font-size: 1.2rem;
 }
 .sidebar .sidebar-nav a:hover {
-  background-color: #349a00;
+  background: linear-gradient(to right, rgb(56, 91, 86), rgb(57, 169, 0));
   border-radius: 0.5rem;
 }
 
@@ -1111,6 +1181,7 @@ table.aprendiz td a {
   background-color: rgb(57, 169, 0);
   padding: 1rem 2rem;
   box-shadow: -10px 20px 15px -15px rgba(0, 0, 0, 0.4);
+  /*efecto cambia tono enlaces*/
 }
 @media (min-width: 768px) {
   .barra {
@@ -1132,4 +1203,11 @@ table.aprendiz td a {
 }
 .barra li {
   text-decoration: none;
+}
+.barra .clic-boton a:hover {
+  color: rgb(56, 91, 86);
+  transition: all 0.3s;
+}
+.barra .clic-boton p {
+  padding: 0 0;
 }

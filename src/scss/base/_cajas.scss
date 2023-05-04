@@ -133,24 +133,72 @@
 //BOTON ELIMINAR AREA DE ADMIN
 
 .boton-rojo-block {
-    background-color: v.$rojo;
+    background: linear-gradient(to right, v.$rojo, v.$lead);
     border-radius: 5px;
     width: 80%;
     height: fit-content;
-    border-color: v.$rojo;
+    border: v.$rojo;
     color: v.$tex-white;
     font-size: 20px;
+    padding : 2px ;
 }
 .w-100{
     width: 100%;
 }
+.boton-rojo-block{
+    cursor: pointer;
+    border-radius: 25px;
+    user-select: none;
+    border: none;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+/*efecto boton crear*/
+.boton-rojo-block::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%; 
+    transition: background-color 0.5s ease;
+    z-index: -1;
+}
+.boton-rojo-block:hover::before {
+    background-color: v.$button-hover-color;
+}
 
 
 .boton-green-block {
-    background-color: v.$button-hover-color;
+    background: linear-gradient(to right, v.$lead, v.$green);
     border-radius: 5px;
     width: 80%;
     display: flex;
+}
+
+.boton-green-block{
+    cursor: pointer;
+    border-radius: 25px;
+    user-select: none;
+    border: none;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+/*efecto boton crear*/
+.boton-green-block::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%; 
+    transition: background-color 0.5s ease;
+    z-index: -1;
+}
+.boton-green-block:hover::before {
+    background-color: v.$button-hover-color;
 }
 
 

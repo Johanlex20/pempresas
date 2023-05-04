@@ -1,3 +1,10 @@
+<?php  
+    //VERIFICA SI LA SESSION ESTA INICIADA SI NO PUES ENVIA A VALIDACION
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    $auth = $_SESSION['login'] ?? false;
+?>
 
 <?php
         require '../../includes/funciones.php'; 
@@ -41,7 +48,7 @@
 
                     echo "Eliminado Correctamente";
                     //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
-                    header('location: /admin/?resultado4=4');
+                    header('location:/admin/?resultado4=4');
                 }
             }
 
@@ -51,11 +58,8 @@
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 
 ?>
-
-
     <main class="contenedor seccion">
-        <h1 class="admi-text">Consultar aprendiz</h1>
-
+        <h1 class="admi-text-home">Consultar aprendiz</h1>
 
         <!-- TABLA DE CONSULTA INDEX ADMIN-->
 

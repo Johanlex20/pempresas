@@ -27,4 +27,13 @@
     li{
         text-decoration: none;
     }
+  
+    /*efecto cambia tono enlaces*/
+    .clic-boton a:hover {
+        color:v.$lead;
+        transition: all .3s ;
+    }
+    .clic-boton p {
+        padding: 0 0;
+    }
 }

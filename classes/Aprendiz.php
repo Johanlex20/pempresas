@@ -87,6 +87,16 @@ class aprendiz {
 
     //ELIMINAR UN REGISTRO
     public function eliminar(){
+        //ELIMINAR APRENDIZ 
+        $query = "DELETE FROM aprendiz WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1 ";
+        $resultado = self::$db->query($query);
+
+        if ($resultado){
+
+            echo "Eliminado Correctamente";
+            //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
+            header('location:/admin/?resultado=3');
+        }
        
     }
 

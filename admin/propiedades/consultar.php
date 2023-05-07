@@ -27,20 +27,8 @@
             if($id){
 
                 $aprendiz = aprendiz::find($id);
-                debuguear($aprendiz);
-
-                //ELIMINAR APRENDIZ 
-                $query = "DELETE FROM aprendiz WHERE id = $id";
-
-                $resultado4 = mysqli_query($db, $query);
-                if ($resultado4){
-
-                    echo "Eliminado Correctamente";
-                    //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
-                    header('location:/admin/?resultado4=4');
-                }
+                $aprendiz->eliminar();
             }
-
         }
 
     //INCLUIR UN TEMPLATE

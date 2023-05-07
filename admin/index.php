@@ -4,7 +4,7 @@
 
     $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
     $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de actualizacion de usuario
-    $resultado4 = $_GET ['resultado4'] ?? null; //envia el mensaje de eliminacion de usuario
+    $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de eliminacion de usuario
     
     //INCLUIR UN TEMPLATE
     incluirTemplate('headersin'); // funcion incluida en los templates hay que crear los teamples primero
@@ -25,7 +25,7 @@
                 <?php elseif( intval ($resultado) === 2) : ?>
                 <p class="alerta exito-verde"> Usuario Actualizado Correctamente </p>
                 
-                <?php elseif( intval ($resultado4) === 4) : ?>
+                <?php elseif( intval ($resultado) === 3) : ?>
                 <p class="alerta exito-rojo"> Usuario Eliminado Correctamente </p>
             
             <?php endif?> 

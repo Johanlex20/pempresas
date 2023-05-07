@@ -90,7 +90,7 @@
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
             //INSERTAR EN LA BASE DE DATOS
-            $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono, creacionaprendiz) VALUES ('$nombre', '$tipoId', '$identificacion', '$programa', '$email', '$passwordHash', '$telefono' , '$creacionaprendiz')";
+            //INSERT INTO
 
             //  echo $query;
 

@@ -4,6 +4,9 @@ namespace App;
 
 class aprendiz {
 
+    //BASE DE DATOS
+    protected static $db;
+
     public $id;
     public $nombre;
     public $tipoId;
@@ -28,6 +31,16 @@ class aprendiz {
     }
     
     public function guardar(){
-        echo "Guardando en la base de datos";
+        
+
+        $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono, creacionaprendiz) VALUES ('$this->nombre', '$this->tipoId', '$this->identificacion', '$this->programa', '$this->email', '$this->password', '$this->telefono' , '$this->creacionaprendiz')";
+
+        $resultado = self::$db->query($query);
+        debuguear($resultado);
+    }
+
+    //DEFINIR LA CONEXION A LA BD
+    public static function setDB($database){
+        self::$db = $database;
     }
 }

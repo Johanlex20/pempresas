@@ -8,16 +8,9 @@
 
 <?php
         require '../../includes/app.php';//POO busca el archivo y lo enlaza 
-        $auth = estaAutenticado(); // funcion de autenticacion en includes 
+        estaAutenticado(); // funcion de autenticacion en includes 
 
-        if(!$auth){
-                header('Location: /'); // ruta que envia a la pagina de inicio 
-        }
-
-    
         // IMPORTAR LA CONEXION
-
-        // require '../../includes/config/database.php'; POO no es necesario requerir la bd ya que app funiones tiene el metodo de ruteo importante verificar que el requiere includes/ app.php este bin dirijido 
         $db = conectarDB();
 
         // ESCRIBIR EL QUERY

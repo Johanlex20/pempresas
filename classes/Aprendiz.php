@@ -24,7 +24,10 @@ class aprendiz {
         $this->email = $args['email'] ?? ''; 
         $this->password = $args['password'] ?? ''; 
         $this->telefono = $args['telefono'] ?? ''; 
-        $this->creacionaprendiz = $args['creacionaprendiz'] ?? ''; 
+        $this->creacionaprendiz = date('Y/m/d'); 
     }
     
+    public function guardar(){
+        echo "Guardando en la base de datos";
+    }
 }

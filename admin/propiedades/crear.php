@@ -8,20 +8,13 @@
 
 <?php
     require '../../includes/app.php'; //ruta especifica para llamar funciones se guardan todas hay
+    
     //CREACION DE OBJETO APRENDIZ POO
     use App\aprendiz;
 
-    $aprendiz = new aprendiz;
-
-    // echo"<pre>";
-    // var_dump($aprendiz);
-    // echo"</pre>";
-
-    // exit;
-
-// BASE DE DATOS
-
-    // require '../../includes/config/database.php'; POO no es necesario requerir la bd ya que app funiones tiene el metodo de ruteo importante verificar que el requiere includes/ app.php este bin dirijido 
+    estaAutenticado(); // funcion de autenticacion en includes 
+    
+    // BASE DE DATOS
     $db=conectarDB(); //conexion base de datos
 
 
@@ -44,12 +37,12 @@
 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD']==='POST'){
-        // echo "<pre>";
-        // var_dump($_POST);
-        // echo "</pre>";
 
+        $aprendiz = new aprendiz($_POST);
 
-        //mysqli_real_escape_string impide la inyeccion de datos, solo almacena y no permite que se ejecute sentencias sql. Este metodo se quita cuando este en POO por las sentencias preparadas
+       $aprendiz->guardar();
+       debuguear($aprendiz);
+
 
         $nombre = Mysqli_real_escape_string ( $db, $_POST ['nombre'] ); 
         $tipoId = mysqli_real_escape_string ($db, $_POST['tipoId'] );

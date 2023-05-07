@@ -17,7 +17,6 @@
     // BASE DE DATOS
     $db=conectarDB(); //conexion base de datos
 
-
     //CONSULTAR PARA OBTENER LOS PROGRAMAS ||  TIPO IDENTIFICACION
     $consulta = "SELECT * FROM programa";
     $consulta1 = "SELECT * FROM tipoidentificacion";
@@ -26,7 +25,6 @@
 
     //ARREGLO CON MENSAJES DE ERROR
    $errores = aprendiz::getErrores();
-
 
    $nombre = '';
    $tipoId = '';
@@ -42,60 +40,12 @@
         $aprendiz = new aprendiz($_POST);
         $errores = $aprendiz->validar();
         
-       
-
-
-        // $nombre = Mysqli_real_escape_string ( $db, $_POST ['nombre'] ); 
-        // $tipoId = mysqli_real_escape_string ($db, $_POST['tipoId'] );
-        // $identificacion = mysqli_real_escape_string ( $db, $_POST['identificacion'] );
-        // $programa = mysqli_real_escape_string( $db,  $_POST['programa'] );
-        // $email = mysqli_real_escape_string( $db, $_POST['email'] );
-        // $password = mysqli_real_escape_string( $db, $_POST['password'] );
-        // $telefono = mysqli_real_escape_string( $db, $_POST['telefono'] );
-        // $creacionaprendiz = date('y/m/d');
-
-        //ENCRIPTAR CONTRASEÑA IMPORTANTE CAMBIAR LA VARIABLE $PASSWORD A $PASSWORDHASH EN EL QUERY INSERT INTO
-
-        // $passwordHash = password_hash($password, PASSWORD_DEFAULT );
-        
-
-        //VALIDACION CON ARREGLO
-
-        // if (!$nombre){
-        //      $errores[] = "* Debes añadir un Nombre";
-        // }
-        // if (!$tipoId){
-        //     $errores[] = "* Elige un tipo de Identificacion";
-        // }
-        // if (!$identificacion){
-        //     $errores[] = "* Debes añadir un Numero de Identificacion";
-        // }
-        //  if (!$programa){
-        //     $errores[] = "* Elige un Programa";
-        //  }
-        // if (!$email){
-        //     $errores[] = "* Debes añadir un Correo";
-        // }
-        // if (!$password){
-        //     $errores[] = "* Debes añadir una Contraseña";
-        // }
-        // if (!$telefono){
-        //     $errores[] = "* Debes añadir un Telefono";
-        // }
-
-        
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
-        if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
-            $aprendiz->guardar();
-            
-            //INSERTAR EN LA BASE DE DATOS
-            //INSERT INTO
+        if(empty($errores)){  
+            //GUARDAR EN LA BD
+            $resultado = $aprendiz->guardar();
 
-            //  echo $query;
-
-            //ingreso a la base de datos despues de pasar todas las validaciones 
-            $resultado = mysqli_query($db, $query);
-
+            //MENSAJE DE EXITO O DE ERROR
             if($resultado){
                 echo "Insertado Correctamente";
                 //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS

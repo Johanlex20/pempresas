@@ -54,7 +54,7 @@ class aprendiz {
 
         $resultado = self::$db->query($query);
 
-        debuguear($resultado);
+        return $resultado;
     }
 
     //IDENTIFICAR Y UNIR LOS ATRIBUTOS DE LA DB

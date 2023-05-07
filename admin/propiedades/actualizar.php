@@ -1,10 +1,18 @@
+<?php  
+    //VERIFICA SI LA SESSION ESTA INICIADA SI NO PUES ENVIA A VALIDACION
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    $auth = $_SESSION['login'] ?? false;
+?>
+
 <?php
     require '../../includes/app.php';
-    $auth = estaAutenticado(); // funcion de autenticacion en includes
+    estaAutenticado(); // funcion de autenticacion en includes
 
-    if(!$auth){
-            header('Location: /'); // ruta que envia a la pagina de inicio 
-    }
+    // if(!$auth){
+    //         header('Location: /'); // ruta que envia a la pagina de inicio 
+    // }
 
 
     //Validar la URL por ID válido
@@ -15,9 +23,6 @@
         header('Location: /admin');
     }
 
-    // BASE DE DATOS
-    // require '../../includes/config/database.php'; // require '../../includes/config/database.php'; POO no es necesario requerir la bd ya que app funiones tiene el metodo de ruteo importante verificar que el requiere includes/ app.php este bin dirijido 
-    $db=conectarDB(); //conexion base de datos
 
     //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
     $consulta2 ="SELECT * FROM aprendiz WHERE id = $id";

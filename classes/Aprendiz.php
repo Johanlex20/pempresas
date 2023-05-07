@@ -106,4 +106,38 @@ class aprendiz {
 
         return self::$errores;
     }
+
+    //LISTA DE TODOS LOS APRENDICES
+    public static function all(){
+        $query = "SELECT * FROM aprendiz";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
+    public static function consultarSQL($query){
+        // CONSULTAR LA BASE DE DATOS
+        $resultado = self::$db->query($query);
+
+        // ITERRAR LOS RESULTADOS
+        $array = [];
+        while($registro = $resultado->fetch_assoc()){
+            $array[] = self::crearObjeto($registro);
+        }    
+
+        //LIBERAR LA MEMORIA
+        $resultado->free();
+
+        //RETORNAR LOS RESULTADOS
+        return $array;
+    }
+
+    protected static function crearObjeto($registro){
+        $objeto = new self;
+
+        foreach ($registro as $key => $value ){
+            if (property_exists( $objeto, $key ));
+            $objeto->$key = $value;
+        }
+        return $objeto;
+    }
 }

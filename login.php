@@ -1,8 +1,6 @@
 <?php
-    // require '../../includes/config/database.php'; POO no es necesario requerir la bd ya que app funiones tiene el metodo de ruteo importante verificar que el requiere includes/ app.php este bin dirijido 
     require 'includes/app.php';
-    $db = conectarDB();
-
+ 
     //AUTENTICAR EL USUARIO
 
     $errores = [];

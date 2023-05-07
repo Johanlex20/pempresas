@@ -1,21 +1,12 @@
-<?php  
-    //VERIFICA SI LA SESSION ESTA INICIADA SI NO PUES ENVIA A VALIDACION
-    if(!isset($_SESSION)){
-        session_start();
-    }
-    $auth = $_SESSION['login'] ?? false;
-?>
+
 
 <?php
     require '../../includes/app.php'; //ruta especifica para llamar funciones se guardan todas hay
-    
+    // estaAutenticado(); // funcion de autenticacion en includes
     //CREACION DE OBJETO APRENDIZ POO
     use App\aprendiz;
 
-    estaAutenticado(); // funcion de autenticacion en includes 
-    
-    // BASE DE DATOS
-    $db=conectarDB(); //conexion base de datos
+     
 
     //CONSULTAR PARA OBTENER LOS PROGRAMAS ||  TIPO IDENTIFICACION
     $consulta = "SELECT * FROM programa";

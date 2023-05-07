@@ -1,12 +1,9 @@
 
 <?php
 
-    require '../includes/funciones.php';
-    $auth = estaAutenticado(); // funcion de autenticacion en includes
+    require '../includes/app.php';
+    estaAutenticado(); // funcion de autenticacion en includes
 
-    if(!$auth){
-            header('Location: /'); // ruta que envia a la pagina de inicio 
-    }
 
 
     $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario

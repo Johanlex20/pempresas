@@ -6,5 +6,5 @@ session_start();
 $_SESSION = [];
 
 // var_dump($_SESSION);
-//cuando activamos el boton cerrar simplemente el arreglo lo envia a la pagian de incio
-header ('Location:/');
+//cuando activamos el boton cerrar simplemente el arreglo lo envia a la pagian de inicio
+header ('Location: /');

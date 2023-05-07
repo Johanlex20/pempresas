@@ -114,6 +114,13 @@ class aprendiz {
         return $resultado;
     }
 
+    //BUSCA UNA APRENDIZ POR SU ID
+    public static function find($id){
+        $query ="SELECT * FROM aprendiz WHERE id = $id";
+        $resultado = self::consultarSQL($query);
+        return array_shift( $resultado );
+    }
+
     public static function consultarSQL($query){
         // CONSULTAR LA BASE DE DATOS
         $resultado = self::$db->query($query);

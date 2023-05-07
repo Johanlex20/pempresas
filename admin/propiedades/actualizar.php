@@ -1,19 +1,9 @@
-<?php  
-    //VERIFICA SI LA SESSION ESTA INICIADA SI NO PUES ENVIA A VALIDACION
-    if(!isset($_SESSION)){
-        session_start();
-    }
-    $auth = $_SESSION['login'] ?? false;
-?>
-
 <?php
+
+use App\aprendiz;
+
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
-
-    // if(!$auth){
-    //         header('Location: /'); // ruta que envia a la pagina de inicio 
-    // }
-
 
     //Validar la URL por ID válido
     $id=$_GET['id'];
@@ -23,17 +13,12 @@
         header('Location: /admin');
     }
 
-
     //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
-    $consulta2 ="SELECT * FROM aprendiz WHERE id = $id";
-    $resultado2 = mysqli_query($db, $consulta2);
-    $usuario = mysqli_fetch_assoc($resultado2);
+    $aprendiz = aprendiz::find ($id);
 
-    // echo "<pre>";
-    // var_dump($usuario);
-    // echo "</pre>";
-
-
+    // $consulta2 ="SELECT * FROM aprendiz WHERE id = $id";
+    // $resultado2 = mysqli_query($db, $consulta2);
+    // $usuario = mysqli_fetch_assoc($resultado2);
     //CONSULTAR PARA OBTENER LOS PROGRAMAS ||  TIPO IDENTIFICACION
     $consulta = "SELECT * FROM programa";
     $consulta1 = "SELECT * FROM tipoidentificacion";
@@ -43,14 +28,7 @@
     //ARREGLO CON MENSAJES DE ERROR
    $errores = [];
 
-   $nombre = $usuario ['nombre'];
-   $tipoId = $usuario ['tipoId'];
-   $identificacion = $usuario ['identificacion'];
-   $programa = $usuario ['programa'];
-   $email = $usuario ['email'];
-   $password = $usuario ['password'];
-   $telefono = $usuario ['telefono'];
-
+ 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD']==='POST'){
         
@@ -131,85 +109,10 @@
                             </div>
                         <?php endforeach;?> 
 
-                         <form class="formulario-aprendiz" method ="POST"> <!-- action="/admin/propiedades/actualizar.php" -->
-                            <div class="input-box">
-                            <!-- <label for="nombre">Nombre Completo:</label> -->
-                                <input type="text" 
-                                id="nombre" 
-                                name="nombre" 
-                                placeholder="*Nombre usuario Completo" 
-                                value="<?php echo $nombre; ?>" 
-                                class="input-control">
-                            </div>
-                            <div class="input-box">
-                                <select type="text" 
-                                id="tipoId" 
-                                name="tipoId" 
-                                value="<?php echo $tipoId; ?>"  
-                                class="input-control">
-                                     <option value="">*Seleccione identificación</option>
-
-                                     <?php while ($tipoidentificacion = mysqli_fetch_assoc($resultado1)) : ?>
-
-                                        <option <?php echo $tipoId === $tipoidentificacion ['idtipoId'] ? 'selected' : ''; ?>   value="<?php echo $tipoidentificacion ['idtipoId'] ?>"> <?php echo $tipoidentificacion ['tipoId'];?> </option>
-
-                                     <?php endwhile; ?>
-                                </select>
-                            </div>
-
-                            <!-- <div class="input-box">
-                                <input type="text" placeholder="Tipo identificación" class="input-control">
-                            </div> -->
-                            <div class="input-box">
-                                <input type="number" 
-                                id="identificacion" 
-                                name="identificacion"  
-                                placeholder="*Identificación" 
-                                value="<?php echo $identificacion;?>" 
-                                class="input-control">
-                            </div>
-                            <div class="input-box">
-                                <select type="text" 
-                                id="programa" 
-                                name="programa" 
-                                value="<?php echo $programa;?>" 
-                                class="input-control">
-                                    <option value="">*Seleccione Programa</option>
-                                    <option value="1">Programacion de Softmare</option>
-                                    <option value="2">Sistemas</option>
-                                    <option value="3">Soldadura</option>
-                                    <option value="4">Bisuteria</option>
-                                </select>
-                            </div>
-                            <div class="input-box">
-                                <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                placeholder="*Email" 
-                                value="<?php echo $email;?>" 
-                                class="input-control">
-                            </div>
-                            <div class="input-box">
-                                <input type="text" 
-                                id="password" 
-                                name="password" 
-                                placeholder="*Password" 
-                                value="<?php echo $password;?>"  
-                                class="input-control">
-                            </div>
-                            <div class="input-box">
-                                <input type="number" 
-                                id="telefono" 
-                                name="telefono" 
-                                placeholder="*telefono" 
-                                value="<?php echo $telefono;?>"  
-                                class="input-control">
-                            </div>
+                         <form class="formulario-aprendiz" method ="POST"> 
+                            <?php include '../../includes/templates/formulario_aprendiz.php'; ?>
                             <button type="submit" class="boton">Actualizar Aprendiz</button>
-                          
                         </form>
-
                         <div class="clic-boton">
                             <p>Ya tienes una cuenta <a href="/login.php" class="gradient-text">Iniciar Sesion</a></p>
                         </div>

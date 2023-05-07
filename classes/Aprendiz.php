@@ -41,12 +41,16 @@ class aprendiz {
 
     // SANITIZAR DATOS
     $atributos = $this->sanitizarAtributos();
-    debuguear($atributos);
-        
+
     //INSERTAR DATOS EN LA BASE DE DATOS
-        $query = " INSERT INTO aprendiz (nombre, tipoId, identificacion, programa, email, password, telefono, creacionaprendiz) VALUES ('$this->nombre', '$this->tipoId', '$this->identificacion', '$this->programa', '$this->email', '$this->password', '$this->telefono' , '$this->creacionaprendiz')";
+        $query = " INSERT INTO aprendiz ( ";
+        $query .= join(', ',array_keys($atributos));
+        $query .= " ) VALUES (' "; 
+        $query .= join("', '", array_values($atributos));
+        $query .= " ') ";
 
         $resultado = self::$db->query($query);
+
         debuguear($resultado);
     }
 

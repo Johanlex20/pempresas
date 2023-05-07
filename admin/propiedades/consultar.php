@@ -16,17 +16,6 @@
         $aprendiz = aprendiz::all();
         
         
-
-        // ESCRIBIR EL QUERY
-
-        // $query = "SELECT * FROM aprendiz";
-
-        // // CONSULTAR LA BD
-
-        // $resultadoConsulta = mysqli_query($db, $query);
-
-
-
         //MOSTRANDO MENSAJE CONDICIONAL
         $resultado =$_GET['resultado'] ??null;
 
@@ -36,6 +25,9 @@
             $id = filter_var ($id, FILTER_VALIDATE_INT);
 
             if($id){
+
+                $aprendiz = aprendiz::find($id);
+                debuguear($aprendiz);
 
                 //ELIMINAR APRENDIZ 
                 $query = "DELETE FROM aprendiz WHERE id = $id";

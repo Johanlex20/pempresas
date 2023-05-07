@@ -43,7 +43,6 @@ use App\aprendiz;
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
             $aprendiz->guardar();      
-            
         }
 
     }

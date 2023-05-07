@@ -1,10 +1,6 @@
-
 <?php
-
     require '../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
-
-
 
     $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
     $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de actualizacion de usuario
@@ -13,11 +9,8 @@
     //INCLUIR UN TEMPLATE
     incluirTemplate('headersin'); // funcion incluida en los templates hay que crear los teamples primero
 ?>
-
     <main class="contenedor seccion">
-
     <!-- barra de seleccion perfil admin y barra superior saludo y cerrar sesion -->
-
     <div class="dashboard"> 
         <?php include_once __DIR__ . '/../includes/templates/sidebar.php';?>
             <div class="principal"> 

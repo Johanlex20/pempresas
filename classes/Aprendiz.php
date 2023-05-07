@@ -51,7 +51,6 @@ class aprendiz {
     }
 
     public function crear(){
-
     // SANITIZAR DATOS
     $atributos = $this->sanitizarAtributos();
 
@@ -84,7 +83,11 @@ class aprendiz {
             echo "Actualizado Correctamente";
             header('Location: /admin?resultado=2');
         }
-        
+    }
+
+    //ELIMINAR UN REGISTRO
+    public function eliminar(){
+       
     }
 
     //IDENTIFICAR Y UNIR LOS ATRIBUTOS DE LA DB

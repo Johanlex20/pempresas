@@ -18,17 +18,9 @@
     //ARREGLO CON MENSAJES DE ERROR
    $errores = aprendiz::getErrores();
 
-//    $nombre = '';
-//    $tipoId = '';
-//    $identificacion = '';
-//    $programa = '';
-//    $email = '';
-//    $password = '';
-//    $telefono = '';
-
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
-    if($_SERVER['REQUEST_METHOD']==='POST'){
-        
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
 
         $aprendiz = new aprendiz($_POST['aprendiz']);
         $errores = $aprendiz->validar();
@@ -36,7 +28,7 @@
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  
             //GUARDAR EN LA BD
-            $resultado = $aprendiz->guardar();
+            $resultado = $aprendiz->crear();
 
             //MENSAJE DE EXITO O DE ERROR
             if($resultado){

@@ -31,9 +31,9 @@ class aprendiz {
         //??''= En caso de que no este lleno se agrega un strim vacío
         $this->id = $args['id'] ?? '';  
         $this->nombre = $args['nombre'] ?? ''; 
-        $this->tipoId = $args['tipoId'] ?? ''; 
+        $this->tipoId = $args['tipoId'] ?? 1; 
         $this->identificacion = $args['identificacion'] ?? ''; 
-        $this->programa = $args['programa'] ?? ''; 
+        $this->programa = $args['programa'] ?? 1; 
         $this->email = $args['email'] ?? ''; 
         $this->password = $args['password'] ?? ''; 
         $this->telefono = $args['telefono'] ?? ''; 

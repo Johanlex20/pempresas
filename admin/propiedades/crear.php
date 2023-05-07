@@ -28,8 +28,9 @@
 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD']==='POST'){
+        
 
-        $aprendiz = new aprendiz($_POST);
+        $aprendiz = new aprendiz($_POST['aprendiz']);
         $errores = $aprendiz->validar();
         
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO

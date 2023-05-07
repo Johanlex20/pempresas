@@ -41,6 +41,16 @@ class aprendiz {
     }
     
     public function guardar(){
+        if (isset($this->id)){
+            //ACTUALIZAR APRENDIZ
+            $this->actualizar();
+        }else{
+            //CREANDO APRENDIZ
+            $this->crear();
+        }
+    }
+
+    public function crear(){
 
     // SANITIZAR DATOS
     $atributos = $this->sanitizarAtributos();
@@ -55,6 +65,26 @@ class aprendiz {
         $resultado = self::$db->query($query);
 
         return $resultado;
+    }
+
+    public function actualizar(){
+        $atributos = $this->sanitizarAtributos();
+        $valores = [];
+        foreach($atributos as $key => $value){
+            $valores[] = "{$key}='{$value}'";
+        }
+        $query = "UPDATE aprendiz SET ";
+        $query .= join(', ', $valores );
+        $query .= " WHERE id = '" . self::$db->escape_string ($this->id) . "' ";
+        $query .= " LIMIT 1 ";
+
+        $resultado = self::$db->query($query);
+        
+        if($resultado){
+            echo "Actualizado Correctamente";
+            header('Location: /admin?resultado=2');
+        }
+        
     }
 
     //IDENTIFICAR Y UNIR LOS ATRIBUTOS DE LA DB
@@ -146,5 +176,14 @@ class aprendiz {
             $objeto->$key = $value;
         }
         return $objeto;
+    }
+
+    //SINCRONIZAR EL OBJETO EN MEMORIA CON LOS CAMBIOS REALIZADOS POR EL USUARIO
+    public function sincronizar( $args = []){
+        foreach($args as $key => $value){
+            if(property_exists($this,$key) && !is_null($value)){
+                $this->$key = $value;
+            }
+        }
     }
 }

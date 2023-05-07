@@ -7,8 +7,8 @@
 
 
     $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
-    $resultado3 =$_GET ['resultado3'] ?? null; //envia el mensaje de actualizacion de usuario
-    $resultado4 =$_GET ['resultado4'] ?? null; //envia el mensaje de eliminacion de usuario
+    $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de actualizacion de usuario
+    $resultado4 = $_GET ['resultado4'] ?? null; //envia el mensaje de eliminacion de usuario
     
     //INCLUIR UN TEMPLATE
     incluirTemplate('headersin'); // funcion incluida en los templates hay que crear los teamples primero
@@ -29,7 +29,7 @@
             <?php if( intval ($resultado) === 1) : ?> <!--convertir el valor string a numerico-->
                 <p class="alerta exito"> Usuario Creado Correctamente </p>
 
-                <?php elseif( intval ($resultado3) === 2) : ?>
+                <?php elseif( intval ($resultado) === 2) : ?>
                 <p class="alerta exito-verde"> Usuario Actualizado Correctamente </p>
                 
                 <?php elseif( intval ($resultado4) === 4) : ?>

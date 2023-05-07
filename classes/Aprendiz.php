@@ -9,6 +9,9 @@ class aprendiz {
     //IDENTIFICO QUE FORMA VA TENER LA COLUMNA
     protected static $columnasDB = ['id', 'nombre', 'tipoId', 'identificacion', 'programa', 'email', 'password', 'telefono', 'creacionaprendiz'];
 
+    //ERRORES
+    protected static $errores = [];
+
     public $id;
     public $nombre;
     public $tipoId;
@@ -73,5 +76,34 @@ class aprendiz {
         return $sanitizado;
     }
 
+    //VALIDACION
+    public static function getErrores(){
+        return self::$errores;
+    }
 
+    public function validar(){
+        if (!$this->nombre){
+            self::$errores[] = "* Debes añadir un Nombre";
+        }
+        if (!$this->tipoId){
+            self::$errores[] = "* Elige un tipo de Identificacion";
+        }
+        if (!$this->identificacion){
+            self::$errores[] = "* Debes añadir un Numero de Identificacion";
+         }
+        if (!$this->programa){
+            self::$errores[] = "* Elige un Programa";
+        }
+        if (!$this->email){
+            self::$errores[] = "* Debes añadir un Correo";
+        }
+        if (!$this->password){
+            self::$errores[] = "* Debes añadir una Contraseña";
+        }
+        if (!$this->telefono){
+            self::$errores[] = "* Debes añadir un Telefono";
+        }
+
+        return self::$errores;
+    }
 }

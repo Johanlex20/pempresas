@@ -25,7 +25,8 @@
     $resultado1 = mysqli_query($db, $consulta1);
 
     //ARREGLO CON MENSAJES DE ERROR
-   $errores = [];
+   $errores = aprendiz::getErrores();
+
 
    $nombre = '';
    $tipoId = '';
@@ -39,56 +40,54 @@
     if($_SERVER['REQUEST_METHOD']==='POST'){
 
         $aprendiz = new aprendiz($_POST);
+        $errores = $aprendiz->validar();
+        
+       
 
-       $aprendiz->guardar();
-       debuguear($aprendiz);
 
-
-        $nombre = Mysqli_real_escape_string ( $db, $_POST ['nombre'] ); 
-        $tipoId = mysqli_real_escape_string ($db, $_POST['tipoId'] );
-        $identificacion = mysqli_real_escape_string ( $db, $_POST['identificacion'] );
-        $programa = mysqli_real_escape_string( $db,  $_POST['programa'] );
-        $email = mysqli_real_escape_string( $db, $_POST['email'] );
-        $password = mysqli_real_escape_string( $db, $_POST['password'] );
-        $telefono = mysqli_real_escape_string( $db, $_POST['telefono'] );
-        $creacionaprendiz = date('y/m/d');
+        // $nombre = Mysqli_real_escape_string ( $db, $_POST ['nombre'] ); 
+        // $tipoId = mysqli_real_escape_string ($db, $_POST['tipoId'] );
+        // $identificacion = mysqli_real_escape_string ( $db, $_POST['identificacion'] );
+        // $programa = mysqli_real_escape_string( $db,  $_POST['programa'] );
+        // $email = mysqli_real_escape_string( $db, $_POST['email'] );
+        // $password = mysqli_real_escape_string( $db, $_POST['password'] );
+        // $telefono = mysqli_real_escape_string( $db, $_POST['telefono'] );
+        // $creacionaprendiz = date('y/m/d');
 
         //ENCRIPTAR CONTRASEÑA IMPORTANTE CAMBIAR LA VARIABLE $PASSWORD A $PASSWORDHASH EN EL QUERY INSERT INTO
 
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT );
-        // var_dump( $passwordHash) ;
+        // $passwordHash = password_hash($password, PASSWORD_DEFAULT );
+        
 
         //VALIDACION CON ARREGLO
 
-        if (!$nombre){
-             $errores[] = "* Debes añadir un Nombre";
-        }
-        if (!$tipoId){
-            $errores[] = "* Elige un tipo de Identificacion";
-        }
-        if (!$identificacion){
-            $errores[] = "* Debes añadir un Numero de Identificacion";
-        }
-         if (!$programa){
-            $errores[] = "* Elige un Programa";
-         }
-        if (!$email){
-            $errores[] = "* Debes añadir un Correo";
-        }
-        if (!$password){
-            $errores[] = "* Debes añadir una Contraseña";
-        }
-        if (!$telefono){
-            $errores[] = "* Debes añadir un Telefono";
-        }
+        // if (!$nombre){
+        //      $errores[] = "* Debes añadir un Nombre";
+        // }
+        // if (!$tipoId){
+        //     $errores[] = "* Elige un tipo de Identificacion";
+        // }
+        // if (!$identificacion){
+        //     $errores[] = "* Debes añadir un Numero de Identificacion";
+        // }
+        //  if (!$programa){
+        //     $errores[] = "* Elige un Programa";
+        //  }
+        // if (!$email){
+        //     $errores[] = "* Debes añadir un Correo";
+        // }
+        // if (!$password){
+        //     $errores[] = "* Debes añadir una Contraseña";
+        // }
+        // if (!$telefono){
+        //     $errores[] = "* Debes añadir un Telefono";
+        // }
 
-        // echo "<pre>";
-        // var_dump($errores);
-        // echo "</pre>";
-    
-       
+        
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
+            $aprendiz->guardar();
+            
             //INSERTAR EN LA BASE DE DATOS
             //INSERT INTO
 

@@ -15,6 +15,7 @@
         //IMPLEMENTAR METODO PARA OBTENER TODOS LOS APRENDICES UTILIZANDO ACTIVE RECORD
         $aprendiz = aprendiz::all();
         
+        
 
         // ESCRIBIR EL QUERY
 
@@ -72,28 +73,28 @@
             </thead>
 
             <tbody>  <!-- MOSTRAR LOS RESULTADOS -->
-                <?php while ( $aprendiz = mysqli_fetch_assoc($resultadoConsulta)):?>
+                <?php foreach( $aprendiz as $aprendi ):?>
                 <tr>
-                    <td> <?php echo $aprendiz ['id']; ?> </td>
-                    <td> <?php echo $aprendiz ['nombre']; ?> </td>
-                    <td> <?php echo $aprendiz ['identificacion']; ?></td>
-                    <td> <?php echo $aprendiz ['email']; ?> </td>
-                    <td> <?php echo $aprendiz ['telefono']; ?> </td>
+                    <td> <?php echo $aprendi-> id; ?> </td>
+                    <td> <?php echo $aprendi-> nombre; ?> </td>
+                    <td> <?php echo $aprendi-> identificacion; ?></td>
+                    <td> <?php echo $aprendi-> email; ?> </td>
+                    <td> <?php echo $aprendi-> telefono; ?> </td>
                     <td>
 
                     <form method="POST" class="w-100" action="/admin/propiedades/consultar.php">
 
-                        <input type="hidden" name="id" value="<?php echo $aprendiz ['id']; ?>">
+                        <input type="hidden" name="id" value="<?php echo $aprendi->id; ?>">
                         <!-- funcion para esconder el mensaje de eliminacion a usuarios -->
 
                        <input type="submit" class="boton-rojo-block" value="Eliminar">
                        <!-- funcion para eliminacion usuarios -->
                     </form>
 
-                       <a href="/admin/propiedades/actualizar.php?id=<?php echo $aprendiz ['id']; ?>" class="boton-green-block" >Actualizar</a>
+                       <a href="/admin/propiedades/actualizar.php?id=<?php echo $aprendi->id; ?>" class="boton-green-block" >Actualizar</a>
                     </td>
                 </tr>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
 

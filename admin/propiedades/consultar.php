@@ -22,15 +22,25 @@
         //MOSTRANDO MENSAJE CONDICIONAL
         $resultado =$_GET['resultado'] ??null;
 
-
         if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
             $id = $_POST ['id'];
             $id = filter_var ($id, FILTER_VALIDATE_INT);
 
             if($id){
 
-                $aprendiz = aprendiz::find($id);
-                $aprendiz->eliminar();
+                $tipo= $_POST['tipo'];
+                if(validarTipoContenido($tipo)){
+                    //COMPARAR LO QUE SE VA ELIMINAR
+                    if($tipo === 'tipoidentificacion'){
+                        $tipoidentificacion = Tipoidentificacion::find($id);
+                        $tipoidentificacion->eliminar();
+                    }else if($tipo === 'aprendiz'){
+                        $aprendiz = aprendiz::find($id);
+                        $aprendiz->eliminar();
+                    }
+                }
+
+               
             }
         }
 
@@ -66,14 +76,45 @@
                     <td>
 
                     <form method="POST" class="w-100" action="/admin/propiedades/consultar.php">
-
                         <input type="hidden" name="id" value="<?php echo $aprendi->id; ?>">
                         <!-- funcion para esconder el mensaje de eliminacion a usuarios -->
-
-                       <input type="submit" class="boton-rojo-block" value="Eliminar">
+                        <input type="hidden" name="tipo" value="aprendiz">    
+                        <input type="submit" class="boton-rojo-block" value="Eliminar">
                        <!-- funcion para eliminacion usuarios -->
                     </form>
+                       <a href="/admin/propiedades/actualizar.php?id=<?php echo $aprendi->id; ?>" class="boton-green-block" >Actualizar</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 
+
+        <h1 class="admi-text-home">Consultar Tipos Identificaicon</h1>
+
+        
+        <table class="aprendiz">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>tipo identificacion</th>
+                    <th>acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>  <!-- MOSTRAR LOS RESULTADOS -->
+                <?php foreach( $tipoidentificacion as $tipot ):?>
+                <tr>
+                    <td> <?php echo $tipot-> id; ?> </td>
+                    <td> <?php echo $tipot-> tipoId; ?> </td>
+                    <td>  
+                        <form method="POST" class="w-100" action="/admin/propiedades/consultar.php">
+                            <input type="hidden" name="id" value="<?php echo $tipot->id; ?>">
+                                 <!-- funcion para esconder el mensaje de eliminacion a usuarios -->
+                            <input type="hidden" name="tipo" value="tipoidentificacion"> 
+                            <input type="submit" class="boton-rojo-block" value="Eliminar">
+                                 <!-- funcion para eliminacion usuarios -->
+                        </form>
                        <a href="/admin/propiedades/actualizar.php?id=<?php echo $aprendi->id; ?>" class="boton-green-block" >Actualizar</a>
                     </td>
                 </tr>
@@ -87,6 +128,28 @@
         </a>
 
     </main> 
+
+    <section>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1>
+        <h1> h</h1><h1> h</h1>
+        <h1> h</h1>
+        
+    </section>
 
 <?php
     incluirTemplate('footer');  //funcion incluida en lso templates deja ver el footer

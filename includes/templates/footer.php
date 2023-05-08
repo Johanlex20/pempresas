@@ -5,7 +5,6 @@
             <nav class="navegacion-footer">
 
          <p class="copyright">Todos los derechos Reservados <?php echo date('Y'); ?> &copy;</p>  <!--atualizar fecha automaticamente con el servidor -->
-        
 </footer>
     
 

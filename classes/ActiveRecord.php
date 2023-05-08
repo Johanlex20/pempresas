@@ -14,8 +14,6 @@ class ActiveRecord {
     //ERRORES
     protected static $errores = [];
 
- 
-
     //DEFINIR LA CONEXION A LA BD
     public static function setDB($database){
         self::$db = $database;

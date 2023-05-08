@@ -7,9 +7,9 @@ require __DIR__ . '/../vendor/autoload.php';//carga automatica de archivos funci
 //CONEXION A LA BASE DE DATOS
 $db = conectarDB();
 
-use App\aprendiz;
+use App\ActiveRecord;
 
-aprendiz::setDB($db);
+ActiveRecord::setDB($db);
 
 
 

@@ -1,19 +1,11 @@
-
-
 <?php
-    require '../../includes/app.php'; //ruta especifica para llamar funciones se guardan todas hay
-    // estaAutenticado(); // funcion de autenticacion en includes
-    //CREACION DE OBJETO APRENDIZ POO
+    require '../../includes/app.php'; 
     use App\aprendiz;
+    use App\Tipoidentificacion;
     $aprendiz = new aprendiz;
 
-     
-
-    //CONSULTAR PARA OBTENER LOS PROGRAMAS ||  TIPO IDENTIFICACION
-    $consulta = "SELECT * FROM programa";
-    $consulta1 = "SELECT * FROM tipoidentificacion";
-    $resultado = mysqli_query($db, $consulta);
-    $resultado1 = mysqli_query($db, $consulta1);
+    //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
+    $tipoidentificacion = Tipoidentificacion::all();
 
     //ARREGLO CON MENSAJES DE ERROR
    $errores = aprendiz::getErrores();
@@ -21,22 +13,13 @@
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-
         $aprendiz = new aprendiz($_POST['aprendiz']);
         $errores = $aprendiz->validar();
-        
+
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  
             //GUARDAR EN LA BD
-            $resultado = $aprendiz->crear();
-
-            //MENSAJE DE EXITO O DE ERROR
-            if($resultado){
-                echo "Insertado Correctamente";
-                //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
-
-                header('Location: /login.php?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
-            } 
+        $aprendiz->guardar();
         }
 
     }
@@ -71,8 +54,6 @@
                                 <span class="texto-fondo">Perfil</span>
                             </a>
                         <?php endif; ?>  
-
-            
         </div>
     </main>
 

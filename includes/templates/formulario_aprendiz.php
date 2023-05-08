@@ -8,16 +8,22 @@
                             </div>
                             <div class="input-box">
                                 <select type="text" 
-                                id="tipoId" 
+                                id="idtipoId" 
                                 name="aprendiz[tipoId]" 
                                 value="<?php echo s ( $aprendiz->tipoId ); ?>"  
                                 class="input-control">
                                      <option value="">*Seleccione identificación</option>
-                                     <?php while ($tipoidentificacion = mysqli_fetch_assoc($resultado1)) : ?>
-                                        <option <?php echo $tipoId === $tipoidentificacion ['idtipoId'] ? 'selected' : ''; ?>   value="<?php echo $tipoidentificacion ['idtipoId'] ?>"> <?php echo $tipoidentificacion ['tipoId'];?> </option>
-                                     <?php endwhile; ?>
+                                     <option selected value="">-- Seleccione --</option>
+                                     <?php foreach($tipoidentificacion as $tipo) { ?>
+                                    <option 
+                                    <?php echo $aprendiz->tipoId === $tipo->idtipoId ? 'selected' : '' ; ?>
+                                    value="<?php echo s($tipo->idtipoId); ?>" ><?php echo s($tipo->tipoId) ; ?> </option>
+                                <?php } ?>  
                                 </select>
                             </div>
+
+                 
+
                             <div class="input-box">
                                 <input type="number" 
                                 id="identificacion" 
@@ -26,18 +32,9 @@
                                 value="<?php echo s ( $aprendiz->identificacion );?>" 
                                 class="input-control">
                             </div>
-                            <div class="input-box">
-                                <select type="text" 
-                                id="programa" 
-                                name="aprendiz[programa]" 
-                                value="<?php echo s ( $aprendiz->programa );?>" 
-                                class="input-control">
-                                        <option value="">Seleccione Programa</option>
-                                        <?php while ($tipoPrograma = mysqli_fetch_assoc($resultado)) :?>
-                                           <option <?php echo $programa === $tipoPrograma ['idprograma'] ? 'selected' : ''; ?> value="<?php echo $tipoPrograma ['idprograma'] ?>"> <?php echo $tipoPrograma ['tipoPrograma'] ;?> </option>
-                                        <?php endwhile;?> 
-                                </select>
-                            </div>
+
+                        
+
                             <div class="input-box">
                                 <input 
                                 type="email" 
@@ -63,3 +60,5 @@
                                 value="<?php echo s ( $aprendiz->telefono );?>"  
                                 class="input-control">
                             </div>
+
+                          

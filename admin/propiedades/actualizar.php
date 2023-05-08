@@ -1,6 +1,7 @@
 <?php
 
 use App\aprendiz;
+use App\Tipoidentificacion;
 
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
@@ -16,17 +17,11 @@ use App\aprendiz;
     //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
     $aprendiz = aprendiz::find ($id);
 
-    // $consulta2 ="SELECT * FROM aprendiz WHERE id = $id";
-    // $resultado2 = mysqli_query($db, $consulta2);
-    // $usuario = mysqli_fetch_assoc($resultado2);
-    //CONSULTAR PARA OBTENER LOS PROGRAMAS ||  TIPO IDENTIFICACION
-    $consulta = "SELECT * FROM programa";
-    $consulta1 = "SELECT * FROM tipoidentificacion";
-    $resultado = mysqli_query($db, $consulta);
-    $resultado1 = mysqli_query($db, $consulta1);
+    //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
+    $tipoidentificacion = Tipoidentificacion::all();
 
     //ARREGLO CON MENSAJES DE ERROR
-   $errores = aprendiz::getErrores();
+    $errores = aprendiz::getErrores();
 
  
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO

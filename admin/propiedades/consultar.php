@@ -11,11 +11,14 @@
         estaAutenticado(); // funcion de autenticacion en includes 
 
         use App\aprendiz;
+        use App\Tipoidentificacion;
+
+        
 
         //IMPLEMENTAR METODO PARA OBTENER TODOS LOS APRENDICES UTILIZANDO ACTIVE RECORD
         $aprendiz = aprendiz::all();
-        
-        
+        $tipoidentificacion = Tipoidentificacion::all();
+
         //MOSTRANDO MENSAJE CONDICIONAL
         $resultado =$_GET['resultado'] ??null;
 

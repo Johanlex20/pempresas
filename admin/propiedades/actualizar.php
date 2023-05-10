@@ -2,7 +2,9 @@
 
 use App\aprendiz;
 use App\Tipoidentificacion;
-use APP\Programa;
+use App\programa;
+
+
 
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
@@ -17,9 +19,12 @@ use APP\Programa;
 
     //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
     $aprendiz = aprendiz::find ($id);
+    
 
     //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
     $tipoidentificacion = Tipoidentificacion::all();
+    $tipoPrograma = programa::all(); //PENDIENTE VERIFICAR FUNCION YA QUE NO LA LEE ENE LEFORMULARIO 
+    
     
 
     //ARREGLO CON MENSAJES DE ERROR

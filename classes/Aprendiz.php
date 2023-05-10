@@ -2,7 +2,6 @@
 namespace App;
 
 class aprendiz extends ActiveRecord{
-
     protected static $tabla = 'aprendiz';
     protected static $columnasDB = ['id', 'nombre', 'tipoId', 'identificacion', 'tipoPrograma', 'email', 'password', 'telefono', 'creacionaprendiz'];
 

@@ -1,7 +1,7 @@
 <?php
-namespace APP;
+namespace App;
 
-class Programa extends ActiveRecord{
+class programa extends ActiveRecord{
     protected static $tabla = 'programa';
     protected static $columnasDB = ['id', 'tipoPrograma', 'moda_prog', 'tipo_form_prog'];
 

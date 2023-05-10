@@ -20,7 +20,6 @@
     <!--<link rel="stylesheet" href="/pempresas/build/css/app.css">     "/pempresas/build/css/app.css">  localhost trabaja el otro trabaja con local3000-->
 </head>
 <body>
-   
     <header> 
         <section>
             <div class="burbujas">

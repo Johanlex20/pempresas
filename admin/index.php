@@ -43,11 +43,7 @@
             </a>     este boton lo envia directamente al archivo actualizar de propiedades carpeta admin -->
         </div>
     </div>
-
     </main>
-    
-         
-
 <?php
     incluirTemplate('footer');  //funcion incluida en lso templates deja ver el footer
 ?>

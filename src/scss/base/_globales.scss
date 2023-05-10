@@ -7,6 +7,54 @@
     box-sizing: border-box;
 }
 
+html{
+    overflow: scroll; //habilita el scroll en la pagina web
+    ::-webkit-scrollbar {display: none;} //oculta o pone transparante la barra de scroll en la pagin web
+}
+
+.contenedor .seccion{
+    display:block;
+    justify-content: center;
+    width: 90%;
+    background-color:transparent;
+    backdrop-filter: v.$blur;
+    border-radius: 15px;
+    margin:auto;
+    margin-bottom: 5px;
+    
+}
+
+#tablaAprendiz{
+    width:auto;
+    background-color:transparent;
+    border: 10px solid v.$border-color;
+    border-radius: 15px;
+    th{
+        border: 2px solid v.$border-color;
+        padding: 5;
+    }
+    
+}
+#tablaIdentificacion{
+    width:auto;
+    background-color:transparent;
+    border: 10px solid v.$border-color;
+    th{
+        border: 2px solid v.$border-color;
+        padding: 5;
+    }
+}
+#tablaH{
+    width:auto;
+    background-color:transparent;
+    border: 10px solid v.$border-color;
+    th{
+        border: 2px solid v.$border-color;
+        padding: 5;
+    }
+}
+
+
 
 /*Contenedor formulario medidas*/
 

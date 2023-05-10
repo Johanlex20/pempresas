@@ -12,12 +12,14 @@
 
         use App\aprendiz;
         use App\Tipoidentificacion;
+        use App\Programa;
 
         
 
         //IMPLEMENTAR METODO PARA OBTENER TODOS LOS APRENDICES UTILIZANDO ACTIVE RECORD
         $aprendiz = aprendiz::all();
         $tipoidentificacion = Tipoidentificacion::all();
+        $tipoprogramas = Programa::all();
 
         //MOSTRANDO MENSAJE CONDICIONAL
         $resultado =$_GET['resultado'] ??null;
@@ -128,6 +130,7 @@
                 <section id= "tablaH" class="seccion">
                     <h1> h</h1>
                     <h1> h</h1>
+
                 </section>
             </div>
         </div>

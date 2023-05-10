@@ -6,23 +6,21 @@
                                 value="<?php echo s ( $aprendiz->nombre ); ?>" 
                                 class="input-control">
                             </div>
+                            
                             <div class="input-box">
                                 <select type="text" 
-                                id="idtipoId" 
+                                id="tipoId" 
                                 name="aprendiz[tipoId]" 
                                 value="<?php echo s ( $aprendiz->tipoId ); ?>"  
                                 class="input-control">
-                                     <option value="">*Seleccione identificación</option>
-                                     <option selected value="">-- Seleccione --</option>
+                                     <option selected value="">-- *Seleccione Identificación --</option>
                                      <?php foreach($tipoidentificacion as $tipo) { ?>
                                     <option 
-                                    <?php echo $aprendiz->tipoId === $tipo->idtipoId ? 'selected' : '' ; ?>
-                                    value="<?php echo s($tipo->idtipoId); ?>" ><?php echo s($tipo->tipoId) ; ?> </option>
+                                    <?php echo $aprendiz->tipoId === $tipo->id ? 'selected' : '' ; ?>
+                                    value="<?php echo s($tipo->id); ?>" ><?php echo s($tipo->tipoId) ; ?> </option>
                                 <?php } ?>  
                                 </select>
                             </div>
-
-                 
 
                             <div class="input-box">
                                 <input type="number" 
@@ -33,7 +31,20 @@
                                 class="input-control">
                             </div>
 
-                        
+                            <div class="input-box">
+                                <select type="text" 
+                                id="tipoPrograma" 
+                                name="aprendiz[tipoPrograma]" 
+                                value="<?php echo s ( $aprendiz->tipoPrograma ); ?>"  
+                                class="input-control">
+                                     <option selected value="">-- Seleccione Programa --</option>
+                                     <?php foreach($tipoprogramas as $pro) { ?>
+                                    <option 
+                                    <?php echo $aprendiz->tipoPrograma === $pro->id ? 'selected' : '' ; ?>
+                                    value="<?php echo s($pro->id); ?>" ><?php echo s($pro->tipoPrograma) ; ?> </option>
+                                <?php } ?>  
+                                </select>
+                            </div>
 
                             <div class="input-box">
                                 <input 

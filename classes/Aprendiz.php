@@ -1,18 +1,16 @@
 <?php
-
-
 namespace App;
 
 class aprendiz extends ActiveRecord{
 
     protected static $tabla = 'aprendiz';
-    protected static $columnasDB = ['id', 'nombre', 'tipoId', 'identificacion', 'programa', 'email', 'password', 'telefono', 'creacionaprendiz'];
+    protected static $columnasDB = ['id', 'nombre', 'tipoId', 'identificacion', 'tipoPrograma', 'email', 'password', 'telefono', 'creacionaprendiz'];
 
     public $id;
     public $nombre;
     public $tipoId;
     public $identificacion;
-    public $programa;
+    public $tipoPrograma;
     public $email;
     public $password;
     public $telefono;
@@ -24,7 +22,7 @@ class aprendiz extends ActiveRecord{
         $this->nombre = $args['nombre'] ?? ''; 
         $this->tipoId = $args['tipoId'] ?? ''; 
         $this->identificacion = $args['identificacion'] ?? ''; 
-        $this->programa = $args['programa'] ?? 1; 
+        $this->tipoPrograma = $args['tipoPrograma'] ?? ''; 
         $this->email = $args['email'] ?? ''; 
         $this->password = $args['password'] ?? ''; 
         $this->telefono = $args['telefono'] ?? ''; 
@@ -41,7 +39,7 @@ class aprendiz extends ActiveRecord{
         if (!$this->identificacion){
             self::$errores[] = "* Debes añadir un Numero de Identificacion";
          }
-        if (!$this->programa){
+        if (!$this->tipoPrograma){
             self::$errores[] = "* Elige un Programa";
         }
         if (!$this->email){

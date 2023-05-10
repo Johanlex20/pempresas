@@ -2,10 +2,12 @@
     require '../../includes/app.php'; 
     use App\aprendiz;
     use App\Tipoidentificacion;
+    use App\programa;
     $aprendiz = new aprendiz;
 
     //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
     $tipoidentificacion = Tipoidentificacion::all();
+    $tipoprogramas = programa::all();
 
     //ARREGLO CON MENSAJES DE ERROR
    $errores = aprendiz::getErrores();

@@ -87,8 +87,9 @@
                                     <input type="submit" class="boton-rojo-block" value="Eliminar">
                                 <!-- funcion para eliminacion usuarios -->
                                 </form>
-                                <a href="/admin/programas/actualizarprograma.php echo $aprendi->id; ?>" class="boton-green-block" >Actualizar</a>
+                                <a href="/admin/propiedades/actualizar.php?id=<?php echo $aprendi->id; ?>" class="boton-green-block" >Actualizar</a>
                                 </td>
+                                
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

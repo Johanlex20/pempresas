@@ -4,10 +4,11 @@
     estaAutenticado();
 
     $programa = new programa;
+
     
 
-  //ARREGLO CON MENSAJES DE ERROR
-  $errores = programa::getErrores();
+    //ARREGLO CON MENSAJES DE ERROR
+    $errores = programa::getErrores();
 
 
     //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION

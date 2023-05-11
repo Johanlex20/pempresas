@@ -6,7 +6,7 @@
     value="<?php echo s ( $tipoidentificacion->tipoId ); ?>" 
     class="input-control">
 </div>  
-                
+ 
                             
 
                           

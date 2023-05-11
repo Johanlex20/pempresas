@@ -1,7 +1,11 @@
 <?php
     require '../../includes/app.php'; 
     use App\Tipoidentificacion;
+    estaAutenticado();
+
     $tipoidentificacion = new tipoidentificacion;
+
+   
 
     //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
     // $tipoidentificacion = Tipoidentificacion::all();
@@ -39,7 +43,7 @@
                             </div>
                         <?php endforeach;?> 
 
-                        <form class="formulario-aprendiz" method ="POST">
+                        <form class="formulario-aprendiz" method ="POST" action="/admin/tipoidentificacion/crearidentificacion.php">
                             <?php include '../../includes/templates/formulario_identificacion.php' ?>
                             <button type="submit" class="boton">Crear Nueva Identificacion</button>
                         </form>

@@ -1,5 +1,5 @@
 <?php
-use App\programa;
+use App\Tipoidentificacion;
 
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
@@ -12,20 +12,24 @@ use App\programa;
         header('Location: /admin');
     }
 
-    //CONSULTA PARA OBTENER TODOS LOS TIPOS PROGRAMAS
-    $tipoProgramas = programa::all(); //PENDIENTE VERIFICAR FUNCION YA QUE NO LA LEE ENE LEFORMULARIO 
+    //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
+    $tipoidentificacion = Tipoidentificacion::find ($id);
+    
+    //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
+    $tipoidentificacion = Tipoidentificacion::all();
+  
     
     
 
     //ARREGLO CON MENSAJES DE ERROR
-    $errores = programa::getErrores();
+    $errores = Tipoidentificacion::getErrores();
 
  
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD']==='POST'){
 
         //ASIGNAR LOS ATRIBUTOS
-        $args = $_POST['tipoPrograma'];
+        $args = $_POST['tipoidentificacion'];
 
         $aprendiz->sincronizar($args);
         
@@ -46,7 +50,7 @@ use App\programa;
         <div class="contenerdor_formulario">
             <div class="formulario">
                     <div class="cuadro">
-                        <h3>Actualizar Programa</h3>
+                        <h3>Actualizar Tipo Identificacion</h3>
 
                        <!-- mensaje de validacion complete los datos -->
                         <?php foreach($errores as $error): ?>  
@@ -56,8 +60,8 @@ use App\programa;
                         <?php endforeach;?> 
 
                          <form class="formulario-aprendiz" method ="POST"> 
-                            <?php include '../../includes/templates/formulario_programas.php'; ?>
-                            <button type="submit" class="boton">Actualizar Programa</button>
+                            <?php include '../../includes/templates/formulario_identificacion.php'; ?>
+                            <button type="submit" class="boton">Actualizar Tipo Identificacion</button>
                         </form>
                         <div class="clic-boton">
                             <p>Ya tienes una cuenta <a href="/login.php" class="gradient-text">Iniciar Sesion</a></p>

@@ -6,5 +6,10 @@
         <a href="/admin">PERFIL</a>
         <a href="/admin/propiedades/crear.php">CREAR USUARIO</a>
         <a href="/admin/propiedades/consultar.php">CONSULTAR USUARIO</a>
+        <a href="/admin/programas/crearprograma.php">CREAR PROGRAMA</a>
+        <a href="/admin/programas/consultarprograma.php">CONSULTAR PROGRAMA</a>
+        <a href="/admin/tipoidentificacion/crearidentificacion.php">CREAR TIPO IDENTIFICACION</a>
+        <a href="/admin/tipoidentificacion/consultaridentificacion.php">CONSULTAR TIPO IDENTIFICACION</a>
+        
     </nav>
 </aside>

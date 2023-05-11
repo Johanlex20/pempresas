@@ -1,9 +1,8 @@
 <?php
-use App\Tipoidentificacion;
-
+    use App\Tipoidentificacion;
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
-
+    
     //Validar la URL por ID válido
     $id=$_GET['id'];
     $id= filter_Var($id, FILTER_VALIDATE_INT);
@@ -14,13 +13,10 @@ use App\Tipoidentificacion;
 
     //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
     $tipoidentificacion = Tipoidentificacion::find ($id);
-    
-    //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
-    $tipoidentificacion = Tipoidentificacion::all();
   
-    
-    
-
+    //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
+    // $tipoidentificacion = Tipoidentificacion::all();
+ 
     //ARREGLO CON MENSAJES DE ERROR
     $errores = Tipoidentificacion::getErrores();
 
@@ -31,14 +27,14 @@ use App\Tipoidentificacion;
         //ASIGNAR LOS ATRIBUTOS
         $args = $_POST['tipoidentificacion'];
 
-        $aprendiz->sincronizar($args);
+        $tipoidentificacion->sincronizar($args);
         
         //VALIDACION
-        $errores = $aprendiz->validar();
+        $errores = $tipoidentificacion->validar();
 
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
-            $aprendiz->guardar();      
+            $tipoidentificacion->guardar();      
         }
 
     }

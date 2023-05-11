@@ -1,6 +1,5 @@
 <?php
-use App\programa;
-
+    use App\programa;
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
 
@@ -12,11 +11,12 @@ use App\programa;
         header('Location: /admin');
     }
 
+    // OBTENER EL ARREGLO DEL LOS PROGRAMAS
+    $programa = programa::find($id);
+   
     //CONSULTA PARA OBTENER TODOS LOS TIPOS PROGRAMAS
-    $tipoProgramas = programa::all(); //PENDIENTE VERIFICAR FUNCION YA QUE NO LA LEE ENE LEFORMULARIO 
+    // $tipoProgramas = programa::all(); //PENDIENTE VERIFICAR FUNCION YA QUE NO LA LEE ENE LEFORMULARIO 
     
-    
-
     //ARREGLO CON MENSAJES DE ERROR
     $errores = programa::getErrores();
 
@@ -25,16 +25,16 @@ use App\programa;
     if($_SERVER['REQUEST_METHOD']==='POST'){
 
         //ASIGNAR LOS ATRIBUTOS
-        $args = $_POST['tipoPrograma'];
+        $args = $_POST['programa'];
 
-        $aprendiz->sincronizar($args);
+        $programa->sincronizar($args);
         
         //VALIDACION
-        $errores = $aprendiz->validar();
+        $errores = $programa->validar();
 
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
-            $aprendiz->guardar();      
+            $programa->guardar();      
         }
 
     }

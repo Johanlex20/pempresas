@@ -23,7 +23,7 @@ use App\programa;
 
     //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
     $tipoidentificacion = Tipoidentificacion::all();
-    $tipoPrograma = programa::all(); //PENDIENTE VERIFICAR FUNCION YA QUE NO LA LEE ENE LEFORMULARIO 
+    $tipoprogramas = programa::all(); //PENDIENTE VERIFICAR FUNCION YA QUE NO LA LEE ENE LEFORMULARIO 
     
     
 

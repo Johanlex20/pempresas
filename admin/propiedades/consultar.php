@@ -25,6 +25,7 @@
         $resultado =$_GET['resultado'] ??null;
 
         if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
+            
             $id = $_POST ['id'];
             $id = filter_var ($id, FILTER_VALIDATE_INT);
 
@@ -39,10 +40,11 @@
                     }else if($tipo === 'aprendiz'){
                         $aprendiz = aprendiz::find($id);
                         $aprendiz->eliminar();
+                    }else if($tipo === 'tipoprograma'){
+                        $tipoprogramas = Programa::find($id);
+                        $tipoprogramas->eliminar();
                     }
-                }
-
-               
+                }  
             }
         }
 
@@ -126,13 +128,38 @@
                         </table>                          
                 </section>
             </div>
-            <div class="contabh"> 
-                <section id= "tablaH" class="seccion">
-                    <h1> h</h1>
-                    <h1> h</h1>
+            <div class="contabprog"> 
+                <section id= "tablaPrograma" class="seccion"> 
+                    <h1 class="admi-text-home">Consultar Tipos De Programas</h1>
+                        <table class="aprendiz">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>tipo Programa</th>
+                                    <th>acciones</th>
+                                </tr>
+                            </thead>
 
+                            <tbody>  <!-- MOSTRAR LOS RESULTADOS -->
+                                <?php foreach( $tipoprogramas  as $tipop ):?>
+                                <tr>
+                                    <td> <?php echo $tipop-> id; ?> </td>
+                                    <td> <?php echo $tipop-> tipoPrograma; ?> </td>
+                                    <td>  
+                                        <form method="POST" class="w-100" action="/admin/propiedades/consultar.php">
+                                            <input type="hidden" name="id" value="<?php echo $tipop->id; ?>">
+                                                <!-- funcion para esconder el mensaje de eliminacion a usuarios -->
+                                            <input type="hidden" name="tipo" value="tipoprograma"> 
+                                            <input type="submit" class="boton-rojo-block" value="Eliminar">
+                                                <!-- funcion para eliminacion usuarios -->
+                                        </form>
+                                    <a href="/admin/propiedades/actualizar.php?id=<?php echo $aprendi->id; ?>" class="boton-green-block" >Actualizar</a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>                          
                 </section>
-            </div>
         </div>
         <!-- boton Volver -->
         <a href="/admin" class="boton-volver"> 

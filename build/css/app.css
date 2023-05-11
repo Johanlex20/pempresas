@@ -353,12 +353,12 @@ html ::-webkit-scrollbar {
   padding: 5;
 }
 
-#tablaH {
+#tablaPrograma {
   width: auto;
   background-color: transparent;
   border: 10px solid hsla(0, 0%, 100%, 0.25);
 }
-#tablaH th {
+#tablaPrograma th {
   border: 2px solid hsla(0, 0%, 100%, 0.25);
   padding: 5;
 }

@@ -31,7 +31,7 @@ function s ($html) : string {
 
 //VALIDAR TIPO DE CONTENIDO
 function validarTipoContenido($tipo){
-    $tipos = ['tipoidentificacion','aprendiz'];
+    $tipos = ['tipoidentificacion', 'aprendiz', 'tipoprograma'];
 
     return in_array($tipo, $tipos);
 }

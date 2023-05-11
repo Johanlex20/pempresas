@@ -2,28 +2,25 @@
     require '../../includes/app.php'; 
     use App\Tipoidentificacion;
     estaAutenticado();
+    
 
     $tipoidentificacion = new tipoidentificacion;
-
-   
-
-    //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
-    // $tipoidentificacion = Tipoidentificacion::all();
-    // $tipoprogramas = programa::all();
 
     //ARREGLO CON MENSAJES DE ERROR
    $errores = tipoidentificacion::getErrores();
 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        
 
-        $aprendiz = new tipoidentificacion($_POST['tipoidentificacion']);
-        $errores = $aprendiz->validar();
+        $tipoidentificacion  = new tipoidentificacion($_POST['tipoidentificacion']);
+
+        $errores = $tipoidentificacion->validar();
 
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  
             //GUARDAR EN LA BD
-        $aprendiz->guardar();
+        $tipoidentificacion->guardar();
         }
 
     }

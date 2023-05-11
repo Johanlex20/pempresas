@@ -2,7 +2,7 @@
     require '../../includes/app.php'; 
     use App\programa;
     estaAutenticado();
-
+    //CREAR UNA NUEVA INSTANCIA VACIA
     $programa = new programa;
 
     
@@ -20,14 +20,17 @@
 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        
 
-        $aprendiz = new programa($_POST['aprendiz']);
-        $errores = $aprendiz->validar();
+        //CREAR UNA NUEVA ISNTANCIA
+        $programa = new programa($_POST['programa']);
+
+        $errores = $programa->validar();
 
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  
             //GUARDAR EN LA BD
-        $aprendiz->guardar();
+        $programa->guardar();
         }
 
     }

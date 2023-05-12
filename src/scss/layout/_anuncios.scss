@@ -1,0 +1,92 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.contenedor_cajas_ofe{
+    margin: 10px 10px;
+    h2{
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+.iconos-caja{
+    display: flex;
+}
+
+.cajas_ofe .caja_ofe .iconos-caja img{
+    width: 50px;
+    height: auto;
+}
+
+/*alineacion horizontal cajas*/
+
+.cajas_ofe{
+    display:flex;
+    justify-content:space-evenly;
+}
+
+/*.cajas .caja{
+     
+    medidas sin rango de las cajas
+    background: var(--green);
+    width: 46%;
+    height: 200px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px; 
+    box-shadow: 0 0 6px rgba(0, 0, 0, .6);  sombra alrededor de la caja
+}*/
+
+/*medidas y alineacion imagen interna de las cajas*/
+.cajas_ofe .caja_ofe img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 6px solid v.$lead;
+    border-radius : 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+/*tamaño cajas centro eleccion*/
+.cajas_ofe .caja_ofe{
+    height: 50%;
+    width: 35%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 10px solid v.$border-color;
+    color: v.$tex-white;
+    font-size: 16px;
+}
+
+.cajas_ofe .caja_ofe  p {
+    font-weight: 100;
+    padding-top: 10px;
+}
+.cajas_ofe .caja_ofe h4{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.cajas_ofe .caja_ofe p{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.cajas_ofe .caja_ofe .clic-boton{
+    padding-top: 30px;
+    text-align: center;
+}
+/*MARCO CAJAS*/
+.cajas_ofe .caja_ofe{
+    margin-top: 70px;
+    border-color: v.$crema;
+    border: 10px solid v.$border-color;
+    padding: 40px 50px;
+    border-radius: 20px;
+    backdrop-filter: v.$blur;
+    
+}

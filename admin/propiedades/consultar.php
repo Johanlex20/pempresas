@@ -1,20 +1,12 @@
-<?php  
-//     //VERIFICA SI LA SESSION ESTA INICIADA SI NO PUES ENVIA A VALIDACION
-//     if(!isset($_SESSION)){
-//         session_start();
-//     }
-//     $auth = $_SESSION['login'] ?? false;
-// ?>
 
 <?php
         require '../../includes/app.php';//POO busca el archivo y lo enlaza 
         estaAutenticado(); // funcion de autenticacion en includes 
 
+        //IMPORTAR CLASES
         use App\aprendiz;
         use App\Tipoidentificacion;
         use App\Programa;
-
-        
 
         //IMPLEMENTAR METODO PARA OBTENER TODOS LOS APRENDICES UTILIZANDO ACTIVE RECORD
         $aprendiz = aprendiz::all();
@@ -25,7 +17,7 @@
         $resultado =$_GET['resultado'] ??null;
 
         if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
-            
+            //VALIDAR ID
             $id = $_POST ['id'];
             $id = filter_var ($id, FILTER_VALIDATE_INT);
 

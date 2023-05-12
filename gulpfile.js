@@ -1,6 +1,13 @@
+
+//CSS
 const {src, dest, watch, parallel} = require('gulp'); // identificar, guardar, ver
 const  sass = require('gulp-sass')(require('sass')); 
 const plumber = require('gulp-plumber'); //dependencia que evita el programa se pare por un error
+//IMAGENES
+const cache = require ('gulp-cache');
+const imagemin = require ('gulp-imagemin');
+const webp = require ('gulp-webp');
+
 
 function css(done){
 
@@ -12,6 +19,28 @@ function css(done){
 
     done();//callback avisa a gulp cuando la funcion finaliza 
 }
+
+function imagenes (done){
+    const opciones = {
+        optimizationLevel:3
+    }
+    src('src/img/**/*.{png,jpg}')
+        .pipe( cache( imagemin(opciones) ) )
+        .pipe( dest('build/img'))
+    done();
+}
+
+function versionWebp(done){
+    const opciones = {
+        quality: 50
+    };
+
+    src('src/img/**/*.{png,jpg}')
+        .pipe( webp(opciones) )
+        .pipe( dest('build/img'))
+    done();
+}
+
 
 function javascript( done ){
     src('src/js/**/*.js')
@@ -28,5 +57,7 @@ function dev(done){ //funcion que guarda automaticamente los cambios en la hoja 
 
 
 exports.css = css;
+exports.imagenes = imagenes;
+exports.versionWebp = versionWebp;
 exports.js = javascript;
-exports.dev = parallel (javascript, dev);
+exports.dev = parallel (imagenes, versionWebp, javascript, dev);

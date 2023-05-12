@@ -3,8 +3,6 @@
     estaAutenticado(); // funcion de autenticacion en includes
 
     $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de creacion de usuario
-    $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de actualizacion de usuario
-    $resultado = $_GET ['resultado'] ?? null; //envia el mensaje de eliminacion de usuario
     
     //INCLUIR UN TEMPLATE
     incluirTemplate('headersin'); // funcion incluida en los templates hay que crear los teamples primero
@@ -28,19 +26,7 @@
                 <?php elseif( intval ($resultado) === 3) : ?>
                 <p class="alerta exito-rojo"> Eliminado Correctamente </p>
             
-            <?php endif?> 
-
-            <!-- <a href="/eleccion-registro-modificacion.php" class="boton-volver">
-                <span class="texto-fondo">Crear nuevo Usuario </span>
-            </a>     este boton lo envia directamente al archivo crear de propiedades carpeta admin -->
-
-            <!-- <a href="admin/propiedades/consultar.php" class="boton-volver">
-                <span class="texto-fondo">Consultar Usuario </span>
-            </a>      este boton lo envia directamente al archivo Consultar de propiedades carpeta admin -->
-
-            <!-- <a href="/admin/propiedades/actualizar.php" class="boton-volver">
-                <span class="texto-fondo">Actualizar Usuario </span>
-            </a>     este boton lo envia directamente al archivo actualizar de propiedades carpeta admin -->
+            <?php endif?>
         </div>
     </div>
     </main>

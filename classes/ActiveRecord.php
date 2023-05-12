@@ -123,6 +123,17 @@ class ActiveRecord {
         return $resultado;
     }
 
+    // OBTENER DETERMINADO NUMERO DE REGISTROS
+       //LISTA DE TODOS LOS APRENDICES
+       public static function get($cantidad){
+        $query = "SELECT * FROM " . static::$tabla . " LIMIT " . $cantidad;
+
+        debuguear($query);
+
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     //BUSCA UNA APRENDIZ POR SU ID
     public static function find($id){
         $query ="SELECT * FROM " . static::$tabla . " WHERE id = $id";

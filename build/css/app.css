@@ -1075,6 +1075,69 @@ body::after {
   background-color: hsla(0, 0%, 0%, 0.3);
 }
 
+@media screen and (max-width: 1900px) {
+  header {
+    padding: 0.5px;
+  }
+}
+/*responsive*/
+@media screen and (max-width: 768px) {
+  .logo img {
+    width: 120px;
+    display: flex;
+    align-items: center;
+  }
+  .menu nav {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background: hsl(0, 0%, 52%);
+    width: 250px;
+    height: 100vh;
+    padding: 40px;
+    z-index: 1;
+    transition: all 300ms;
+  }
+  .menu ul {
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .menu ul li {
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  .menu ul li a {
+    color: hsl(0, 0%, 100%);
+  }
+  .menu nav img {
+    display: block;
+    width: 80px;
+  }
+  #mini_menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(66, 134, 31, 0.637);
+    display: none;
+  }
+  .menu #boton_minimenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 300ms;
+  }
+  .menu #boton_minimenu:hover {
+    background: rgba(179, 102, 102, 0.2);
+  }
+}
 /*tonos de fondo BACKGROUND*/
 body {
   background-color: rgb(57, 169, 0);
@@ -1153,12 +1216,20 @@ header {
 }
 
 .iconos-caja {
-  display: flex;
+  padding-top: 10px;
+}
+.iconos-caja p {
+  padding: 0 10px;
+  text-align: center;
 }
 
 .cajas_ofe .caja_ofe .iconos-caja img {
   width: 50px;
+  border-radius: 50%;
   height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 /*alineacion horizontal cajas*/
@@ -1187,51 +1258,35 @@ header {
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -30px;
-  margin-bottom: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   display: block;
 }
 
 /*tamaño cajas centro eleccion*/
-.cajas_ofe .caja_ofe {
-  height: 50%;
-  width: 35%;
-  background-color: transparent;
-  border: none;
-  border-bottom: 10px solid hsla(0, 0%, 100%, 0.25);
-  color: hsl(0, 0%, 100%);
-  font-size: 16px;
-}
-
 .cajas_ofe .caja_ofe p {
   font-weight: 100;
-  padding-top: 10px;
-}
-
-.cajas_ofe .caja_ofe h4 {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-
-.cajas_ofe .caja_ofe p {
+  padding-top: 2px;
   text-align: center;
   padding-bottom: 10px;
 }
 
-.cajas_ofe .caja_ofe .clic-boton {
-  padding-top: 30px;
+.cajas_ofe .caja_ofe h3 {
+  font-weight: 100;
+  padding-top: 2px;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 /*MARCO CAJAS*/
 .cajas_ofe .caja_ofe {
-  margin-top: 70px;
+  margin-top: 10px;
   border-color: rgb(251, 251, 226);
   border: 10px solid hsla(0, 0%, 100%, 0.25);
-  padding: 40px 50px;
+  padding: 10px 10px;
   border-radius: 20px;
   backdrop-filter: blur(30px);
+  width: 22%;
 }
 
 .alerta {

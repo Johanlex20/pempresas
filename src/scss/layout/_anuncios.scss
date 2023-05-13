@@ -10,12 +10,24 @@
     
 }
 .iconos-caja{
-    display: flex;
+   
+    
+    
+    padding-top: 10px;
+    p{
+        padding: 0 10px;
+        text-align: center;  
+    }
 }
 
 .cajas_ofe .caja_ofe .iconos-caja img{
     width: 50px;
+    border-radius: 50%;
     height: auto;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    
 }
 
 /*alineacion horizontal cajas*/
@@ -23,6 +35,7 @@
 .cajas_ofe{
     display:flex;
     justify-content:space-evenly;
+    
 }
 
 /*.cajas .caja{
@@ -46,47 +59,46 @@
     border-radius : 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -30px;
-    margin-bottom: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     display: block;
 }
 
 
 /*tamaño cajas centro eleccion*/
-.cajas_ofe .caja_ofe{
-    height: 50%;
-    width: 35%;
-    background-color: transparent;
-    border: none;
-    border-bottom: 10px solid v.$border-color;
-    color: v.$tex-white;
-    font-size: 16px;
-}
+// .cajas_ofe .caja_ofe{
+//     height: 50%;
+//     width: 35%;
+//     background-color: transparent;
+//     border: none;
+//     border-bottom: 10px solid v.$border-color;
+//     color: v.$tex-white;
+//     font-size: 16px;
+//     margin: 0;
+// }
 
 .cajas_ofe .caja_ofe  p {
     font-weight: 100;
-    padding-top: 10px;
-}
-.cajas_ofe .caja_ofe h4{
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 30px;
-}
-.cajas_ofe .caja_ofe p{
+    padding-top: 2px;
     text-align: center;
     padding-bottom: 10px;
 }
-.cajas_ofe .caja_ofe .clic-boton{
-    padding-top: 30px;
+
+.cajas_ofe .caja_ofe  h3 {
+    font-weight: 100;
+    padding-top: 2px;
     text-align: center;
+    padding-bottom: 10px;
 }
+
 /*MARCO CAJAS*/
 .cajas_ofe .caja_ofe{
-    margin-top: 70px;
+    margin-top: 10px;
     border-color: v.$crema;
     border: 10px solid v.$border-color;
-    padding: 40px 50px;
+    padding: 10px 10px;
     border-radius: 20px;
     backdrop-filter: v.$blur;
+    width: 22%;
     
 }

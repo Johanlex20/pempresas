@@ -3,6 +3,7 @@
 
 .contenedor_cajas_ofe{
     margin: 10px 10px;
+    
     h2{
         display: flex;
         justify-content: center;
@@ -10,13 +11,12 @@
     
 }
 .iconos-caja{
-   
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
     
-    
-    padding-top: 10px;
     p{
-        padding: 0 10px;
-        text-align: center;  
+        padding: 0 1px;
     }
 }
 
@@ -25,30 +25,24 @@
     border-radius: 50%;
     height: auto;
     display: flex;
-    align-items: center;
-    justify-content:space-evenly;
+    border: 2px solid v.$lead;
+    padding: auto;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    
     
 }
 
 /*alineacion horizontal cajas*/
-
 .cajas_ofe{
     display:flex;
     justify-content:space-evenly;
+    margin:0;
     
 }
-
-/*.cajas .caja{
-     
-    medidas sin rango de las cajas
-    background: var(--green);
-    width: 46%;
-    height: 200px;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 30px; 
-    box-shadow: 0 0 6px rgba(0, 0, 0, .6);  sombra alrededor de la caja
-}*/
 
 /*medidas y alineacion imagen interna de las cajas*/
 .cajas_ofe .caja_ofe img{
@@ -61,34 +55,15 @@
     margin-right: auto;
     margin-top: 2px;
     margin-bottom: 2px;
-    display: block;
+    display: flex;
 }
 
-
-/*tamaño cajas centro eleccion*/
-// .cajas_ofe .caja_ofe{
-//     height: 50%;
-//     width: 35%;
-//     background-color: transparent;
-//     border: none;
-//     border-bottom: 10px solid v.$border-color;
-//     color: v.$tex-white;
-//     font-size: 16px;
-//     margin: 0;
-// }
-
-.cajas_ofe .caja_ofe  p {
+.cajas_ofe .caja_ofe p, h3 {
     font-weight: 100;
     padding-top: 2px;
     text-align: center;
     padding-bottom: 10px;
-}
-
-.cajas_ofe .caja_ofe  h3 {
-    font-weight: 100;
-    padding-top: 2px;
-    text-align: center;
-    padding-bottom: 10px;
+    margin: 0;
 }
 
 /*MARCO CAJAS*/
@@ -99,6 +74,32 @@
     padding: 10px 10px;
     border-radius: 20px;
     backdrop-filter: v.$blur;
+    box-shadow: 0 0 16px rgba(0, 0, 0, .6);  
+    // background-color:  rgba(0, 0, 0, 0.212);
     width: 22%;
+    justify-content:space-evenly;
     
+}
+
+.texto-fondo-anuncio{
+    background: linear-gradient(to right, v.$green, v.$lead);
+    color: v.$tex-white;
+    border-radius: 50%;
+    padding: 10px 5px;
+    text-align: center;
+    
+
+    height: 45px;
+    width: 40%;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 25px;
+    user-select: none;
+    border: none;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    margin-top: 10px;
 }

@@ -55,7 +55,7 @@
                         <?php  if ($auth): ?>
                             <li><a href="/admin/index.php">Perfil</a></li>
                         <?php endif; ?> 
-                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="/anuncios.php">Ofertas</a></li>
                         <li><a href="#">hoja de vida</a></li>
                         <li><a href="#">Contacto</a></li>
                         <li><a href="/eleccion-registro-modificacion.php">Registro</a></li>

@@ -33,7 +33,7 @@
                                     <p>311010000</p>
                                 </div>      
                             </div>
-                            <a href="/admin/propiedades/actualizar.php" class="boton-volver">
+                            <a href="/oferta.php" class="boton-volver">
                                 <span class="texto-fondo">Ver Oferta</span>
                             </a> 
                         </div>
@@ -95,9 +95,9 @@
                         </div>
                         <div class="caja_ofe">
                             <picture>
-                                <source srcset="build/img/anuncio4.webp" type="image/webp">
-                                <source srcset="build/img/anuncio4.jpg" type="image/jpeg">
-                                <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
+                                <source srcset="build/img/anuncio5.webp" type="image/webp">
+                                <source srcset="build/img/anuncio5.jpg" type="image/jpeg">
+                                <img loading="lazy" src="/build/img/anuncio5.webp" alt="anuncio">
                             </picture>
                             <h3>Soldadores procesos min y tic</h3>
                             <p>Solicita Soldadores conocimientos en materiales metalicos y aleaciones metalicas Canada</p>
@@ -129,18 +129,18 @@
                 <div class="cajas_ofe"> 
                         <div class="caja_ofe">
                             <picture>
-                                <source srcset="build/img/anuncio1.webp" type="image/webp">
-                                <source srcset="build/img/anuncio1.jpg" type="image/jpeg">
-                                <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
+                                <source srcset="build/img/anuncio12.webp" type="image/webp">
+                                <source srcset="build/img/anuncio12.jpg" type="image/jpeg">
+                                <img loading="lazy" src="build/img/anuncio12.jpg" alt="anuncio">
                             </picture>
-                            <h3>Programadores de Software</h3>
-                            <p>Solicita Programadores con conocimientos en HTML, CSS, python</p>
-                            <p class="precio">$4.000.000</p>  
+                            <h3>Alistamiento Laboratorio</h3>
+                            <p>Solicita Quimicos con conocimientos en muestreo, montaje, control de calidad</p>
+                            <p class="precio">$3.000.000</p>  
 
                             <div class="iconos-caja">
                                 <div>
                                     <img loading="lazy" src="/build/img/icono-empresa.webp" alt="icono-persona"> 
-                                    <p>postulacion: 10</p>    
+                                    <p>postulacion: 2</p>    
                                 </div>
                                 <div>
                                     <img loading="lazy" src="/build/img/icono-email.webp" alt="icono-email">
@@ -157,18 +157,18 @@
                         </div>
                         <div class="caja_ofe">
                             <picture>
-                                <source srcset="build/img/anuncio2.webp" type="image/webp">
-                                <source srcset="build/img/anuncio2.jpg" type="image/jpeg">
-                                <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
+                                <source srcset="build/img/anuncio8.webp" type="image/webp">
+                                <source srcset="build/img/anuncio8.jpg" type="image/jpeg">
+                                <img loading="lazy" src="build/img/anuncio8.jpg" alt="anuncio">
                             </picture>
-                            <h3>Programadores de Software</h3>
-                            <p>Solicita Programadores con conocimientos en Java, CSS, Springboot </p>
-                            <p class="precio">$5.000.000</p>  
+                            <h3>Diseñador Joyería</h3>
+                            <p>Solicita diseñadores con conocimientos en piezas artesanales metalicas  </p>
+                            <p class="precio">$2.000.000</p>  
 
                             <div class="iconos-caja">
                                 <div>
                                     <img loading="lazy" src="/build/img/icono-empresa.webp" alt="icono-persona"> 
-                                    <p>postulacion: 2</p>    
+                                    <p>postulacion: 20</p>    
                                 </div>
                                 <div>
                                     <img loading="lazy" src="/build/img/icono-email.webp" alt="icono-email">

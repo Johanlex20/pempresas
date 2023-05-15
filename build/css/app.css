@@ -423,6 +423,11 @@ html ::-webkit-scrollbar {
   opacity: 1;
 }
 
+.formulario-oferta fieldset {
+  border-color: rgb(251, 251, 226);
+  border: 5px solid hsla(0, 0%, 100%, 0.25);
+}
+
 .cuadro .input-control {
   display: block;
   height: 45px;

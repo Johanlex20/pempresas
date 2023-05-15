@@ -116,6 +116,14 @@ html{
     opacity: 1;
 } 
 
+
+// diseño formulario crear ofertas
+
+.formulario-oferta fieldset {
+    border-color: v.$crema;
+    border: 5px solid v.$border-color;
+}
+
 .cuadro .input-control {
     display: block;
     height: 45px;

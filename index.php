@@ -36,7 +36,7 @@
                                 <p>311010000</p>
                             </div>      
                         </div>
-                        <a href="/admin/propiedades/actualizar.php" class="boton-volver">
+                        <a href="/anuncios.php" class="boton-volver">
                             <span class="texto-fondo">Ver Oferta</span>
                         </a> 
                     </div>
@@ -64,7 +64,7 @@
                                 <p>300100100</p>
                             </div>      
                         </div>
-                        <a href="/admin/propiedades/actualizar.php" class="boton-volver">
+                        <a href="/anuncios.php" class="boton-volver">
                             <span class="texto-fondo">Ver Oferta</span>
                         </a> 
                     </div>
@@ -92,14 +92,14 @@
                                 <p>300100100</p>
                             </div>      
                         </div>
-                        <a href="/admin/propiedades/actualizar.php" class="boton-volver">
+                        <a href="/anuncios.php" class="boton-volver">
                             <span class="texto-fondo">Ver Oferta</span>
                         </a> 
                     </div>
                     <div class="caja_ofe">
                         <picture>
-                            <source srcset="build/img/anuncio4.webp" type="image/webp">
-                            <source srcset="build/img/anuncio4.jpg" type="image/jpeg">
+                            <source srcset="build/img/anuncio6.webp" type="image/webp">
+                            <source srcset="build/img/anuncio6.jpg" type="image/jpeg">
                             <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
                         </picture>
                         <h3>Soldadores procesos min y tic</h3>
@@ -120,7 +120,7 @@
                                 <!-- <p>300100100</p> -->
                             </div>      
                         </div>
-                        <a href="/admin/propiedades/actualizar.php" class="boton-volver">
+                        <a href="/anuncios.php" class="boton-volver">
                             <span class="texto-fondo">Ver Oferta</span>
                         </a> 
                     </div>

@@ -1,12 +1,17 @@
 @use 'base/variables' as v;
 
 /*burbujas*/
+// .burbujas{
+//     margin-bottom: 0;
+// }
+
 .burbuja{
+    
     border-radius: 50%;
     background:v.$tex-white;
     opacity: .3;
     z-index: -1;
-
+    
     position: absolute;
     bottom: -150;
     animation: burbujas 3s linear infinite;

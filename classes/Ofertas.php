@@ -3,13 +3,13 @@ namespace App;
 
 class ofertas extends ActiveRecord{
     protected static $tabla = 'ofertas';
-    protected static $columnasDB = ['id', 'titulo', 'razonsocial', 'tipoidentificacionemp','direccionemp', 'jornada', 'modatrabajo', 'sueldo', 'vacantes', 'descriempleo','respon','reque','fechapubliofe'];
+     protected static $columnasDB = ['id', 'titulo', 'tipoPrograma', 'imagen'
+     ,'jornada', 'modatrabajo', 'sueldo', 'vacantes', 'descriempleo','respon','reque','fechapubliofe'];
 
     public $id;
     public $titulo;
-    public $razonsocial;
-    public $tipoidentificacionemp;
-    public $direccionemp;
+    public $tipoPrograma;
+    public $imagen;
     public $jornada;
     public $modatrabajo;
     public $sueldo;
@@ -22,10 +22,9 @@ class ofertas extends ActiveRecord{
     public function __construct ($args = []){
       
         $this->id = $args['id'] ?? null;  
-        $this->titulo = $args['titulo'] ?? ''; 
-        $this->razonsocial = $args['razonsocial'] ?? ''; 
-        $this->tipoidentificacionemp = $args['tipoidentificacionemp'] ?? ''; 
-        $this->direccionemp = $args['direccionemp'] ?? ''; 
+        $this->titulo = $args['titulo'] ?? '';
+        $this->tipoPrograma = $args['tipoPrograma'] ?? '';
+        $this->imagen = $_FILES['imagen'] ??  'imagen.jpg';
         $this->jornada = $args['jornada'] ?? ''; 
         $this->modatrabajo = $args['modatrabajo'] ?? ''; 
         $this->sueldo = $args['sueldo'] ?? ''; 
@@ -40,14 +39,11 @@ class ofertas extends ActiveRecord{
         if (!$this->titulo){
             self::$errores[] = "* Debes añadir un Titulo";
         }
-        if (!$this->razonsocial){
-            self::$errores[] = "* La Razon social es obligatoria";
+        if (!$this->tipoPrograma){
+            self::$errores[] = "* El tipo de programa es obligatorio";
         }
-        if (!$this->tipoidentificacionemp){
-            self::$errores[] = "* Debes añadir un Numero de Identificacion";
-         }
-        if (!$this->direccionemp){
-            self::$errores[] = "* Debes ingresar la direccion de Empresa";
+        if (!$this->imagen){
+            self::$errores[] = "* La Imagen del anuncio es obligatoria";
         }
         if (!$this->jornada){
             self::$errores[] = "* Debes elegir Jornada";
@@ -73,5 +69,4 @@ class ofertas extends ActiveRecord{
         
         return self::$errores;
     }
-
 }

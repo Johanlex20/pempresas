@@ -10,6 +10,8 @@
         <a href="/admin/programas/consultarprograma.php">CONSULTAR PROGRAMA</a>
         <a href="/admin/tipoidentificacion/crearidentificacion.php">CREAR TIPO IDENTIFICACION</a>
         <a href="/admin/tipoidentificacion/consultaridentificacion.php">CONSULTAR TIPO IDENTIFICACION</a>
-        
+        <a href="/admin/ofertas/crearoferta.php">CREAR OFERTA</a>
+        <a href="/admin/empresas/crearemp.php">CREAR USUARIO EMPRESAS</a>
+
     </nav>
 </aside>

@@ -49,7 +49,23 @@ class ActiveRecord {
         //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
 
         header('Location: /login.php?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
-    } 
+        } 
+    }
+
+    //SUBIDA DE ARCHIVOS
+    public function setImagen($imagen){
+        //ELIMINAR IMAGEN ANTERIOR
+        if (isset($this->id)) {
+        //COMPROBAR SI EXISTE EL ARCHIVO
+            $existeArchivo = file_exists(CARPETAS_IMAGENES . $this-> imagen);
+            if($existeArchivo){
+                unlink(CARPETAS_IMAGENES . $this-> imagen);
+            }
+        }
+        // ASIGNAR AL ATRIBUTO DE IMAGEN EL NOMBRE DE LA IMAGEN
+        if($imagen){
+            $this->imagen = $imagen;
+        }
     }
 
     public function actualizar(){

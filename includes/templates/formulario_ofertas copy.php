@@ -26,16 +26,12 @@
                             </div>
                             <div class="input-box">
                                 <input type="file" 
-                                accept="image/jpeg, image/png"
-                                id="imgprogra" 
-                                name="ofertas[imgprogra]" 
+                                accept="imagen/jpeg, image/png"
+                                id="imagen" 
+                                name="ofertas[imagen]" 
                                 placeholder="*imagen para la oferta" 
-                                value="<?php echo s ( $oferta->imgprogra ); ?>" 
+                                value="<?php echo s ( $oferta->imagen ); ?>" 
                                 class="input-control">
-                                        <?php if ($oferta->imgprogra) { ?>
-                                            <img src="/imagenes/<?php echo $oferta->imgprogra ?>" class="imagen-small"> 
-                                        <?php } ?>
-
                             </div>
 
 
@@ -109,6 +105,66 @@
                             </div>
                             
                             </fieldset>
+
+                            <fieldset>
+                                <legend>Información Empresa </legend>
+                            <div class="input-box">
+                                <input type="text" 
+                                id="razonsocial" 
+                                name="ofertas[razonsocial]" 
+                                placeholder="*Empresa que publica la oferta" 
+                                value="<?php echo s ( $aprendiz->nombre ); ?>" 
+                                class="input-control">
+                            </div>
+                            <div class="input-box">
+                                <select type="text" 
+                                id="tipoId" 
+                                name="ofertas[tipoId]" 
+                                value="<?php echo s ( $aprendiz->tipoId ); ?>"  
+                                class="input-control">
+                                     <option selected value="">-- *Seleccione Identificación --</option>
+                                     <?php foreach($tipoidentificacion as $tipo) { ?>
+                                    <option 
+                                    <?php echo $aprendiz->tipoId === $tipo->id ? 'selected' : '' ; ?>
+                                    value="<?php echo s($tipo->id); ?>" ><?php echo s($tipo->tipoId) ; ?> </option>
+                                <?php } ?>  
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <input type="number" 
+                                id="identificacion" 
+                                name="ofertas[identificacion]"  
+                                placeholder="*Identificación" 
+                                value="<?php echo s ( $aprendiz->identificacion );?>" 
+                                class="input-control">
+                            </div>
+                            <div class="input-box">
+                                <input type="text" 
+                                id="direccionEmp" 
+                                name="ofertas[direccionEmp]" 
+                                placeholder="*Dirección de la Empresa" 
+                                value="<?php echo s ( $aprendiz->nombre ); ?>" 
+                                class="input-control">
+                            </div>
+                            <div class="input-box">
+                                <input type="number" 
+                                id="telefono" 
+                                name="ofertas[telefono]" 
+                                placeholder="*telefono" 
+                                value="<?php echo s ( $aprendiz->telefono );?>"  
+                                class="input-control">
+                            </div>
+                            <div class="input-box">
+                                <input 
+                                type="email" 
+                                id="email" 
+                                name="ofertas[email]" 
+                                placeholder="*Email" 
+                                value="<?php echo s ( $aprendiz->email );?>" 
+                                class="input-control">
+                            </div>
+                            </fieldset>
+
 
 
 

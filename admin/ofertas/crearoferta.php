@@ -1,40 +1,51 @@
 <?php
     require '../../includes/app.php'; 
     use App\programa;
-    use App\oferta;
+    use App\ofertas;
+    use App\Tipoidentificacion;
+    use Intervention\Image\ImageManagerStatic as image;
     estaAutenticado();
-    //CREAR UNA NUEVA INSTANCIA VACIA
-    $programa = new programa;
-    
-
-    
-
-    //ARREGLO CON MENSAJES DE ERROR
-    $errores = programa::getErrores();
-
-
+   
     //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
-    // $tipoidentificacion = Tipoidentificacion::all();
-    // $tipoprogramas = programa::all();
-
+     $tipoidentificacion = Tipoidentificacion::all();
+     $tipoprogramas = programa::all();
+ 
+    //CREAR UNA NUEVA INSTANCIA VACIA
+    $oferta = new ofertas;
+    
     //ARREGLO CON MENSAJES DE ERROR
-//    $errores = aprendiz::getErrores();
+    $errores = ofertas::getErrores();
+
 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        
-
         //CREAR UNA NUEVA ISNTANCIA
-        $programa = new programa($_POST['programa']);
+        $oferta = new ofertas($_POST['ofertas']);
 
-        $errores = $programa->validar();
 
-        //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
-        if(empty($errores)){  
-            //GUARDAR EN LA BD
-        $programa->guardar();
+        //GENERAR UN NOMBRE UNICO
+        $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+
+       
+
+        //SETEAR LA IMAGEN
+        if($_FILES['oferta']['tmp_name']['imagen']){
+            $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
+            $oferta->setImagen($nombreImagen);
         }
 
+         //VALIDAR
+         $errores = $oferta->validar();
+
+        if(empty($errores)){  
+            if($_FILES['imagen']['tmp_name']){
+                //GUARDA LA IMAGEN EN EL SERVIDOR
+                $image->save(CARPETAS_IMAGENES . $nombreImagen);
+            }
+        //GUARDAR EN LA BD
+        $oferta->guardar();
+
+        }
     }
 
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
@@ -52,7 +63,7 @@
                             </div>
                         <?php endforeach;?> 
 
-                        <form class="formulario-oferta" method ="POST" action="/admin/ofertas/crearoferta.php">
+                        <form class="formulario-oferta" method ="POST" action="/admin/ofertas/crearoferta.php" enctype="multipart/form-data">
                             <?php include '../../includes/templates/formulario_ofertas.php' ?>
                             <button type="submit" class="boton">Publicar Oferta</button>
                         </form>

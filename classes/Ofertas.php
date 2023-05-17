@@ -24,7 +24,7 @@ class ofertas extends ActiveRecord{
         $this->id = $args['id'] ?? null;  
         $this->titulo = $args['titulo'] ?? '';
         $this->tipoPrograma = $args['tipoPrograma'] ?? '';
-        $this->imagen = $_FILES['imagen'] ??  'imagen.jpg';
+        $this->imagen = $_FILES['imagen'] ??  '';
         $this->jornada = $args['jornada'] ?? ''; 
         $this->modatrabajo = $args['modatrabajo'] ?? ''; 
         $this->sueldo = $args['sueldo'] ?? ''; 

@@ -27,13 +27,13 @@
                             <div class="input-box">
                                 <input type="file" 
                                 accept="image/jpeg, image/png"
-                                id="imgprogra" 
-                                name="ofertas[imgprogra]" 
+                                id="imagen" 
+                                name="ofertas[imagen]" 
                                 placeholder="*imagen para la oferta" 
-                                value="<?php echo s ( $oferta->imgprogra ); ?>" 
+                                value="<?php echo s ( $oferta->imagen ); ?>" 
                                 class="input-control">
-                                        <?php if ($oferta->imgprogra) { ?>
-                                            <img src="/imagenes/<?php echo $oferta->imgprogra ?>" class="imagen-small"> 
+                                        <?php if ($oferta->imagen) { ?>
+                                            <img src="/imagenes/<?php echo $oferta->imagen ?>" class="imagen-small"> 
                                         <?php } ?>
 
                             </div>

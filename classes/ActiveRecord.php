@@ -52,22 +52,6 @@ class ActiveRecord {
         } 
     }
 
-    //SUBIDA DE ARCHIVOS
-    public function setImagen($imagen){
-        //ELIMINAR IMAGEN ANTERIOR
-        if (isset($this->id)) {
-        //COMPROBAR SI EXISTE EL ARCHIVO
-            $existeArchivo = file_exists(CARPETAS_IMAGENES . $this-> imagen);
-            if($existeArchivo){
-                unlink(CARPETAS_IMAGENES . $this-> imagen);
-            }
-        }
-        // ASIGNAR AL ATRIBUTO DE IMAGEN EL NOMBRE DE LA IMAGEN
-        if($imagen){
-            $this->imagen = $imagen;
-        }
-    }
-
     public function actualizar(){
         $atributos = $this->sanitizarAtributos();
         $valores = [];
@@ -120,6 +104,16 @@ class ActiveRecord {
         }
         return $sanitizado;
     }
+
+
+     //SUBIDA DE ARCHIVOS
+     public function setImagen($imagen){
+        //ASIGNAR AL ATRIBUTO DE IMAGEN EL NOMBRE DE LA IMAGEN
+        if($imagen){
+            $this->imagen = $imagen;
+        }
+    }
+
 
     //VALIDACION
     public static function getErrores(){

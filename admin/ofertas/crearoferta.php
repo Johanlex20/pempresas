@@ -3,12 +3,13 @@
     use App\programa;
     use App\ofertas;
     use App\Tipoidentificacion;
-    use Intervention\Image\ImageManagerStatic as image;
+    use Intervention\Image\ImageManagerStatic as    Image;
     estaAutenticado();
    
     //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
      $tipoidentificacion = Tipoidentificacion::all();
      $tipoprogramas = programa::all();
+     $oferta = ofertas::all();
  
     //CREAR UNA NUEVA INSTANCIA VACIA
     $oferta = new ofertas;
@@ -20,33 +21,39 @@
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //CREAR UNA NUEVA ISNTANCIA
-        $oferta = new ofertas($_POST['ofertas']);
-
+        $oferta = new ofertas($_POST);
 
         //GENERAR UN NOMBRE UNICO
         $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
 
-       
-
+        if($_FILES['imagen']['tmp_name']){
         //SETEAR LA IMAGEN
-        if($_FILES['oferta']['tmp_name']['imagen']){
-            $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
-            $oferta->setImagen($nombreImagen);
+        $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600);
+        $oferta->setImagen($nombreImagen);
         }
 
          //VALIDAR
          $errores = $oferta->validar();
 
-        if(empty($errores)){  
-            if($_FILES['imagen']['tmp_name']){
-                //GUARDA LA IMAGEN EN EL SERVIDOR
-                $image->save(CARPETAS_IMAGENES . $nombreImagen);
-            }
-        //GUARDAR EN LA BD
-        $oferta->guardar();
+        if(empty($errores)){ 
+            
+        //CREAR CARPETA
+        $carpetaImagenes = '../../imagenes/';
+        if(!is_dir(CARPETA_IMAGENES)){
+            mkdir(CARPETA_IMAGENES);
+        }
+            //GUARDAR LA IMAGEN EN EL SERVIDOR
+            $image->save(CARPETA_IMAGENES . $nombreImagen);
 
+            //GUARDAR EN LA BD
+            $oferta->guardar();
+
+            //MENSAJE DE EXITO O ERROR
+            
         }
     }
+
+    
 
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 ?>

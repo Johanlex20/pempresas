@@ -2,7 +2,7 @@
 
 define('TEMPLATES_URL', __DIR__ . '/templates');
 define('FUNCION_URL', __DIR__ . 'funciones.php');
-define('CARPETA_IMAGENES', __DIR__ . '/../imagenes/');
+define('CARPETA_IMAGENES', __DIR__ . '/../src/img/');
 
 function incluirTemplate(string $nombre){
     include TEMPLATES_URL . "/$nombre.php"; //comillas dobles son obligatorias en esta funcion

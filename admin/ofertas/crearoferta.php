@@ -38,7 +38,7 @@
         if(empty($errores)){ 
             
         //CREAR CARPETA
-        $carpetaImagenes = '../../imagenes/';
+        $carpetaImagenes = '../../src/img/'; 
         if(!is_dir(CARPETA_IMAGENES)){
             mkdir(CARPETA_IMAGENES);
         }
@@ -46,7 +46,7 @@
             $image->save(CARPETA_IMAGENES . $nombreImagen);
 
             //GUARDAR EN LA BD
-            $resultado = $oferta->guardar();     
+           $oferta->guardar();     
         }
     }
 

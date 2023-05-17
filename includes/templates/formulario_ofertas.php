@@ -42,7 +42,7 @@
                             </fieldset>
 
                             <fieldset>
-                                <legend>Información Especifica</legend>
+                                <legend>Información Específica</legend>
                                 <div class="input-box">
                                 <input type="text" 
                                 id="jornada" 

@@ -1,28 +1,52 @@
 <?php
     require '../../includes/app.php'; 
-    use App\aprendiz;
-    use App\Tipoidentificacion;
     use App\programa;
-    $aprendiz = new aprendiz;
+    use App\Empresas;
+    use App\Tipoidentificacion;
+    use Intervention\Image\ImageManagerStatic as Image;
 
     //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
     $tipoidentificacion = Tipoidentificacion::all();
     $tipoprogramas = programa::all();
+    $empresa = Empresas::all();
+
+    //CREAR UNA NUEVA INSTANCIA VACIA
+    $empresa = new Empresas;
 
     //ARREGLO CON MENSAJES DE ERROR
-   $errores = aprendiz::getErrores();
+    $errores = Empresas::getErrores();
 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        //CREAR UNA NUEVA ISNTANCIA
+        $empresa = new Empresas($_POST['empresas']);
 
-        $aprendiz = new aprendiz($_POST['aprendiz']);
-        $errores = $aprendiz->validar();
+        //GENERAR UN NOMBRE UNICO
+        $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
 
-        //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
-        if(empty($errores)){  
-            //GUARDAR EN LA BD
-        $aprendiz->guardar();
+        if($_FILES['empresas']['tmp_name']['imagen']){
+        //SETEAR LA IMAGEN
+        $image = Image::make($_FILES['empresas']['tmp_name']['imagen'])->fit(800, 600);
+        $empresa->setImagen($nombreImagen);
         }
+
+         //VALIDAR
+         $errores = $empresa->validar();
+
+        if(empty($errores)){ 
+            
+        //CREAR CARPETA
+        $carpetaImagenes = '../../src/img/'; 
+        if(!is_dir(CARPETA_IMAGENES)){
+            mkdir(CARPETA_IMAGENES);
+        }
+            //GUARDAR LA IMAGEN EN EL SERVIDOR
+            $image->save(CARPETA_IMAGENES . $nombreImagen);
+
+            //GUARDAR EN LA BD
+           $empresa->guardar();     
+        }
+      
 
     }
 
@@ -41,7 +65,7 @@
                             </div>
                         <?php endforeach;?> 
 
-                        <form class="formulario-aprendiz" method ="POST" enctype="multipart/form-data">
+                        <form class="formulario-oferta" method ="POST" action="/admin/empresas/crearempre.php" enctype="multipart/form-data">
                             <?php include '../../includes/templates/formulario_empresas.php' ?>
                             <button type="submit" class="boton">Crear Cuenta</button>
                         </form>
@@ -51,11 +75,6 @@
                         </div>
                     </div>
             </div>
-                        <?php  if ($auth): ?>
-                            <a href="/admin" class="boton-volver">  <!--necesita estilos-->
-                                <span class="texto-fondo">Perfil</span>
-                            </a>
-                        <?php endif; ?>  
         </div>
     </main>
 

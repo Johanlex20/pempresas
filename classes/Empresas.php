@@ -1,9 +1,9 @@
 <?php
 namespace App;
 
-class ofertas extends ActiveRecord{
+class Empresas extends ActiveRecord{
     protected static $tabla = 'empresas';
-     protected static $columnasDB = ['id', 'razonsocial', 'tipoidentificacionemp','identificacionemp','direccionemp', 'telefonoemp','emailemp','passwordemp','imgemp','creacionemp'];
+     protected static $columnasDB = ['id', 'razonsocial', 'tipoId','identificacionemp','direccionemp', 'telefonoemp','emailemp','passwordemp','imagen','creacionemp'];
 
 
     public $id;
@@ -14,7 +14,7 @@ class ofertas extends ActiveRecord{
     public $telefonoemp;
     public $emailemp;
     public $passwordemp;
-    public $imgemp;
+    public $imagen;
     public $creacionemp;
   
 
@@ -28,7 +28,7 @@ class ofertas extends ActiveRecord{
         $this->direccionemp = $args['direccionemp'] ?? ''; 
         $this->emailemp = $args['emailemp'] ?? ''; 
         $this->passwordemp = $args['passwordemp'] ?? ''; 
-        $this->imgemp = $_FILES['imgemp'] ?? '';
+        $this->imagen = $_FILES['imagen'] ??  '';
         $this->creacionemp = date('Y/m/d'); 
     }
 
@@ -54,7 +54,7 @@ class ofertas extends ActiveRecord{
         if (!$this->passwordemp){
             self::$errores[] = "* Debes ingresar contraseña";
         }
-        if (!$this->imgemp){
+        if (!$this->imagen){
             self::$errores[] = "* Debes añadir imagen o Logo de la empresa";
         }
         

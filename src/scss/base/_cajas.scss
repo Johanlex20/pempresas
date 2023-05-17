@@ -143,6 +143,7 @@
     width: 100%;
 }
 .boton-rojo-block{
+    
     cursor: pointer;
     border-radius: 25px;
     user-select: none;
@@ -150,6 +151,7 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
+    margin: 2px
 }
 /*efecto boton crear*/
 .boton-rojo-block::before {

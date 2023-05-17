@@ -58,7 +58,7 @@
                                     <td> <?php echo $ofer-> id; ?> </td>
                                     <td> <?php echo $ofer-> titulo; ?> </td>
                                     <td> <?php echo $ofer-> tipoPrograma; ?> </td>
-                                    <td> <img src="/imagenes/<?php echo $ofer->imagen; ?>" class="imagen-tabla"> </td>
+                                    <td> <img src="/src/img/<?php echo $ofer->imagen; ?>" class="imagen-tabla"> </td>
                                     <td> <?php echo $ofer-> jornada; ?> </td>
                                     <td> <?php echo $ofer-> modatrabajo; ?> </td>
                                     <td> <?php echo $ofer-> sueldo; ?> </td>

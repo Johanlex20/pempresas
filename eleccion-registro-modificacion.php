@@ -37,7 +37,7 @@
                             </P>
                     <div class="clic-boton">
                         <p>¿No tienes una cuenta? </p>
-                        <div><a href="crear-cuenta-empresa-modificacion.php"><button type="submit" class="boton">Crear cuenta como empresa</button></a></div>
+                        <div><a href="/admin/empresas/crearempre.php"><button type="submit" class="boton">Crear cuenta como empresa</button></a></div>
                     </div>
                         </div>
                  </div> 

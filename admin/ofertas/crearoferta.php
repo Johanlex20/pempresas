@@ -3,7 +3,7 @@
     use App\programa;
     use App\ofertas;
     use App\Tipoidentificacion;
-    use Intervention\Image\ImageManagerStatic as    Image;
+    use Intervention\Image\ImageManagerStatic as Image;
     estaAutenticado();
    
     //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
@@ -21,14 +21,14 @@
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         //CREAR UNA NUEVA ISNTANCIA
-        $oferta = new ofertas($_POST);
+        $oferta = new ofertas($_POST['ofertas']);
 
         //GENERAR UN NOMBRE UNICO
         $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
 
-        if($_FILES['imagen']['tmp_name']){
+        if($_FILES['ofertas']['tmp_name']['imagen']){
         //SETEAR LA IMAGEN
-        $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600);
+        $image = Image::make($_FILES['ofertas']['tmp_name']['imagen'])->fit(800, 600);
         $oferta->setImagen($nombreImagen);
         }
 
@@ -46,10 +46,7 @@
             $image->save(CARPETA_IMAGENES . $nombreImagen);
 
             //GUARDAR EN LA BD
-            $oferta->guardar();
-
-            //MENSAJE DE EXITO O ERROR
-            
+            $resultado = $oferta->guardar();     
         }
     }
 

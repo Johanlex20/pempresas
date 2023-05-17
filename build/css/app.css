@@ -1381,6 +1381,7 @@ table.aprendiz td a {
 
 .sidebar {
   background-color: hsl(0, 0%, 52%);
+  width: 400px;
   padding: 1rem;
 }
 .sidebar h2 {
@@ -1404,6 +1405,34 @@ table.aprendiz td a {
 .sidebar .sidebar-nav a:hover {
   background: linear-gradient(to right, rgb(56, 91, 86), rgb(57, 169, 0));
   border-radius: 0.5rem;
+}
+.sidebar nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 20px;
+}
+.sidebar nav ul a {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 6px 0;
+  border-radius: 0.5rem;
+  color: hsl(0, 0%, 100%);
+}
+.sidebar nav ul ul {
+  height: 0px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.sidebar nav ul li:hover ul {
+  height: 16rem;
+}
+.sidebar nav ul li:hover ul {
+  height: calc(var(--cantidad-items) * var(--cada-item));
+}
+.sidebar nav ul ul a {
+  background: linear-gradient(to right, rgb(56, 91, 86), rgb(57, 169, 0));
 }
 
 .barra {

@@ -1,23 +1,14 @@
-<?php  
-//     //VERIFICA SI LA SESSION ESTA INICIADA SI NO PUES ENVIA A VALIDACION
-//     if(!isset($_SESSION)){
-//         session_start();
-//     }
-//     $auth = $_SESSION['login'] ?? false;
-// ?>
-
 <?php
         require '../../includes/app.php';//POO busca el archivo y lo enlaza 
         estaAutenticado(); // funcion de autenticacion en includes 
+        use App\ofertas;
 
-        use App\Programa;
-
-        //IMPLEMENTAR METODO PARA OBTENER TODOS LOS APRENDICES UTILIZANDO ACTIVE RECORD
-
-        $tipoprogramas = Programa::all();
+        //IMPLEMENTAR METODO PARA OBTENER TODOS LOS REGISTROS UTILIZANDO ACTIVE RECORD
+        $oferta = ofertas::all();
+        
 
         //MOSTRANDO MENSAJE CONDICIONAL
-        $resultado =$_GET['resultado'] ??null;
+        $resultado = $_GET['resultado'] ??null;
 
         if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
             
@@ -29,9 +20,9 @@
                 $tipo= $_POST['tipo'];
                 if(validarTipoContenido($tipo)){
                     //COMPARAR LO QUE SE VA ELIMINAR
-                    if($tipo === 'tipoprograma'){
-                        $tipoprogramas = Programa::find($id);
-                        $tipoprogramas->eliminar();
+                    if($tipo === 'titulo'){
+                        $titulo = ofertas::find($id);
+                        $titulo->eliminar();
                     }
                 }  
             }
@@ -45,30 +36,42 @@
         <div class="contenedor seccion">
             <div class="contabprog"> 
                 <section id= "tablaPrograma" class="seccion"> 
-                    <h1 class="admi-text-home">Consultar Tipos De Programas</h1>
+                    <h1 class="admi-text-home">Consultar Tipos De Ofertas</h1>
                         <table class="aprendiz">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>tipo Programa</th>
+                                    <th>Titulo Ofertas</th>
+                                    <th>Tipo Programa</th>
+                                    <th>Imagen</th>
+                                    <th>Jornada</th>
+                                    <th>Modalida</th>
+                                    <th>Sueldo</th>
+                                    <th>vacantes</th>
                                     <th>acciones</th>
                                 </tr>
                             </thead>
 
                             <tbody>  <!-- MOSTRAR LOS RESULTADOS -->
-                                <?php foreach( $tipoprogramas  as $tipop ):?>
+                                <?php foreach( $oferta  as $ofer ):?>
                                 <tr>
-                                    <td> <?php echo $tipop-> id; ?> </td>
-                                    <td> <?php echo $tipop-> tipoPrograma; ?> </td>
+                                    <td> <?php echo $ofer-> id; ?> </td>
+                                    <td> <?php echo $ofer-> titulo; ?> </td>
+                                    <td> <?php echo $ofer-> tipoPrograma; ?> </td>
+                                    <td> <img src="/imagenes/<?php echo $ofer->imagen; ?>" class="imagen-tabla"> </td>
+                                    <td> <?php echo $ofer-> jornada; ?> </td>
+                                    <td> <?php echo $ofer-> modatrabajo; ?> </td>
+                                    <td> <?php echo $ofer-> sueldo; ?> </td>
+                                    <td> <?php echo $ofer-> vacantes; ?> </td>
                                     <td>  
-                                        <form method="POST" class="w-100" action="/admin/propiedades/consultar.php">
-                                            <input type="hidden" name="id" value="<?php echo $tipop->id; ?>">
+                                        <form method="POST" class="w-100" action="/admin/ofertas/consultarofertas.php">
+                                            <input type="hidden" name="id" value="<?php echo $ofer->id; ?>">
                                                 <!-- funcion para esconder el mensaje de eliminacion a usuarios -->
-                                            <input type="hidden" name="tipo" value="tipoprograma"> 
+                                            <input type="hidden" name="id" value="<?php echo $ofer->id; ?>"> 
                                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                                                 <!-- funcion para eliminacion usuarios -->
                                         </form>
-                                        <a href="/admin/programas/actualizarprograma.php?id=<?php echo $tipop->id; ?>" class="boton-green-block" >Actualizar</a>
+                                        <a href="/admin/ofertas/actualizaroferta.php?id=<?php echo $ofer->id; ?>" class="boton-green-block" >Actualizar</a>
                                     </td>
                                 <?php endforeach; ?>
                             </tbody>

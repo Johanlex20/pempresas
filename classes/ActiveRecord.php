@@ -42,6 +42,7 @@ class ActiveRecord {
         $query .= " ') ";
 
         $resultado = self::$db->query($query);
+        
 
      //MENSAJE DE EXITO O DE ERROR
      if($resultado){
@@ -50,6 +51,7 @@ class ActiveRecord {
 
         header('Location: /login.php?resultado=1'); //header y la funcion Location/ se usa para redireccionar despues de la validacion de registro, Se debe utilizar poco y donde no este presente el HTML, crear la funcion antes de html para evitar errores.
         } 
+        
     }
 
     public function actualizar(){

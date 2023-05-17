@@ -3,6 +3,7 @@
 
 .sidebar{
    background-color: v.$gris; 
+   width: 400px;
    padding: 1rem;
    h2{  //estilos para el titulo admi patantalla perfil admi barra
     margin: 0;
@@ -28,4 +29,43 @@
         }
     }
    }
+
+   nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 20px;
+   }
+
+   nav ul a{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+    border-radius: .5rem;
+    color: v.$tex-white;
+
+   }
+
+   nav ul ul {
+    height: 0px;
+    overflow: hidden;
+    transition: 0.3s;
+    
+   }
+
+   nav ul li:hover ul {
+    height: 16rem;
+    
+   }
+
+   nav ul li:hover ul {
+    height: calc(var(--cantidad-items) * var(--cada-item));
+   }
+
+   nav ul ul a{
+    background: linear-gradient(to right, v.$lead, v.$green);
+    
+   }
+
 }

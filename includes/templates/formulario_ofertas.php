@@ -14,12 +14,12 @@
                                 <select type="text" 
                                 id="tipoPrograma" 
                                 name="ofertas[tipoPrograma]" 
-                                value="<?php echo s ( $aprendiz->tipoPrograma ); ?>"  
+                                value="<?php echo s ( $oferta->tipoPrograma ); ?>"  
                                 class="input-control">
                                      <option selected value="">-- Seleccione Programa --</option>
                                      <?php foreach($tipoprogramas as $pro) { ?>
                                     <option 
-                                    <?php echo $aprendiz->tipoPrograma === $pro->id ? 'selected' : '' ; ?>
+                                    <?php echo $oferta->tipoPrograma === $pro->id ? 'selected' : '' ; ?>
                                     value="<?php echo s($pro->id); ?>" ><?php echo s($pro->tipoPrograma) ; ?> </option>
                                 <?php } ?>  
                                 </select>
@@ -64,7 +64,7 @@
                                 id="sueldo" 
                                 name="ofertas[sueldo]" 
                                 placeholder="*sueldo ofertado" 
-                                value="<?php echo s ( $oferta->modatrabajo ); ?>" 
+                                value="<?php echo s ( $oferta->sueldo ); ?>" 
                                 class="input-control">
                             </div>
                             <div class="input-box">
@@ -82,30 +82,30 @@
                             <fieldset>
                                 <legend>Información Adicional</legend>
                             <div class="input-box">
-                                <textarea type="text" 
+                                <input type="text" 
                                 id="descriempleo" 
                                 name="ofertas[descriempleo]" 
                                 placeholder="*Descripción de la oferta" 
                                 value="<?php echo s ( $oferta->descriempleo ); ?>" 
-                                class="input-control"></textarea>
+                                class="input-control"></input>
 
                             </div>
 
                             <div class="input-box">
-                                <textarea type="text" 
+                                <input type="text" 
                                 id="respon" 
                                 name="ofertas[respon]" 
                                 placeholder="*Responsabilidades del trabajo" 
                                 value="<?php echo s ( $oferta->respon ); ?>" 
-                                class="input-control"></textarea>
+                                class="input-control"></input>
                             </div>
                             <div class="input-box">
-                                <textarea type="text" 
+                                <input type="text" 
                                 id="reque" 
                                 name="ofertas[reque]" 
                                 placeholder="*Requerimientos del postulante" 
                                 value="<?php echo s ( $oferta->reque ); ?>" 
-                                class="input-control"></textarea>
+                                class="input-control"></input>
                             </div>
                             
                             </fieldset>

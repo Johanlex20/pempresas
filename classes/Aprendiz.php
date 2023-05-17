@@ -44,9 +44,7 @@ class aprendiz extends ActiveRecord{
         if (!$this->email){
             self::$errores[] = "* Debes añadir un Correo";
         }
-        if(!preg_match('/[0-9]{10}/', $this->telefono)){
-            self::$errores[] = "* Formato telefono no Válido";
-        }
+
         if (!$this->password){
             self::$errores[] = "* Debes añadir una Contraseña";
         }

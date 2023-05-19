@@ -6,7 +6,7 @@
     use Intervention\Image\ImageManagerStatic as Image;
     estaAutenticado();
    
-    //CONSULTAR PARA OBTENER LOS TIPOS DE IDENTIFICACION
+    
      $tipoidentificacion = Tipoidentificacion::all();
      $tipoprogramas = programa::all();
      $oferta = ofertas::all();

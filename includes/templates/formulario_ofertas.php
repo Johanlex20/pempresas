@@ -1,42 +1,41 @@
                             
                            <fieldset>
                             <legend> Información General</legend>
-
-                           <div class="input-box">
-                                <input type="text" 
-                                id="titulo" 
-                                name="ofertas[titulo]" 
-                                placeholder="*titulo de la oferta" 
-                                value="<?php echo s ( $oferta->titulo ); ?>" 
-                                class="input-control">
-                            </div>
                             <div class="input-box">
-                                <select type="text" 
-                                id="tipoPrograma" 
-                                name="ofertas[tipoPrograma]" 
-                                value="<?php echo s ( $oferta->tipoPrograma ); ?>"  
-                                class="input-control">
-                                     <option selected value="">-- Seleccione Programa --</option>
-                                     <?php foreach($tipoprogramas as $pro) { ?>
-                                    <option 
-                                    <?php echo $oferta->tipoPrograma === $pro->id ? 'selected' : '' ; ?>
-                                    value="<?php echo s($pro->id); ?>" ><?php echo s($pro->tipoPrograma) ; ?> </option>
-                                <?php } ?>  
-                                </select>
-                            </div>
-                            <div class="input-box">
-                                <input type="file" 
-                                accept="image/jpeg, image/png"
-                                id="imagen" 
-                                name="ofertas[imagen]" 
-                                placeholder="*imagen para la oferta" 
-                                value="<?php echo s ( $oferta->imagen ); ?>" 
-                                class="input-control">
-                                        <?php if ($oferta->imagen) { ?>
-                                            <img src="/imagenes/<?php echo $oferta->imagen ?>" class="imagen-small"> 
-                                        <?php } ?>
+                                    <input type="text" 
+                                    id="titulo" 
+                                    name="ofertas[titulo]" 
+                                    placeholder="*titulo de la oferta" 
+                                    value="<?php echo s ( $oferta->titulo ); ?>" 
+                                    class="input-control">
+                                </div>
+                                <div class="input-box">
+                                    <select type="text" 
+                                    id="tipoPrograma" 
+                                    name="ofertas[tipoPrograma]" 
+                                    value="<?php echo s ( $oferta->tipoPrograma ); ?>"  
+                                    class="input-control">
+                                        <option selected value="">-- Seleccione Programa --</option>
+                                        <?php foreach($tipoprogramas as $pro) { ?>
+                                        <option 
+                                        <?php echo $oferta->tipoPrograma === $pro->id ? 'selected' : '' ; ?>
+                                        value="<?php echo s($pro->id); ?>" ><?php echo s($pro->tipoPrograma) ; ?> </option>
+                                    <?php } ?>  
+                                    </select>
+                                </div>
+                                <div class="input-box">
+                                    <input type="file" 
+                                    accept="image/jpeg, image/png"
+                                    id="imagen" 
+                                    name="ofertas[imagen]" 
+                                    placeholder="*imagen para la oferta" 
+                                    value="<?php echo s ( $oferta->imagen ); ?>" 
+                                    class="input-control">
+                                            <?php if ($oferta->imagen) { ?>
+                                                <img src="/imagenes/<?php echo $oferta->imagen ?>" class="imagen-small"> 
+                                            <?php } ?>
 
-                            </div>
+                                </div>
 
 
                             </fieldset>

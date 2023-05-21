@@ -74,9 +74,9 @@
            <!-- impirme el mensaje de registro correctamente-->
 
            <?php if( intval ($resultado) === 1) : ?> <!--convertir el valor string a numerico-->
-            <p class="alerta exito"> Usuario Creado Correctamente </p>
+            <p class="alerta exito"> Creado Correctamente </p>
             <?php elseif( intval ($resultado3) === 2) : ?>
-            <p class="alerta exito"> Usuario Actualizado Correctamente </p>
+            <p class="alerta exito"> Actualizado Correctamente </p>
         <?php endif?>
 
     <div class="contenerdor_formulario">

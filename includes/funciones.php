@@ -32,7 +32,7 @@ function s ($html) : string {
 
 //VALIDAR TIPO DE CONTENIDO
 function validarTipoContenido($tipo){
-    $tipos = ['tipoidentificacion', 'aprendiz', 'tipoprograma'];
+    $tipos = ['tipoidentificacion', 'aprendiz', 'tipoprograma', 'ofertas', 'empresas'];
 
     return in_array($tipo, $tipos);
 }

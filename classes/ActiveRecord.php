@@ -75,12 +75,14 @@ class ActiveRecord {
 
     //ELIMINAR UN REGISTRO
     public function eliminar(){
+        
        
         $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1 ";
+        
         $resultado = self::$db->query($query);
-
+  
         if ($resultado){
-
+            $this->borrarImagne();
             echo "Eliminado Correctamente";
             //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
             header('location:/admin/?resultado=3');
@@ -111,18 +113,23 @@ class ActiveRecord {
      //SUBIDA DE ARCHIVOS
      public function setImagen($imagen){
         //ELIMINAR LA IMAGEN ANTERIOR
-        if(isset($this->id)){
+        if(isset( $this->id )){
+            //COMPROBAR SI EXISTE EL ARCHIVO
+            $this->borrarImagne();
+            }
+        //ASIGNAR AL ATRIBUTO DE IMAGEN EL NOMBRE DE LA IMAGEN
+        if($imagen){
+            $this->imagen = $imagen;
+        }
+    }
+
+    //ELIMINA EL ARCHIVO
+    public function borrarImagne(){
             //COMPROBAR SI EXISTE EL ARCHIVO
             $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
             if($existeArchivo){
                 unlink(CARPETA_IMAGENES . $this->imagen);
             }
-        }
-
-        //ASIGNAR AL ATRIBUTO DE IMAGEN EL NOMBRE DE LA IMAGEN
-        if($imagen){
-            $this->imagen = $imagen;
-        }
     }
 
 

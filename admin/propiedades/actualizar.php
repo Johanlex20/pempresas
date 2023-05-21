@@ -1,11 +1,8 @@
 <?php
 
-use App\aprendiz;
-use App\Tipoidentificacion;
-use App\programa;
-
-
-
+    use App\aprendiz;
+    use App\Tipoidentificacion;
+    use App\programa;
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
 
@@ -16,21 +13,16 @@ use App\programa;
     if(!$id){
         header('Location: /admin');
     }
-
     //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
     $aprendiz = aprendiz::find ($id);
     
-
     //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
     $tipoidentificacion = Tipoidentificacion::all();
     $tipoprogramas = programa::all(); //PENDIENTE VERIFICAR FUNCION YA QUE NO LA LEE ENE LEFORMULARIO 
     
-    
-
     //ARREGLO CON MENSAJES DE ERROR
     $errores = aprendiz::getErrores();
 
- 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD']==='POST'){
 

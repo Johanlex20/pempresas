@@ -16,6 +16,8 @@
             $id = filter_var ($id, FILTER_VALIDATE_INT);
 
             if($id){
+                $oferta = ofertas::find($id);
+                $oferta->eliminar();
 
                 $tipo= $_POST['tipo'];
                 if(validarTipoContenido($tipo)){
@@ -64,7 +66,7 @@
                                     <td> <?php echo $ofer-> sueldo; ?> </td>
                                     <td> <?php echo $ofer-> vacantes; ?> </td>
                                     <td>  
-                                        <form method="POST" class="w-100" action="/admin/ofertas/consultarofertas.php">
+                                        <form method="POST" class="w-100" action="/admin/ofertas/consultaroferta.php">
                                             <input type="hidden" name="id" value="<?php echo $ofer->id; ?>">
                                                 <!-- funcion para esconder el mensaje de eliminacion a usuarios -->
                                             <input type="hidden" name="id" value="<?php echo $ofer->id; ?>"> 

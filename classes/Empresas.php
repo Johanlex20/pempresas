@@ -28,7 +28,7 @@ class Empresas extends ActiveRecord{
         $this->direccionemp = $args['direccionemp'] ?? ''; 
         $this->emailemp = $args['emailemp'] ?? ''; 
         $this->passwordemp = $args['passwordemp'] ?? ''; 
-        $this->imagen = $_FILES['imagen'] ??  '';
+        $this->imagen = $_FILES['nombreImagen'] ??  '';
         $this->creacionemp = date('Y/m/d'); 
     }
 

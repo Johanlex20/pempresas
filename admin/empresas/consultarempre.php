@@ -16,12 +16,14 @@
             $id = filter_var ($id, FILTER_VALIDATE_INT);
 
             if($id){
+                $empresa = Empresas::find($id);
+                $empresa->eliminar();
 
                 $tipo= $_POST['tipo'];
                 if(validarTipoContenido($tipo)){
                     //COMPARAR LO QUE SE VA ELIMINAR
                     if($tipo === 'empresas'){
-                        $empresa= Empresas::find($id);
+                        $empresa = Empresas::find($id);
                         $empresa->eliminar();
                     }
                 }  
@@ -71,7 +73,7 @@
                                     <input type="submit" class="boton-rojo-block" value="Eliminar">
                                 <!-- funcion para eliminacion usuarios -->
                                 </form>
-                                <a href="/admin/empresas/actualizarempre.php?id=<?php echo $aprendi->id; ?>" class="boton-green-block" >Actualizar</a>
+                                <a href="/admin/empresas/actualizarempre.php?id=<?php echo $empre->id; ?>" class="boton-green-block" >Actualizar</a>
                                 </td>
                                 
                             </tr>
@@ -89,4 +91,3 @@
 <?php
     incluirTemplate('footer');  //funcion incluida en lso templates deja ver el footer
 ?>
-

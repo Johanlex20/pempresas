@@ -1,13 +1,15 @@
 <?php
-
-use App\aprendiz;
-use App\Tipoidentificacion;
-use App\programa;
-
-
-
+    use App\Empresas;
+    use App\Tipoidentificacion;
+    use App\programa;
+    use Intervention\Image\ImageManagerStatic as Image;
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
+
+     //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
+     $tipoidentificacion = Tipoidentificacion::all();
+     $tipoprogramas = programa::all(); 
+     $empresa = Empresas::all();
 
     //Validar la URL por ID válido
     $id=$_GET['id'];
@@ -16,37 +18,41 @@ use App\programa;
     if(!$id){
         header('Location: /admin');
     }
-
     //CONSULTA PARA OBTENER LOS DATOS DEL APRENDIZ
-    $aprendiz = aprendiz::find ($id);
+    $empresa = Empresas::find ($id);
     
-
-    //CONSULTA PARA OBTENER TODOS LOS TIPOS IDENTIFICACION DE APRENDICES
-    $tipoidentificacion = Tipoidentificacion::all();
-    $tipoprogramas = programa::all(); //PENDIENTE VERIFICAR FUNCION YA QUE NO LA LEE ENE LEFORMULARIO 
-    
-    
-
     //ARREGLO CON MENSAJES DE ERROR
-    $errores = aprendiz::getErrores();
+    $empresa = Empresas::getErrores();
 
- 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD']==='POST'){
 
         //ASIGNAR LOS ATRIBUTOS
-        $args = $_POST['aprendiz'];
+        $args = $_POST['empresas'];
 
-        $aprendiz->sincronizar($args);
+
+        $empresa->sincronizar($args);
         
         //VALIDACION
-        $errores = $aprendiz->validar();
+        $errores = $empresa->validar();
+        
+        //GENERAR UN NOMBRE UNICO
+        $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+
+        //SUBIDA DE ARCHIVOS
+        if($_FILES['empresas']['tmp_name']['imagen']){
+            //SETEAR LA IMAGEN
+            $image = Image::make($_FILES['empresas']['tmp_name']['imagen'])->fit(800, 600);
+            $empresa->setImagen($nombreImagen);
+            }
 
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
-            $aprendiz->guardar();      
+            //ALMACENAR LA IMAGEN
+            $image->save(CARPETA_IMAGENES . $nombreImagen);
+            
+            $oferta->guardar();       
         }
-
     }
 
     
@@ -56,7 +62,7 @@ use App\programa;
         <div class="contenerdor_formulario">
             <div class="formulario">
                     <div class="cuadro">
-                        <h3>Actualizar aprendiz</h3>
+                        <h3>Actualizar Empresa</h3>
 
                        <!-- mensaje de validacion complete los datos -->
                         <?php foreach($errores as $error): ?>  
@@ -66,8 +72,8 @@ use App\programa;
                         <?php endforeach;?> 
 
                          <form class="formulario-aprendiz" method ="POST"> 
-                            <?php include '../../includes/templates/formulario_aprendiz.php'; ?>
-                            <button type="submit" class="boton">Actualizar Aprendiz</button>
+                            <?php include '../../includes/templates/formulario_empresas.php'; ?>
+                            <button type="submit" class="boton">Actualizar Empresa</button>
                         </form>
                         <div class="clic-boton">
                             <p>Ya tienes una cuenta <a href="/login.php" class="gradient-text">Iniciar Sesion</a></p>

@@ -1373,6 +1373,10 @@ table.aprendiz .imagen-tabla {
   margin: 0;
 }
 
+.imagen-small {
+  width: 10rem;
+}
+
 .dashboard {
   background-color: hsl(0, 0%, 100%);
 }

@@ -110,6 +110,15 @@ class ActiveRecord {
 
      //SUBIDA DE ARCHIVOS
      public function setImagen($imagen){
+        //ELIMINAR LA IMAGEN ANTERIOR
+        if(isset($this->id)){
+            //COMPROBAR SI EXISTE EL ARCHIVO
+            $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
+            if($existeArchivo){
+                unlink(CARPETA_IMAGENES . $this->imagen);
+            }
+        }
+
         //ASIGNAR AL ATRIBUTO DE IMAGEN EL NOMBRE DE LA IMAGEN
         if($imagen){
             $this->imagen = $imagen;

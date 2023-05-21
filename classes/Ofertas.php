@@ -24,7 +24,7 @@ class ofertas extends ActiveRecord{
         $this->id = $args['id'] ?? null;  
         $this->titulo = $args['titulo'] ?? '';
         $this->tipoPrograma = $args['tipoPrograma'] ?? '';
-        $this->imagen = $_FILES['imagen'] ??  '';
+        $this->imagen = $_FILES['nombreImagen'] ??  '';
         $this->jornada = $args['jornada'] ?? ''; 
         $this->modatrabajo = $args['modatrabajo'] ?? ''; 
         $this->sueldo = $args['sueldo'] ?? ''; 
@@ -33,6 +33,7 @@ class ofertas extends ActiveRecord{
         $this->respon = $args['respon'] ?? '';
         $this->reque = $args['reque'] ?? '';  
         $this->fechapubliofe = date('Y/m/d'); 
+        
     }
 
     public function validar(){

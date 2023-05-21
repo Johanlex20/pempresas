@@ -32,9 +32,8 @@
                                     value="<?php echo s ( $oferta->imagen ); ?>" 
                                     class="input-control">
                                             <?php if ($oferta->imagen) { ?>
-                                                <img src="/imagenes/<?php echo $oferta->imagen ?>" class="imagen-small"> 
+                                                <img src="/src/img/<?php echo $oferta->imagen; ?>" class="imagen-small"> 
                                             <?php } ?>
-
                                 </div>
 
 

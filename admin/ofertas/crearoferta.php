@@ -23,6 +23,8 @@
         //CREAR UNA NUEVA ISNTANCIA
         $oferta = new ofertas($_POST['ofertas']);
 
+        debuguear($oferta);
+
         //GENERAR UN NOMBRE UNICO
         $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
 

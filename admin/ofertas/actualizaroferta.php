@@ -1,6 +1,7 @@
 <?php
     use App\ofertas;
     use App\programa;
+    use Intervention\Image\ImageManagerStatic as Image;
     require '../../includes/app.php';
     estaAutenticado(); // funcion de autenticacion en includes
     
@@ -17,16 +18,13 @@
     }
 
     // OBTENER EL ARREGLO DEL LOS OFERTAS SOLO PUEDE IR EL OBJETO DE LA BUSQUEDA
-    
     $oferta = ofertas::find($id);
     
     //ARREGLO CON MENSAJES DE ERROR
     $errores = ofertas::getErrores();
 
- 
     //EJECUTAR EL CODIGO DESPUES DE QUE EL USUARIO ENVIA EL FORMULARIO
     if($_SERVER['REQUEST_METHOD']==='POST'){
-
 
         //ASIGNAR LOS ATRIBUTOS
         $args = $_POST['ofertas'];
@@ -36,11 +34,23 @@
         //VALIDACION
         $errores = $oferta->validar();
 
-        //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
-        if(empty($errores)){  //empty es la funcion que reviza los arreglos esten vacios
-            $oferta->guardar();      
-        }
+        //GENERAR UN NOMBRE UNICO
+        $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
 
+        //SUBIDA DE ARCHIVOS
+        if($_FILES['ofertas']['tmp_name']['imagen']){
+            //SETEAR LA IMAGEN
+            $image = Image::make($_FILES['ofertas']['tmp_name']['imagen'])->fit(800, 600);
+            $oferta->setImagen($nombreImagen);
+            }
+
+        //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
+        if(empty($errores)){ 
+            //ALMACENAR LA IMAGEN
+            $image->save(CARPETA_IMAGENES . $nombreImagen);
+            
+           $oferta->guardar();  
+        }
     }
 
     

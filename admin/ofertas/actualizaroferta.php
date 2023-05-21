@@ -46,10 +46,11 @@
 
         //REVISAR QUE EL ARRAY DE ERRORES ESTE VACIO
         if(empty($errores)){ 
+            $oferta->guardar();
             //ALMACENAR LA IMAGEN
             $image->save(CARPETA_IMAGENES . $nombreImagen);
             
-           $oferta->guardar();  
+             
         }
     }
 
@@ -69,7 +70,7 @@
                             </div>
                         <?php endforeach;?> 
 
-                        <form class="formulario-oferta" method ="POST"  enctype="multipart/form-data">
+                        <form class="formulario-oferta" method ="POST" enctype="multipart/form-data">
                             <?php include '../../includes/templates/formulario_ofertas.php' ?>
                             <button type="submit" class="boton">Actualizar Oferta</button>
                         </form>

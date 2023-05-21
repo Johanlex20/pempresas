@@ -69,13 +69,12 @@
                                 <form method="POST" class="w-100" action="/admin/empresas/consultarempre.php">
                                     <input type="hidden" name="id" value="<?php echo $empre->id; ?>">
                                     <!-- funcion para esconder el mensaje de eliminacion a usuarios -->
-                                    <input type="hidden" name="tipo" value="empresas">    
+                                    <input type="hidden" name="id" value="<?php echo $empre->id; ?>">    
                                     <input type="submit" class="boton-rojo-block" value="Eliminar">
                                 <!-- funcion para eliminacion usuarios -->
                                 </form>
                                 <a href="/admin/empresas/actualizarempre.php?id=<?php echo $empre->id; ?>" class="boton-green-block" >Actualizar</a>
-                                </td>
-                                
+                                </td>                
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

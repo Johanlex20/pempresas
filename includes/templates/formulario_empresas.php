@@ -76,11 +76,11 @@
                                     accept="image/jpeg, image/png"
                                     id="imagen" 
                                     name="empresas[imagen]" 
-                                    placeholder="*imagen para la oferta" 
-                                    value="<?php echo s ( $e->imagen ); ?>" 
+                                    placeholder="*imagen o logo para la Empresa" 
+                                    value="<?php echo s ( $empresa->imagen ); ?>" 
                                     class="input-control">
                                             <?php if ($empresa->imagen) { ?>
-                                                <img src="/imagenes/<?php echo $empresa->imagen ?>" class="imagen-small"> 
+                                                <img src="/src/img/<?php echo $empresa->imagen; ?>" class="imagen-small"> 
                                             <?php } ?>
                                 </div>
                             </fieldset>

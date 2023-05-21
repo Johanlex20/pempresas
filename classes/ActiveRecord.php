@@ -22,10 +22,10 @@ class ActiveRecord {
     
     public function guardar(){
         if (!is_null($this->id)){
-            //ACTUALIZAR APRENDIZ
+            //ACTUALIZAR Registro
             $this->actualizar();
         }else{
-            //CREANDO APRENDIZ
+            //CREANDO REGISTRO
             $this->crear();
         }
     }
@@ -76,7 +76,6 @@ class ActiveRecord {
     //ELIMINAR UN REGISTRO
     public function eliminar(){
         
-       
         $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1 ";
         
         $resultado = self::$db->query($query);
@@ -86,8 +85,7 @@ class ActiveRecord {
             echo "Eliminado Correctamente";
             //REDIRECCION DE USUARIO PARA EVITAR DUPLICAR DATOS
             header('location:/admin/?resultado=3');
-        }
-       
+        }    
     }
 
     //IDENTIFICAR Y UNIR LOS ATRIBUTOS DE LA DB

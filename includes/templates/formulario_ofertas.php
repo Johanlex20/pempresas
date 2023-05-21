@@ -1,5 +1,4 @@
-                            
-                           <fieldset>
+                        <fieldset>
                             <legend> Información General</legend>
                             <div class="input-box">
                                     <input type="text" 

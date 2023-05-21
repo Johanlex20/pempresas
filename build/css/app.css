@@ -1308,6 +1308,101 @@ header {
   margin-top: 10px;
 }
 
+.conte_cajas_ofe {
+  margin: 10px 10px;
+}
+.conte_cajas_ofe h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.iconos-caja {
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.iconos-caja p {
+  padding: 0 1px;
+}
+
+.cajas_ofe .caja_ofe_only .iconos-caja img {
+  width: 50px;
+  border-radius: 50%;
+  height: auto;
+  display: flex;
+  border: 2px solid rgb(56, 91, 86);
+  padding: auto;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*alineacion horizontal cajas*/
+.cajas_ofe {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+/*medidas y alineacion imagen interna de las cajas*/
+.cajas_ofe .caja_ofe_only img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 6px solid rgb(56, 91, 86);
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: flex;
+}
+
+.cajas_ofe .caja_ofe_only p, h3 {
+  font-weight: 100;
+  padding-top: 2px;
+  text-align: center;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+/*MARCO CAJAS*/
+.cajas_ofe .caja_ofe_only {
+  margin-top: 10px;
+  border-color: rgb(251, 251, 226);
+  border: 10px solid hsla(0, 0%, 100%, 0.25);
+  padding: 10px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+  width: 50%;
+  justify-content: space-evenly;
+}
+
+.texto-fondo-anuncio {
+  background: linear-gradient(to right, rgb(57, 169, 0), rgb(56, 91, 86));
+  color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  padding: 10px 5px;
+  text-align: center;
+  height: 45px;
+  width: 40%;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 25px;
+  user-select: none;
+  border: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.precio {
+  font-size: 40px;
+}
+
 .alerta {
   padding: 2px;
   text-align: center;

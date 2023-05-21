@@ -1,28 +1,33 @@
 <?php
+    require 'includes/app.php';//POO busca el archivo y lo enlaza 
+    estaAutenticado(); // funcion de autenticacion en includes 
+    use App\ofertas;
 
-    require 'includes/app.php';
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    if(!$id){
+        header('Location: /');
+    }
 
+    $oferta = ofertas::find($id);
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 ?>
 
 <section>
-    <div class="contenedor_cajas_ofe">
+    <div class="conte_cajas_ofe">
             <h2> OFERTA LABORAL</h2>
-                <div class="cajas_ofe"> 
-                        <div class="caja_ofe">
-                            <picture>
-                                <source srcset="build/img/anuncio1.webp" type="image/webp">
-                                <source srcset="build/img/anuncio1.jpg" type="image/jpeg">
-                                <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
-                            </picture>
-                            <h3>Programadores de Software</h3>
-                            <p>Solicita Programadores con conocimientos en HTML, CSS, python</p>
-                            <p class="precio">$4.000.000</p>  
+                <div class="cajas_ofe">
+                     
+                        <div class="caja_ofe_only">
+                                <img loading="lazy" src="/src/img/<?php echo $oferta->imagen; ?>" alt="anuncio">
+
+                            <h3><?php echo $ofer->titulo; ?></h3>
+                            <p class="precio">$<?php echo $oferta->sueldo; ?></p>
 
                             <div class="iconos-caja">
                                 <div>
                                     <img loading="lazy" src="/build/img/icono-empresa.webp" alt="icono-persona"> 
-                                    <p>postulacion: 10</p>    
+                                    <p>Vacantes: <?php echo $oferta->vacantes; ?></p>   
                                 </div>
                                 <div>
                                     <img loading="lazy" src="/build/img/icono-email.webp" alt="icono-email">
@@ -33,8 +38,13 @@
                                     <p>311010000</p>
                                 </div>      
                             </div>
+
+                            <h3>Sobre la oferta</h3>
+
+                            <p><?php echo $oferta->descriempleo; ?></p>
+
                             <a href="/admin/propiedades/actualizar.php" class="boton-volver">
-                                <span class="texto-fondo">Ver Oferta</span>
+                                <span class="texto-fondo">APLICAR</span>
                             </a> 
                         </div>            
                 </div>    

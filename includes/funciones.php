@@ -36,10 +36,9 @@ function validarTipoContenido($tipo){
 
     return in_array($tipo, $tipos);
 }
-
 //MOSTRAR MENSAJES O ALERTAS CREACON ELEMINACION ACTUALIZACION
 // function mostrarNotificacion($codigo){
-//    $mensaje = '';
+//     $mensaje = '';
 
 //    switch($codigo){
 //         case 1 :

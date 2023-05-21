@@ -48,9 +48,6 @@
            $oferta->guardar();     
         }
     }
-
-    
-
     incluirTemplate('header'); // funcion incluida en los templates hay que crear los teamples primero
 ?>
     <main>

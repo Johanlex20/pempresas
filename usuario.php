@@ -18,3 +18,4 @@ $query = " INSERT INTO usuarios (email, password) VALUES ('$email', '$passwordHa
 
 // AGREAGARLO A LA BASE DE DATOS
 mysqli_query($db, $query); 
+

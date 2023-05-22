@@ -12,7 +12,6 @@
             <h2> OFERTAS LABORALES</h2>
   
             <?php
-                $limite = 4; //limite de ofertas que se pueden ver en el index
                 include 'includes/templates/anuncios.php';
             ?>
 

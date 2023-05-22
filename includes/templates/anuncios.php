@@ -1,6 +1,12 @@
 <?php
     use App\ofertas;
-    $oferta = ofertas::all();
+    
+    if($_SERVER['SCRIPT_NAME'] === '/anuncios.php'){
+        $oferta = ofertas::all();
+    } else {
+        // utiliza metodo get y muestra 4 oferta en home
+        $oferta = ofertas::get(4);
+    }
 ?>  
                 <div class="cajas_ofe"> 
                     <?php  foreach($oferta as $ofer) { ?>

@@ -147,14 +147,12 @@ class ActiveRecord {
 
         $resultado = self::consultarSQL($query);
         return $resultado;
-    }
+    } 
 
     // OBTENER DETERMINADO NUMERO DE REGISTROS
        //LISTA DE TODOS LOS APRENDICES
        public static function get($cantidad){
         $query = "SELECT * FROM " . static::$tabla . " LIMIT " . $cantidad;
-
-        debuguear($query);
 
         $resultado = self::consultarSQL($query);
         return $resultado;

@@ -51,11 +51,6 @@
                         </div>
                     </div>
             </div>
-                        <?php  if ($auth): ?>
-                            <a href="/admin" class="boton-volver">  <!--necesita estilos-->
-                                <span class="texto-fondo">Perfil</span>
-                            </a>
-                        <?php endif; ?>  
         </div>
     </main>
 

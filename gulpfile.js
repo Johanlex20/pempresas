@@ -15,7 +15,7 @@ function css(done){
  
     .pipe(plumber()) //ejecuta la dependencia para que cuando se presente un error no se detenga
     .pipe(sass())  // COMPILARLO//.pipe es quien ejecuto o ocmpila el archivo 
-    .pipe(dest("build/css"))  //build/css es donde //ALMACENARLO EN EL DISCO DURO FUNCION Dest es el que guarda el archivo se guarda el archivo
+    .pipe(dest("./public/build/css"))  //build/css es donde //ALMACENARLO EN EL DISCO DURO FUNCION Dest es el que guarda el archivo se guarda el archivo
 
     done();//callback avisa a gulp cuando la funcion finaliza 
 }
@@ -26,7 +26,7 @@ function imagenes (done){
     }
     src('src/img/**/*.{png,jpg}')
         .pipe( cache( imagemin(opciones) ) )
-        .pipe( dest('build/img'))
+        .pipe( dest('./public/build/img'))
     done();
 }
 
@@ -37,14 +37,14 @@ function versionWebp(done){
 
     src('src/img/**/*.{png,jpg}')
         .pipe( webp(opciones) )
-        .pipe( dest('build/img'))
+        .pipe( dest('./public/build/img'))
     done();
 }
 
 
 function javascript( done ){
     src('src/js/**/*.js')
-        .pipe(dest('build/js'));
+        .pipe(dest('./public/build/js'));
     done();
 }
 

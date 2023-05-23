@@ -8,7 +8,7 @@
 
 
 <div class="barra">
-     <p>BIENVENIDO <span><?php echo $_SESSION['nombre'];?></span></p> <!--pendiente revizar la variable para poner el nombre de usuario al ingreso de perfil -->
+     <p>BIENVENIDO </p> <!--pendiente revizar la variable para poner el nombre de usuario al ingreso de perfil -->
 
 
     <?php  if ($auth): ?>

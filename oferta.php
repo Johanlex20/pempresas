@@ -21,7 +21,7 @@
                         <div class="caja_ofe_only">
                                 <img loading="lazy" src="/src/img/<?php echo $oferta->imagen; ?>" alt="anuncio">
 
-                            <h3><?php echo $ofer->titulo; ?></h3>
+                            <h3><?php echo $oferta->titulo; ?></h3>
                             <p class="precio">$<?php echo $oferta->sueldo; ?></p>
 
                             <div class="iconos-caja">

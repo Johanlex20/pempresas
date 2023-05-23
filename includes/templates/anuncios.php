@@ -3,9 +3,11 @@
     
     if($_SERVER['SCRIPT_NAME'] === '/anuncios.php'){
         $oferta = ofertas::all();
+        $oferta = ofertas::get(4); // limite de oferetas en anuncios
     } else {
         // utiliza metodo get y muestra 4 oferta en home
         $oferta = ofertas::get(4);
+    
     }
 ?>  
                 <div class="cajas_ofe"> 
